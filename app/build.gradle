@@ -18,6 +18,7 @@ android {
         targetSdkVersion 33
         versionCode 73
         versionName "1.0.6.2"
+        namespace "com.acroninspector.app"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.debug
     }
