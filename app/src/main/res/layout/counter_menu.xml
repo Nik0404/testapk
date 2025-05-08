@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="count"
+            type="Integer" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMenuNotificationsCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/counter_menu_background"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="@dimen/menu_counter_horizontal_padding"
+            android:paddingTop="@dimen/menu_counter_vertical_padding"
+            android:paddingEnd="@dimen/menu_counter_horizontal_padding"
+            android:paddingBottom="@dimen/menu_counter_vertical_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/menu_counter_text_size"
+            app:notificationsCount="@{safeUnbox(count)}" />
+    </FrameLayout>
+</layout>

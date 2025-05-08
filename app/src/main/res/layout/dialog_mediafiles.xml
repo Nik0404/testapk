@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/rounded_dialog_background"
+        android:paddingTop="@dimen/dialog_mediafiles_padding_top"
+        android:paddingBottom="@dimen/dialog_mediafiles_padding_bottom">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_close_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dialog_mediafiles_btn_close_margin_end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/dialog_mediafiles_btn_close_padding"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_add_attachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dialog_mediafiles_title_margin_start"
+            android:layout_marginTop="@dimen/dialog_mediafiles_title_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/add_attachment"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dialog_mediafiles_title_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/layout_add_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_mediafiles_item_margin_top"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="@dimen/dialog_mediafiles_item_padding_vertical"
+            android:paddingBottom="@dimen/dialog_mediafiles_item_padding_vertical"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_attachment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dialog_mediafiles_item_iv_margin_start"
+                android:src="@drawable/ic_movie" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dialog_mediafiles_item_tv_margin_start"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/record_video"
+                android:textColor="@color/colorDarkGray" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/layout_add_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="@dimen/dialog_mediafiles_item_padding_vertical"
+            android:paddingBottom="@dimen/dialog_mediafiles_item_padding_vertical"
+            app:layout_constraintTop_toBottomOf="@id/layout_add_video">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dialog_mediafiles_item_iv_margin_start"
+                android:src="@drawable/ic_image" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dialog_mediafiles_item_tv_margin_start"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/take_photo"
+                android:textColor="@color/colorDarkGray" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/layout_add_audio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="@dimen/dialog_mediafiles_item_padding_vertical"
+            android:paddingBottom="@dimen/dialog_mediafiles_item_padding_vertical"
+            app:layout_constraintTop_toBottomOf="@id/layout_add_photo">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dialog_mediafiles_item_iv_margin_start"
+                android:src="@drawable/ic_mic" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dialog_mediafiles_item_tv_margin_start"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/record_audio"
+                android:textColor="@color/colorDarkGray" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

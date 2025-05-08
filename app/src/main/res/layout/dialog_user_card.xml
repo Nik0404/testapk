@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="user"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayUser" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/card_dialog_background"
+        android:paddingStart="@dimen/card_user_padding_left"
+        android:paddingTop="@dimen/card_user_padding_top"
+        android:paddingEnd="@dimen/card_user_padding_right"
+        android:paddingBottom="@dimen/card_user_padding_bottom">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_close_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_user_button_margin_start"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/button"
+            android:padding="@dimen/card_user_button_close_padding"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@id/tv_user_card"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/user_card"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/card_user_title_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/btn_close_dialog"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_close_dialog" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_login_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_label_margin_top"
+            android:text="@string/login"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/card_user_field_title_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_card" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_value_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{user.login}"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/card_user_large_field_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_label"
+            tools:text="Vbelkin" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_full_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_label_margin_top"
+            android:text="@string/full_name"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/card_user_field_title_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_value_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:text='@{user.fullName}'
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/card_user_large_field_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_full_name_label"
+            tools:text="Белкин Вадим Сергеевич" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_function_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_label_margin_top"
+            android:text="@string/function"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/card_user_field_title_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_function"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_value_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{TextUtils.isEmpty(user.function) ? @string/no_data : user.function}"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/card_user_small_field_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_function_label"
+            tools:text="Обходчик" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_subdivision_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_label_margin_top"
+            android:text="@string/subdivision"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/card_user_field_title_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_function" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_subdivision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_value_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{TextUtils.isEmpty(user.division) ? @string/no_data : user.division}"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/card_user_small_field_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_subdivision_label"
+            tools:text="Электро-монтаж (Р143)" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_root_asset_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_label_margin_top"
+            android:text="@string/groups"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/card_user_field_title_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_subdivision" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_root_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_user_tv_value_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{TextUtils.isEmpty(user.userGroups) ? @string/no_data : user.userGroups}"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/card_user_small_field_text_size"
+            android:visibility="@{TextUtils.isEmpty(user.userGroups) ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_root_asset_label"
+            tools:text="Ч.ЦФА" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

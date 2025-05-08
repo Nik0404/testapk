@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph_registering_labels"
+    app:startDestination="@id/rootEquipmentFragment">
+
+    <action
+        android:id="@+id/action_global_rootEquipmentFragment"
+        app:destination="@id/rootEquipmentFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
+        app:popUpTo="@+id/notificationsViewPagerFragment" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.acroninspector.app.presentation.activity.login.LoginActivity"
+        android:label="LoginActivity"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nestedEquipmentFragment"
+        android:name="com.acroninspector.app.presentation.fragment.equipments.nested.NestedEquipmentFragment"
+        android:label="NestedEquipment"
+        tools:layout="@layout/fragment_nested_equipment">
+        <action
+            android:id="@+id/action_nestedEquipmentFragment_to_nestedEquipmentFragment"
+            app:destination="@id/nestedEquipmentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_nestedEquipmentFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_nestedEquipmentFragment_to_defineNfcFragment"
+            app:destination="@id/defineNfcFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rootEquipmentFragment"
+        android:name="com.acroninspector.app.presentation.fragment.equipments.root.RootEquipmentFragment"
+        android:label="RootEquipmentFragment"
+        tools:layout="@layout/fragment_root_equipment">
+        <action
+            android:id="@+id/action_rootEquipmentFragment_to_nestedEquipmentFragment"
+            app:destination="@id/nestedEquipmentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_rootEquipmentFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_rootEquipmentFragment_to_defineNfcFragment"
+            app:destination="@id/defineNfcFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.acroninspector.app.presentation.fragment.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_nestedEquipmentFragment"
+            app:destination="@id/nestedEquipmentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/defineNfcFragment"
+        android:name="com.acroninspector.app.presentation.fragment.nfc.definenfc.DefineNfcFragment"
+        android:label="DefineNfcFragment"
+        tools:layout="@layout/fragment_define_nfc">
+        <action
+            android:id="@+id/action_defineNfcFragment_to_nfcNameFragment"
+            app:destination="@id/nfcNameFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/nfcNameFragment"
+        android:name="com.acroninspector.app.presentation.fragment.nfc.nfcname.NfcNameFragment"
+        android:label="NfcNameFragment"
+        tools:layout="@layout/fragment_nfc_name" />
+</navigation>

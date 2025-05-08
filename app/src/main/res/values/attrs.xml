@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MaxHeightNestedScrollView">
+        <attr name="maxHeight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="AcronEditText">
+        <attr name="symbolsAfterComma" format="integer" />
+        <attr name="symbolsBeforeComma" format="integer" />
+    </declare-styleable>
+</resources>

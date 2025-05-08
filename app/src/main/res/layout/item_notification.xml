@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:swipe="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.acroninspector.app.common.utils.DateUtil" />
+
+        <variable
+            name="notification"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayNotification" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_notification_horizontal_margin"
+        android:layout_marginTop="@dimen/item_notification_vertical_margin"
+        android:layout_marginEnd="@dimen/item_notification_horizontal_margin"
+        android:layout_marginBottom="@dimen/item_notification_vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:theme="@style/LightGrayRippleTheme"
+        app:cardCornerRadius="@dimen/item_notification_card_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation">
+
+        <com.daimajia.swipe.SwipeLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            swipe:leftEdgeSwipeOffset="0dp"
+            swipe:rightEdgeSwipeOffset="0dp">
+
+            <FrameLayout
+                android:id="@+id/delete_notification_layout"
+                android:layout_width="@dimen/item_notification_delete_layout_width"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_delete_notification_background"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_delete_outline" />
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/notification_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingStart="@dimen/item_notification_padding_start"
+                android:paddingTop="@dimen/item_notification_padding_top"
+                android:paddingEnd="@dimen/item_notification_padding_end"
+                android:paddingBottom="@dimen/item_notification_padding_bottom">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_circle_read_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/image"
+                    android:padding="@dimen/item_notification_read_status_circle_padding"
+                    android:src="@drawable/not_readed_circle"
+                    android:visibility="@{notification.isNew ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_notification_timestamp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_notification_timestamp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_notification_timestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@{notification.isNew ? @dimen/item_notification_timestamp_margin_start : @dimen/margin_null}"
+                    android:text="@{notification.dateCreation}"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="@dimen/item_notification_timestamp_text_size"
+                    app:layout_constraintStart_toEndOf="@id/iv_circle_read_status"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_notification_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_notification_title_margin_top"
+                    android:fontFamily="sans-serif-medium"
+                    android:text='@{@string/new_task + " №" + notification.taskNumber}'
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/item_notification_title_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_notification_timestamp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_notification_executor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_notification_executor_margin_top"
+                    android:text='@{notification.executorName == null ? @string/no_data : @string/executor + ": " + notification.executorName}'
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="@dimen/item_notification_executor_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_notification_title" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_notification_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_notification_details_margin_top"
+                    android:text="@{notification.taskName}"
+                    android:textColor="@color/colorDarkGray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_notification_executor" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.daimajia.swipe.SwipeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

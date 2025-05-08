@@ -1,0 +1,5 @@
+package com.acroninspector.app.presentation.fragment.notifications.unreaded
+
+import com.acroninspector.app.presentation.fragment.notifications.NotificationsView
+
+interface NewNotificationsView: NotificationsView

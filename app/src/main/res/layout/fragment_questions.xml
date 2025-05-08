@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="status"
+            type="Integer" />
+
+        <variable
+            name="isNfcEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isNetworkEnabled"
+            type="Boolean" />
+
+        <variable
+            name="route"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayRoute" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlue"
+        app:taskStatus="@{safeUnbox(status)}">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlue"
+            app:elevation="0dp"
+            app:taskStatus="@{safeUnbox(status)}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginStart="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginTop="@dimen/main_toolbar_margin_top"
+                    android:layout_marginEnd="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginBottom="@dimen/main_toolbar_margin_bottom"
+                    android:theme="@style/AppTheme"
+                    app:cardCornerRadius="@dimen/main_toolbar_card_corner_radius"
+                    app:cardElevation="@dimen/main_toolbar_card_elevation">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_ic_menu_margin_start"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_ic_menu_padding"
+                            android:src="@drawable/ic_arrow_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_account"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_account_circle_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_account_circle_padding"
+                            android:src="@drawable/ic_account_circle_toolbar"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_nfc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_button_nfc_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_button_nfc_padding"
+                            android:src="@drawable/ic_nfc_status"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btn_account"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:nfcColor="@{safeUnbox(isNfcEnabled)}" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/network_indicator"
+                            android:layout_width="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_height="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_margin="@dimen/main_toolbar_network_indicator_margin"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/offline_circle"
+                            app:layout_constraintBottom_toBottomOf="@id/btn_account"
+                            app:layout_constraintEnd_toEndOf="@id/btn_account"
+                            app:networkStatus="@{safeUnbox(isNetworkEnabled)}" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_title"
+                            style="@style/TextAppearance.AppCompat.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_title_margin_start"
+                            android:text="@string/route"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/main_toolbar_title_text_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btn_back"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/activity_task_details_top_bar_padding_start"
+                    android:paddingBottom="@dimen/fragment_questions_top_bar_padding_bottom"
+                    app:layout_scrollFlags="enterAlways"
+                    tools:ignore="RtlSymmetry">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_route_attachments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fragment_questions_top_bar_padding_top"
+                        android:layout_marginEnd="@dimen/activity_task_details_top_bar_padding_end"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/button"
+                        android:padding="@dimen/item_question_image_button_padding"
+                        android:src="@drawable/ic_attachments"
+                        android:theme="@style/WhiteRippleTheme"
+                        android:tint="@android:color/white"
+                        android:visibility="@{route.attachmentsCount == 0 ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_route_attachments_counter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/item_question_tv_attachments_counter_margin_start"
+                        android:layout_marginBottom="@dimen/item_question_tv_attachments_counter_margin_bottom"
+                        android:background="@drawable/counter_circle_background"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/item_question_tv_attachments_counter_padding"
+                        android:paddingEnd="@dimen/item_question_tv_attachments_counter_padding"
+                        android:text="@{String.valueOf(route.attachmentsCount)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_question_tv_attachments_counter_text_size"
+                        android:textStyle="bold"
+                        android:visibility="@{route.attachmentsCount == 0 ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="@id/btn_route_attachments"
+                        app:layout_constraintEnd_toEndOf="@id/btn_route_attachments"
+                        app:layout_constraintStart_toStartOf="@id/btn_route_attachments"
+                        app:layout_constraintTop_toTopOf="@id/btn_route_attachments"
+                        tools:text="17" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_route_defects"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fragment_questions_top_bar_padding_top"
+                        android:layout_marginEnd="@{route.attachmentsCount == 0 &amp;&amp; route.defectsCount != 0 ? @dimen/activity_task_details_top_bar_padding_end : @dimen/fragment_questions_btn_defect_margin_end}"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/button"
+                        android:padding="@dimen/item_question_image_button_padding"
+                        android:src="@drawable/ic_defect_list"
+                        android:theme="@style/WhiteRippleTheme"
+                        android:tint="@android:color/white"
+                        android:visibility="@{route.defectsCount == 0 ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintEnd_toStartOf="@id/btn_route_attachments"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_route_defects_counter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/item_question_tv_attachments_counter_margin_start"
+                        android:layout_marginBottom="@dimen/item_question_tv_attachments_counter_margin_bottom"
+                        android:background="@drawable/counter_circle_background"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/item_question_tv_attachments_counter_padding"
+                        android:paddingEnd="@dimen/item_question_tv_attachments_counter_padding"
+                        android:text="@{String.valueOf(route.defectsCount)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_question_tv_attachments_counter_text_size"
+                        android:textStyle="bold"
+                        android:visibility="@{route.defectsCount == 0 ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="@id/btn_route_defects"
+                        app:layout_constraintEnd_toEndOf="@id/btn_route_defects"
+                        app:layout_constraintStart_toStartOf="@id/btn_route_defects"
+                        app:layout_constraintTop_toTopOf="@id/btn_route_defects"
+                        tools:text="4" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_route_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fragment_questions_top_bar_padding_top"
+                        android:layout_marginEnd="@{route.attachmentsCount == 0 &amp;&amp; route.defectsCount == 0 ? @dimen/activity_task_details_top_bar_padding_end : @dimen/fragment_questions_tv_route_name_margin_end}"
+                        android:fontFamily="sans-serif-medium"
+                        android:text='@{String.valueOf(route.number) + ". " + route.equipmentName}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_check_list_title_text_size"
+                        app:layout_constraintEnd_toStartOf="@id/btn_route_defects"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="1. Ч.СФА.Р-21/1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_route_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_check_list_tv_name_margin_top"
+                        android:layout_marginEnd="@dimen/activity_task_details_top_bar_padding_end"
+                        android:text='@{@string/defect_equipment_code + " " + route.equipmentCode}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_check_list_name_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/tv_route_title"
+                        tools:ignore="RtlSymmetry"
+                        tools:text="Обозначение ТП: 00-ААА" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_route_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_check_list_tv_details_margin_top"
+                        android:layout_marginEnd="@dimen/activity_task_details_top_bar_padding_end"
+                        android:text="@{route.equipmentClass}"
+                        android:textColor="@android:color/white"
+                        android:visibility="@{route.equipmentClass == null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintTop_toBottomOf="@id/tv_route_name"
+                        tools:ignore="RtlSymmetry"
+                        tools:text="Чек-лист аппаратчика осаждения Ф-12/1-2 ЦФА" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_route_questions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fragment_questions_tv_questions_margin_top"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="1"
+                        android:text='@{@string/questions + ": " + String.valueOf(route.questions) + " " + @string/answers + ": " + String.valueOf(route.answeredQuestions)}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_check_list_completion_text_size"
+                        android:visibility="@{route.questions == 0 ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_route_details"
+                        tools:ignore="RtlSymmetry"
+                        tools:text="Вопросов: 22 Ответов: 22" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_route_nfc_marks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_check_list_tv_answers_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="1"
+                        android:text='@{@string/nfc_marks + ": " + String.valueOf(route.nfcMarks) + " " + @string/scanned_nfc_marks + ": " + String.valueOf(route.answeredNfcMarks)}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_check_list_completion_text_size"
+                        android:visibility="@{route.nfcMarks == 0 ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_route_questions"
+                        tools:ignore="RtlSymmetry"
+                        tools:text="Меток: 3 Отсканировано: 3" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_defects"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/activity_task_details_top_bar_button_round_height"
+                        android:layout_marginEnd="28dp"
+                        android:background="@drawable/button_start_end_round_background"
+                        android:paddingStart="@dimen/activity_task_details_top_bar_button_round_padding_start"
+                        android:paddingEnd="@dimen/activity_task_details_top_bar_button_round_padding_end"
+                        android:text="@string/deffects_text"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_route_nfc_marks"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_route_nfc_marks" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_questions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/recycler_view_vertical_padding"
+            android:paddingBottom="@dimen/activity_attachments_recycler_padding_bottom"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            tools:listitem="@layout/item_question_yes_no" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@android:color/white"
+            android:visibility="invisible" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

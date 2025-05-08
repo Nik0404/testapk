@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#01A99C</color>
+<!--    -->
+    <color name="darkGrey">#ff424242</color>
+<!--    -->
+
+    <color name="colorDarkGreen">#005044</color>
+    <color name="colorVersion">#01A99C</color>
+
+    <color name="colorBackground">#FAFAFA</color>
+    <color name="colorDefaultGray">#C5C5C5</color>
+
+    <color name="colorRed">#E74B5E</color>
+    <color name="colorGreen">#01A99C</color>
+    <color name="colorGreenTask">#01A99C</color>
+    <color name="colorLightGreen">#96F2B0</color>
+    <color name="colorBlue">#3D90D9</color>
+    <color name="colorBlueTask">#3D90D9</color>
+    <color name="colorPurple">#A952B7</color>
+    <color name="colorPurpleTask">#A952B7</color>
+    <color name="colorYellow">#FFEE95</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="colorTaskCounterBackground">#55C9B4</color>
+
+    <color name="colorCriticalityNormal">#01A99C</color>
+    <color name="colorCriticalityToStop">#E5B91E</color>
+    <color name="colorCriticalityEmergency">#D5555D</color>
+
+    <color name="colorDeleteRed">#D5555D</color>
+
+    <color name="colorIncorrectRed">#D5555D</color>
+
+    <color name="colorTransparentToolbar">#59000000</color>
+
+    <color name="colorButtonLightGrayBorder">#EAEAEA</color>
+
+    <color name="colorAlphaLightGray">#DADADA</color>
+    <color name="colorLightGray">#9E9E9E</color>
+    <color name="colorGray">#757575</color>
+    <color name="colorDarkGray">#616161</color>
+    <color name="colorDarkGrayBtn">#616161</color>
+    <color name="colorTypeDarkGray">#424242</color>
+
+    <color name="colorText">#757575</color>
+
+    <color name="colorGreenRipple">#26008577</color>
+    <color name="colorRedRipple">#26E74B5E</color>
+    <color name="colorWhiteRipple">#4DFFFFFF</color>
+    <color name="colorDarkWhiteRipple">#8CFFFFFF</color>
+    <color name="colorLightGrayRipple">#C4C4C4</color>
+    <color name="colorFolderRipple">#33C4C4C4</color>
+    <color name="colorGrayRipple">#0F000000</color>
+
+    <color name="colorStroke">#C4C4C4</color>
+
+    <color name="colorTabsUnderline">#EBEBEB</color>
+    <color name="colorAppbarUnderline">#EBEBEB</color>
+    <color name="colorSpinnerItem">#B3424242</color>
+    <color name="colorDivider">#33616161</color>
+
+    <color name="colorEmptyState">#DADADA</color>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">@color/darkGrey</item>
+        <item name="colorPrimaryDark">@color/darkGrey</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorGreenRipple</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Acron.Popup" parent="Theme.MaterialComponents.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowElevation">@dimen/elevation_zero</item>
+        <item name="android:windowBackground">@drawable/dialog_dark_background</item>
+        <item name="materialButtonStyle">@style/Widget.Acron.Popup.Button</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Acron.Popup.Headline1</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Acron.Popup.Body1</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Acron.Popup.Button</item>
+    </style>
+
+    <style name="AppTheme.NavigationView">
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:textColorSecondary">@android:color/black</item>
+    </style>
+</resources>

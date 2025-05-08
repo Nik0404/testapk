@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph_bypass_management"
+    app:startDestination="@id/notificationsViewPagerFragment">
+
+    <action
+        android:id="@+id/action_global_notificationsViewPagerFragment"
+        app:destination="@+id/notificationsViewPagerFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+    <action
+        android:id="@+id/action_global_tasksViewPagerFragment"
+        app:destination="@id/tasksViewPagerFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
+        app:popUpTo="@+id/notificationsViewPagerFragment" />
+    <action
+        android:id="@+id/action_global_rootEquipmentFragment"
+        app:destination="@id/rootEquipmentFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
+        app:popUpTo="@+id/notificationsViewPagerFragment" />
+    <action
+        android:id="@+id/action_global_defectsFragment"
+        app:destination="@id/defectsFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
+        app:popUpTo="@+id/notificationsViewPagerFragment" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.acroninspector.app.presentation.activity.login.LoginActivity"
+        android:label="LoginActivity"
+        tools:layout="@layout/fragment_login" />
+    <activity
+        android:id="@+id/mediaPlayerActivity"
+        android:name="com.acroninspector.app.presentation.activity.mediaplayer.MediaPlayerActivity"
+        android:label="MediaPlayerActivity"
+        tools:layout="@layout/activity_player" />
+    <activity
+        android:id="@+id/viewImageActivity"
+        android:name="com.acroninspector.app.presentation.activity.viewimage.ViewImageActivity"
+        android:label="ViewImageActivity"
+        tools:layout="@layout/activity_view_image" />
+    <fragment
+        android:id="@+id/tasksViewPagerFragment"
+        android:name="com.acroninspector.app.presentation.fragment.tasks.TasksViewPagerFragment"
+        android:label="TasksViewPagerFragment"
+        tools:layout="@layout/fragment_task_view_pager">
+        <action
+            android:id="@+id/action_tasksViewPagerFragment_to_taskDetailsFragment"
+            app:destination="@id/taskDetailsByPassManagementFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.acroninspector.app.presentation.fragment.notifications.NotificationsFragment"
+        android:label="NotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/defectsFragment"
+        android:name="com.acroninspector.app.presentation.fragment.defects.defectlogs.DefectLogsFragment"
+        android:label="DefectsFragment"
+        tools:layout="@layout/fragment_defect_logs">
+        <action
+            android:id="@+id/action_defectsFragment_to_defectDetailsFragment"
+            app:destination="@id/defectDetailsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_defectsFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailsByPassManagementFragment"
+        android:name="com.acroninspector.app.presentation.fragment.taskdetails.bypassmanagement.TaskDetailsByPassManagementFragment"
+        android:label="TaskDetailsByPassManagementFragment"
+        tools:layout="@layout/fragment_task_details_edit">
+        <action
+            android:id="@+id/action_taskDetailsByPassManagementFragment_to_editTaskFragment"
+            app:destination="@id/editTaskFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.acroninspector.app.presentation.fragment.tasks.TasksFragment"
+        android:label="TasksFragment"
+        tools:layout="@layout/fragment_tasks" />
+    <fragment
+        android:id="@+id/mediaFilesFragment"
+        android:name="com.acroninspector.app.presentation.fragment.mediafiles.MediaFilesFragment"
+        android:label="MediaFilesFragment"
+        tools:layout="@layout/fragment_attachments">
+        <action
+            android:id="@+id/action_mediaFilesFragment_to_mediaPlayerActivity"
+            app:destination="@id/mediaPlayerActivity"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_mediaFilesFragment_to_viewImageActivity"
+            app:destination="@id/viewImageActivity"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/defectDirectoryFragment"
+        android:name="com.acroninspector.app.presentation.fragment.defectparameters.defectcause.DefectCauseFragment"
+        android:label="DefectDirectoryFragment"
+        tools:layout="@layout/fragment_defect_causes" />
+    <fragment
+        android:id="@+id/defectDetailsFragment"
+        android:name="com.acroninspector.app.presentation.fragment.defectdetails.DefectDetailsFragment"
+        android:label="DefectDetailsFragment"
+        tools:layout="@layout/fragment_defect_details">
+        <action
+            android:id="@+id/action_defectDetailsFragment_to_mediaFilesFragment"
+            app:destination="@id/mediaFilesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_defectDetailsFragment_to_registerDefectFragment"
+            app:destination="@id/registerDefectFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerDefectFragment"
+        android:name="com.acroninspector.app.presentation.fragment.registerdefect.RegisterDefectFragment"
+        android:label="RegisterDefectFragment"
+        tools:layout="@layout/fragment_register_defect">
+        <action
+            android:id="@+id/action_registerDefectFragment_to_mediaFilesFragment"
+            app:destination="@id/mediaFilesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_registerDefectFragment_to_defectDirectoryFragment"
+            app:destination="@id/defectDirectoryFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_registerDefectFragment_to_defectNameFragment"
+            app:destination="@id/defectNameFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_registerDefectFragment_to_commentFragment"
+            app:destination="@id/commentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nestedEquipmentFragment"
+        android:name="com.acroninspector.app.presentation.fragment.equipments.nested.NestedEquipmentFragment"
+        android:label="NestedEquipment"
+        tools:layout="@layout/fragment_nested_equipment">
+        <action
+            android:id="@+id/action_nestedEquipmentFragment_to_nestedEquipmentFragment"
+            app:destination="@id/nestedEquipmentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_nestedEquipmentFragment_to_registerDefectFragment"
+            app:destination="@id/registerDefectFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_nestedEquipmentFragment_to_defectsSearchResultFragment"
+            app:destination="@id/defectsSearchResultFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_nestedEquipmentFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/rootEquipmentFragment"
+        android:name="com.acroninspector.app.presentation.fragment.equipments.root.RootEquipmentFragment"
+        android:label="RootEquipmentFragment"
+        tools:layout="@layout/fragment_root_equipment">
+        <action
+            android:id="@+id/action_rootEquipmentFragment_to_nestedEquipmentFragment"
+            app:destination="@id/nestedEquipmentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_rootEquipmentFragment_to_registerDefectFragment"
+            app:destination="@id/registerDefectFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_rootEquipmentFragment_to_defectsSearchResultFragment"
+            app:destination="@id/defectsSearchResultFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_rootEquipmentFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.acroninspector.app.presentation.fragment.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_defectsSearchResultFragment"
+            app:destination="@id/defectsSearchResultFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_searchFragment_to_nestedEquipmentFragment"
+            app:destination="@id/nestedEquipmentFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/defectsSearchResultFragment"
+        android:name="com.acroninspector.app.presentation.fragment.defects.searchresult.DefectsSearchResultFragment"
+        android:label="DefectsSearchResultFragment"
+        tools:layout="@layout/fragment_defects_search_result">
+        <action
+            android:id="@+id/action_defectsSearchResultFragment_to_defectDetailsFragment"
+            app:destination="@id/defectDetailsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/defectNameFragment"
+        android:name="com.acroninspector.app.presentation.fragment.defectparameters.defectname.DefectNameFragment"
+        android:label="DefectNameFragment"
+        tools:layout="@layout/fragment_defect_names" />
+    <fragment
+        android:id="@+id/notificationsViewPagerFragment"
+        android:name="com.acroninspector.app.presentation.fragment.notifications.NotificationsViewPagerFragment"
+        android:label="NotificationsViewPagerFragment"
+        tools:layout="@layout/fragment_notifications_view_pager">
+        <action
+            android:id="@+id/action_notificationsViewPagerFragment_to_taskDetailsFragment"
+            app:destination="@id/taskDetailsByPassManagementFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTaskFragment"
+        android:name="com.acroninspector.app.presentation.fragment.edittask.EditTaskFragment"
+        android:label="EditTaskFragment"
+        tools:layout="@layout/fragment_edit_task">
+        <action
+            android:id="@+id/action_editTaskFragment_to_controlProcedureFragment"
+            app:destination="@id/controlProcedureFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/controlProcedureFragment"
+        android:name="com.acroninspector.app.presentation.fragment.controlprocedure.ControlProcedureFragment"
+        android:label="ControlProcedureFragment"
+        tools:layout="@layout/fragment_change_control_procedure" />
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.acroninspector.app.presentation.fragment.comment.CommentFragment"
+        android:label="CommentFragment"
+        tools:layout="@layout/fragment_comment"/>
+</navigation>

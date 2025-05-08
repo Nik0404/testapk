@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="equipment"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayEquipmentItem" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/card_dialog_background"
+            android:paddingStart="@dimen/card_equipment_padding_start"
+            android:paddingTop="@dimen/card_equipment_padding_top"
+            android:paddingEnd="@dimen/card_equipment_padding_end"
+            android:paddingBottom="@dimen/card_equipment_padding_bottom"
+            tools:ignore="UselessParent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_close_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginStart="@dimen/card_user_button_margin_start"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/card_user_button_close_padding"
+                android:src="@drawable/ic_close" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_equipment_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_equipment_tv_equipment_card_margin_top"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:text="@string/equipment_card"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="@dimen/card_user_title_text_size" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_equipment_nested_scroll_view_margin_top"
+                android:layout_marginBottom="@dimen/card_equipment_nfc_nested_scroll_view_margin_bottom"
+                android:fillViewport="false"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_path_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/equipment_path"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_path"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{TextUtils.isEmpty(equipment.path) ? @string/no_data : equipment.path}"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_path_label"
+                        tools:text="Агрегат кислоты №1 / Отделение компресии" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_housing_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_margin_top"
+                        android:text="@string/equipment_housing"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_path" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_housing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{TextUtils.isEmpty(equipment.building) ? @string/no_data : equipment.building}"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_housing_label"
+                        tools:text="13" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_name_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_margin_top"
+                        android:text="@string/equipment_name"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_housing" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{TextUtils.isEmpty(equipment.name) ? @string/no_data : equipment.name}"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_name_label"
+                        tools:text="ТП Абсорбер" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_sing_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_margin_top"
+                        android:text="@string/equipment_sign"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_name" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{TextUtils.isEmpty(equipment.code) ? @string/no_data : equipment.code}"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_sing_label"
+                        tools:text="Ч.ЦФА.К-219" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_info_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_margin_top"
+                        android:text="@string/equipment_info"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_sign" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{TextUtils.isEmpty(equipment.additionalInfo) ? @string/no_data : equipment.additionalInfo}"                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_info_label"
+                        tools:text="Отм. 3.00м" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_class_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_margin_top"
+                        android:text="@string/equipment_class"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_info" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{TextUtils.isEmpty(equipment.className) ? @string/no_data : equipment.className}"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_class_label"
+                        tools:text="Абсорбенты" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_marks_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_margin_top"
+                        android:text="@string/equipment_marks"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_class" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_codes_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_small_margin_top"
+                        android:text="@string/equipment_codes"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_marks_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_codes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{TextUtils.isEmpty(equipment.nfcMarkCodes) ? @string/no_data : equipment.nfcMarkCodes}"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_codes_label"
+                        tools:text="04:01:6А:8А:50:5D:81\n04:01:6А:8А:50:5D:81\n04:01:6А:8А:50:5D:81" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/nfc_marks_barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="end"
+                        app:constraint_referenced_ids="tv_equipment_codes,tv_equipment_codes_label"
+                        app:layout_constraintStart_toEndOf="@id/tv_equipment_codes" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_mark_names_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dialog_equipment_barrier_margin_end"
+                        android:layout_marginTop="@dimen/card_equipment_tv_name_label_small_margin_top"
+                        android:text="@string/equipment_mark_name"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="@dimen/card_equipment_tv_label_text_size"
+                        app:layout_constraintStart_toEndOf="@id/nfc_marks_barrier"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_marks_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_equipment_mark_names"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dialog_equipment_barrier_margin_end"
+                        android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/card_equipment_tv_value_text_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/nfc_marks_barrier"
+                        app:layout_constraintTop_toBottomOf="@id/tv_equipment_mark_names_label"
+                        tools:text="NFC1\nNFC2\nNFC3" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_nfc"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/card_equipment_button_height"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_apply_background"
+                android:text="@string/add_nfc_mark"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+    </RelativeLayout>
+</layout>

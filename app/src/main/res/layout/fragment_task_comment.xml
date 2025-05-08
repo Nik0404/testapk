@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="status"
+            type="Integer" />
+
+        <variable
+            name="task"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayTask" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackground"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|snap|enterAlways">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/activity_comment_toolbar_title_margin_start"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/task_comment"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/activity_comment_toolbar_title_text_size" />
+            </FrameLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/activity_comment_et_comment_padding_bottom"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toTopOf="@id/btn_apply"
+            app:layout_constraintTop_toBottomOf="@id/app_bar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/card_task_margin"
+                    android:layout_marginTop="@dimen/card_task_margin"
+                    android:layout_marginEnd="@dimen/card_task_margin"
+                    app:cardCornerRadius="@dimen/item_task_card_corner_radius"
+                    app:layout_constraintBottom_toTopOf="@id/et_comment"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:taskStatus="@{safeUnbox(status)}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_task_padding">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text='@{@string/task_route_number + task.number}'
+                            android:textColor="@android:color/white"
+                            tools:text="Задание на обход №131" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/item_task_title_margin_top"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{task.name}"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/item_task_title_text_size"
+                            tools:text="Чек-лист аппаратчика осаждения Ф-12/1-2 ЦФА №(2388)" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/et_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_comment_et_comment_padding_start"
+                    android:layout_marginTop="@dimen/activity_comment_et_comment_padding_top"
+                    android:layout_marginEnd="@dimen/activity_comment_et_comment_padding_end"
+                    android:background="@android:color/white"
+                    android:gravity="top"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:text="@{task.comment}"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/activity_comment_et_comment_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_view_task"
+                    app:met_hideUnderline="true"
+                    app:met_maxCharacters="500"
+                    app:met_textColor="@color/colorDarkGray"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_apply"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_comment_button_height"
+            android:layout_marginStart="@dimen/activity_comment_button_apply_margin_start"
+            android:layout_marginEnd="@dimen/activity_comment_button_apply_margin_end"
+            android:layout_marginBottom="@dimen/activity_comment_button_margin_bottom"
+            android:background="@drawable/button_apply_background"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/apply"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_cancel"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_comment_button_height"
+            android:layout_marginStart="@dimen/activity_comment_button_apply_margin_end"
+            android:layout_marginEnd="@dimen/activity_comment_button_cancel_margin_end"
+            android:layout_marginBottom="@dimen/activity_comment_button_margin_bottom"
+            android:background="@drawable/button_cancel_background"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDarkGrayBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_apply" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

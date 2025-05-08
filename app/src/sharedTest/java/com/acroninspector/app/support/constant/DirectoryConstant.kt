@@ -1,0 +1,28 @@
+package com.acroninspector.app.support.constant
+
+object DirectoryConstant {
+    const val FIRST_LEVEL_DIRECTORY_ID_1 = 1
+    const val FIRST_LEVEL_DIRECTORY_NAME_1 = "Папка 1"
+    const val FIRST_LEVEL_DIRECTORY_PARENT_ID_1 = -1
+    const val FIRST_LEVEL_DIRECTORY_END_LVL_1 = false
+
+    const val SECOND_LEVEL_DIRECTORY_ID_1 = 2
+    const val SECOND_LEVEL_DIRECTORY_NAME_1 = "Папка 2"
+    const val SECOND_LEVEL_DIRECTORY_PARENT_ID_1 = FIRST_LEVEL_DIRECTORY_ID_1
+    const val SECOND_LEVEL_DIRECTORY_END_LVL_1 = false
+
+    const val SECOND_LEVEL_DIRECTORY_ID_2 = 3
+    const val SECOND_LEVEL_DIRECTORY_NAME_2 = "Папка 3"
+    const val SECOND_LEVEL_DIRECTORY_PARENT_ID_2 = FIRST_LEVEL_DIRECTORY_ID_1
+    const val SECOND_LEVEL_DIRECTORY_END_LVL_2 = true
+
+    const val THIRD_LEVEL_DIRECTORY_ID_1 = 4
+    const val THIRD_LEVEL_DIRECTORY_NAME_1 = "Папка 4"
+    const val THIRD_LEVEL_DIRECTORY_PARENT_ID_1 = SECOND_LEVEL_DIRECTORY_ID_1
+    const val THIRD_LEVEL_DIRECTORY_END_LVL_1 = true
+
+    const val THIRD_LEVEL_DIRECTORY_ID_2 = 5
+    const val THIRD_LEVEL_DIRECTORY_NAME_2 = "Папка 5"
+    const val THIRD_LEVEL_DIRECTORY_PARENT_ID_2 = SECOND_LEVEL_DIRECTORY_ID_1
+    const val THIRD_LEVEL_DIRECTORY_END_LVL_2 = true
+}

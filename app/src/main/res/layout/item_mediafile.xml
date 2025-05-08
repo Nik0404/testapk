@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:swipe="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mediafile"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayMediaFile" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_mediafile_card_view_horizontal_margin"
+        android:layout_marginTop="@dimen/item_mediafile_card_view_vertical_margin"
+        android:layout_marginEnd="@dimen/item_mediafile_card_view_horizontal_margin"
+        android:layout_marginBottom="@dimen/item_mediafile_card_view_vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:theme="@style/LightGrayRippleTheme"
+        app:cardCornerRadius="@dimen/item_mediafile_card_view_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation">
+
+        <com.daimajia.swipe.SwipeLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            swipe:leftEdgeSwipeOffset="0dp"
+            swipe:rightEdgeSwipeOffset="0dp">
+
+            <FrameLayout
+                android:id="@+id/delete_mediafile_layout"
+                android:layout_width="@dimen/item_notification_delete_layout_width"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_delete_notification_background"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_delete_outline" />
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mediafile_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/item_mediafile_card_view_padding">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_media_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/item_mediafile_iv_padding"
+                    android:tint="@color/colorAccent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mediaFileType="@{mediafile.mediaType}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_media_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_mediafile_tv_media_type_margin_start"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/item_mediafile_tv_media_type_text_size"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_media_type"
+                    app:layout_constraintStart_toEndOf="@id/iv_media_type"
+                    app:layout_constraintTop_toTopOf="@id/iv_media_type"
+                    app:mediaFileType="@{mediafile.mediaType}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_file_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_mediafile_tv_file_name_margin_top"
+                    android:textColor="@color/colorDarkGray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_media_type" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.daimajia.swipe.SwipeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvEmptyStateDefects"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:drawableTop="@drawable/ic_notifications_empty_state"
+    android:drawablePadding="@dimen/spacing_l2"
+    android:text="@string/empty_state_notifications"
+    android:textAlignment="center"
+    android:textColor="@color/colorLightGray"
+    android:textSize="@dimen/text_size_xs4" />

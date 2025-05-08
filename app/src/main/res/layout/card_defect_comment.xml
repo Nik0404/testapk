@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="comment"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:theme="@style/LightGrayRippleTheme"
+        app:cardCornerRadius="@dimen/item_equipment_card_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation_small"
+        app:contentPadding="@dimen/item_equipment_card_padding">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_defect_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{comment}"
+            android:textColor="@color/colorDarkGray"
+            tools:text="Да всё нормально но есть подозрения на ржавчину нужна дополнительная проверка на целосность. " />
+    </androidx.cardview.widget.CardView>
+</layout>

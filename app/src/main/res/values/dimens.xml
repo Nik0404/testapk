@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="fade_anim_duration">120</integer>
+
+    <dimen name="corner_radius_vertical_scrollbar">3dp</dimen>
+
+    <dimen name="width_vertical_scrollbar">4dp</dimen>
+
+    <dimen name="popup_title_text_size">16sp</dimen>
+
+    <dimen name="margin_null">0dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="card_view_elevation">4dp</dimen>
+
+    <dimen name="card_view_elevation_small">2dp</dimen>
+
+    <dimen name="card_dialog_corner_radius">12dp</dimen>
+
+    <dimen name="button_dialog_corner_radius">8dp</dimen>
+
+    <dimen name="navigation_view_width">325dp</dimen>
+
+    <dimen name="attachments_circle_size">14dp</dimen>
+
+    <dimen name="attachments_dialog_corner_radius">12dp</dimen>
+
+    <dimen name="view_pager_tab_layout_height">40dp</dimen>
+
+    <dimen name="equipment_tree_label_text_size">15sp</dimen>
+
+    <dimen name="card_task_equipment_tv_timestamp_margin_top">12dp</dimen>
+
+    <dimen name="item_view_pager_tab_text_size">14sp</dimen>
+
+    <dimen name="recycler_view_vertical_padding">6dp</dimen>
+
+    <dimen name="popup_dialog_corner_radius">12dp</dimen>
+    <dimen name="popup_vertical_padding">12dp</dimen>
+
+    <dimen name="button_apply_corner_radius">12dp</dimen>
+    <dimen name="button_cancel_stroke_width">1dp</dimen>
+
+    <dimen name="notifications_counter_horizontal_padding">6dp</dimen>
+    <dimen name="notifications_counter_text_size">10sp</dimen>
+
+    <dimen name="item_simple_spinner_padding">8dp</dimen>
+    <dimen name="item_simple_spinner_text_size">18sp</dimen>
+
+    <dimen name="menu_counter_text_size">13sp</dimen>
+    <dimen name="menu_counter_corner_radius">50dp</dimen>
+    <dimen name="menu_counter_horizontal_padding">9dp</dimen>
+    <dimen name="menu_counter_vertical_padding">1dp</dimen>
+
+    <dimen name="equipment_space_small">2dp</dimen>
+    <dimen name="equipment_space_medium">6dp</dimen>
+    <dimen name="equipment_space_large">16dp</dimen>
+
+    <dimen name="activity_login_card_view_horizontal_margin">45dp</dimen>
+    <dimen name="activity_login_card_view_corner_radius">16dp</dimen>
+    <dimen name="activity_login_card_view_padding_top">28dp</dimen>
+    <dimen name="activity_login_card_view_padding_bottom">32dp</dimen>
+    <dimen name="activity_login_card_view_horizontal_padding">20dp</dimen>
+    <dimen name="activity_login_edit_text_margin_top">1dp</dimen>
+    <dimen name="activity_login_button_sign_in_height">40dp</dimen>
+    <dimen name="activity_login_button_sign_in_horizontal_margin">12dp</dimen>
+    <dimen name="activity_login_button_sign_in_margin_top">50dp</dimen>
+    <dimen name="activity_login_button_sign_in_corner_radius">12dp</dimen>
+    <dimen name="activity_login_button_address_settings_height">36dp</dimen>
+    <dimen name="activity_login_button_address_settings_horizontal_margin">12dp</dimen>
+    <dimen name="activity_login_button_address_settings_margin_top">8dp</dimen>
+
+    <dimen name="activity_network_address_card_view_horizontal_margin">45dp</dimen>
+    <dimen name="activity_network_address_card_view_corner_radius">16dp</dimen>
+    <dimen name="activity_network_address_card_view_padding_top">36dp</dimen>
+    <dimen name="activity_network_address_card_view_padding_bottom">20dp</dimen>
+    <dimen name="activity_network_address_card_view_horizontal_padding">20dp</dimen>
+    <dimen name="activity_network_address_edit_text_margin_top">16dp</dimen>
+    <dimen name="activity_network_address_spinner_margin_top">16dp</dimen>
+    <dimen name="activity_network_address_log_level_element_horizontal_margin">4dp</dimen>
+    <dimen name="activity_network_address_log_level_element_margin_top">4dp</dimen>
+    <dimen name="activity_network_address_log_level_underline_height">1dp</dimen>
+    <dimen name="activity_network_address_button_apply_height">36dp</dimen>
+    <dimen name="activity_network_address_button_apply_margin_top">60dp</dimen>
+    <dimen name="activity_network_address_button_cancel_height">36dp</dimen>
+    <dimen name="activity_network_address_button_cancel_margin_top">8dp</dimen>
+    <dimen name="activity_network_address_button_horizontal_margin">12dp</dimen>
+    <dimen name="activity_network_address_title_text_size">19sp</dimen>
+    <dimen name="activity_network_address_log_level_text_size">18sp</dimen>
+
+    <dimen name="menu_header_padding_start">18dp</dimen>
+    <dimen name="menu_header_padding_top">18dp</dimen>
+    <dimen name="menu_header_padding_end">26dp</dimen>
+    <dimen name="menu_header_padding_bottom">14dp</dimen>
+    <dimen name="menu_header_content_margin_start">71dp</dimen>
+    <dimen name="menu_header_user_icon_margin_top">23dp</dimen>
+    <dimen name="menu_header_statuses_margin_top">16dp</dimen>
+    <dimen name="menu_header_nfc_status_margin_start">16dp</dimen>
+    <dimen name="menu_header_button_logout_width">65dp</dimen>
+    <dimen name="menu_header_button_logout_height">30dp</dimen>
+    <dimen name="menu_header_divider_height">1dp</dimen>
+    <dimen name="menu_header_divider_margin_top">16dp</dimen>
+    <dimen name="menu_header_user_name_text_size">16sp</dimen>
+    <dimen name="menu_header_status_text_size">13sp</dimen>
+
+    <dimen name="main_toolbar_horizontal_margin">12dp</dimen>
+    <dimen name="main_toolbar_margin_top">8dp</dimen>
+    <dimen name="main_toolbar_margin_bottom">6dp</dimen>
+    <dimen name="main_toolbar_space_bottom">3dp</dimen>
+    <dimen name="main_toolbar_card_elevation">6dp</dimen>
+    <dimen name="main_toolbar_card_corner_radius">12dp</dimen>
+    <dimen name="main_toolbar_ic_menu_margin_start">19dp</dimen>
+    <dimen name="main_toolbar_ic_menu_padding">5dp</dimen>
+    <dimen name="main_toolbar_title_margin_start">14dp</dimen>
+    <dimen name="main_toolbar_title_margin_end">14dp</dimen>
+    <dimen name="main_toolbar_account_circle_margin_end">10dp</dimen>
+    <dimen name="main_toolbar_account_circle_padding">1dp</dimen>
+    <dimen name="main_toolbar_network_indicator_size">10dp</dimen>
+    <dimen name="main_toolbar_network_indicator_margin">3dp</dimen>
+    <dimen name="main_toolbar_button_nfc_margin_end">10dp</dimen>
+    <dimen name="main_toolbar_button_nfc_padding">5dp</dimen>
+    <dimen name="main_toolbar_notifications_counter_margin_start">20dp</dimen>
+    <dimen name="main_toolbar_notifications_counter_margin_top">2dp</dimen>
+    <dimen name="main_toolbar_title_text_size">18sp</dimen>
+    <dimen name="main_toolbar_underline_height">1dp</dimen>
+
+    <dimen name="tab_item_counter_margin_start">2dp</dimen>
+    <dimen name="tab_item_padding_top">6dp</dimen>
+    <dimen name="tab_item_padding_bottom">12dp</dimen>
+
+    <dimen name="tab_layout_tab_horizontal_padding">16dp</dimen>
+    <dimen name="tab_layout_indicator_corner_radius">30dp</dimen>
+    <dimen name="tab_layout_indicator_thickness">4dp</dimen>
+    <dimen name="tab_layout_indicator_width">90dp</dimen>
+    <dimen name="tab_layout_underline_thickness">1dp</dimen>
+
+    <dimen name="card_user_corner_radius">12dp</dimen>
+    <dimen name="card_user_padding_bottom">32dp</dimen>
+    <dimen name="card_user_padding_left">24dp</dimen>
+    <dimen name="card_user_padding_right">16dp</dimen>
+    <dimen name="card_user_padding_top">16dp</dimen>
+    <dimen name="card_user_tv_label_margin_top">20dp</dimen>
+    <dimen name="card_user_tv_label_margin_start">50dp</dimen>
+    <dimen name="card_user_tv_value_margin_top">4dp</dimen>
+    <dimen name="card_user_tv_division_horisontal_margin">3dp</dimen>
+    <dimen name="card_user_dialog_name_margin_top">12dp</dimen>
+    <dimen name="card_user_button_close_padding">5dp</dimen>
+    <dimen name="card_user_button_margin_start">20dp</dimen>
+    <dimen name="card_user_title_text_size">16sp</dimen>
+    <dimen name="card_user_field_title_text_size">12sp</dimen>
+    <dimen name="card_user_large_field_text_size">16sp</dimen>
+    <dimen name="card_user_small_field_text_size">14sp</dimen>
+
+    <dimen name="item_notification_not_read_circle_size">10dp</dimen>
+    <dimen name="item_notification_horizontal_margin">12dp</dimen>
+    <dimen name="item_notification_vertical_margin">6dp</dimen>
+    <dimen name="item_notification_card_corner_radius">12dp</dimen>
+    <dimen name="item_notification_card_elevation">4dp</dimen>
+    <dimen name="item_notification_padding_bottom">20dp</dimen>
+    <dimen name="item_notification_padding_start">16dp</dimen>
+    <dimen name="item_notification_padding_end">12dp</dimen>
+    <dimen name="item_notification_padding_top">16dp</dimen>
+    <dimen name="item_notification_read_status_circle_padding">4dp</dimen>
+    <dimen name="item_notification_timestamp_margin_start">4dp</dimen>
+    <dimen name="item_notification_button_archive_padding">3dp</dimen>
+    <dimen name="item_notification_title_margin_top">8dp</dimen>
+    <dimen name="item_notification_details_margin_top">8dp</dimen>
+    <dimen name="item_notification_timestamp_text_size">12sp</dimen>
+    <dimen name="item_notification_executor_text_size">13sp</dimen>
+    <dimen name="item_notification_title_text_size">16sp</dimen>
+    <dimen name="item_notification_delete_layout_width">42dp</dimen>
+
+    <dimen name="item_task_card_corner_radius">12dp</dimen>
+    <dimen name="item_task_card_horizontal_margin">12dp</dimen>
+    <dimen name="item_task_card_vertical_margin">6dp</dimen>
+    <dimen name="item_task_card_padding_bottom">16dp</dimen>
+    <dimen name="item_task_top_bar_padding_start">16dp</dimen>
+    <dimen name="item_task_top_bar_vertical_padding">4dp</dimen>
+    <dimen name="item_task_top_bar_padding_end">12dp</dimen>
+    <dimen name="item_task_elements_horizontal_margin">16dp</dimen>
+    <dimen name="item_task_title_margin_top">12dp</dimen>
+    <dimen name="item_task_number_margin_bottom">12dp</dimen>
+    <dimen name="item_task_number_text_size">13sp</dimen>
+    <dimen name="item_task_timestamp_margin_top">12dp</dimen>
+    <dimen name="item_task_executor_margin_top">12dp</dimen>
+    <dimen name="item_task_expandable_layout_margin_top">8dp</dimen>
+    <dimen name="item_task_label_margin_top">20dp</dimen>
+    <dimen name="item_task_count_margin_top">6dp</dimen>
+    <dimen name="item_task_count_margin_bottom">4dp</dimen>
+    <dimen name="item_task_title_text_size">16sp</dimen>
+    <dimen name="item_task_timestamp_text_size">13sp</dimen>
+    <dimen name="item_task_count_text_size">20sp</dimen>
+    <dimen name="item_task_card_header_height">32dp</dimen>
+
+    <dimen name="item_check_list_card_view_horizontal_margin">12dp</dimen>
+    <dimen name="item_check_list_card_view_vertical_margin">6dp</dimen>
+    <dimen name="item_check_list_card_view_corner_radius">12dp</dimen>
+    <dimen name="item_check_list_card_view_padding_bottom">16dp</dimen>
+    <dimen name="item_check_list_card_view_padding_left">16dp</dimen>
+    <dimen name="item_check_list_card_view_padding_right">16dp</dimen>
+    <dimen name="item_check_list_card_view_padding_top">10dp</dimen>
+    <dimen name="item_check_list_container_margin_top">4dp</dimen>
+    <dimen name="item_check_list_tv_attachments_margin_start">15dp</dimen>
+    <dimen name="item_check_list_tv_attachments_margin_bottom">15dp</dimen>
+    <dimen name="item_check_list_item_margin_end">6dp</dimen>
+    <dimen name="item_check_list_button_margin_end">10dp</dimen>
+    <dimen name="item_check_list_button_padding">3dp</dimen>
+    <dimen name="item_check_list_tv_title_margin_start">5dp</dimen>
+    <dimen name="item_check_list_tv_name_margin_top">4dp</dimen>
+    <dimen name="item_check_list_tv_details_margin_top">8dp</dimen>
+    <dimen name="item_check_list_tv_answers_margin_top">8dp</dimen>
+    <dimen name="item_check_list_title_text_size">16sp</dimen>
+    <dimen name="item_check_list_name_text_size">16sp</dimen>
+    <dimen name="item_check_list_completion_text_size">14sp</dimen>
+    <dimen name="item_check_list_tv_attachments_counter_padding">4dp</dimen>
+
+    <dimen name="activity_task_details_button_start_end_round_stroke_width">2dp</dimen>
+    <dimen name="activity_task_details_button_start_end_round_corner_radius">12dp</dimen>
+    <dimen name="activity_task_details_top_bar_title_margin_bottom">8dp</dimen>
+    <dimen name="activity_task_details_top_bar_padding_start">28dp</dimen>
+    <dimen name="activity_task_details_top_bar_padding_end">28dp</dimen>
+    <dimen name="activity_task_details_middle_bar_padding_end">28dp</dimen>
+    <dimen name="activity_task_details_top_bar_padding_bottom">8dp</dimen>
+    <dimen name="activity_task_details_top_bar_margin_top">10dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_round_height">32dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_round_margin_top">8dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_round_padding_start">15dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_round_padding_end">15dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_register_defect_margin_end">10dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_register_defect_margin_start">16dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_register_defect_padding">3dp</dimen>
+    <dimen name="activity_task_details_top_bar_button_document_padding">3dp</dimen>
+    <dimen name="activity_task_details_toolbar_title_text_size">18sp</dimen>
+    <dimen name="activity_task_details_task_details_text_size">16sp</dimen>
+
+    <dimen name="activity_comment_toolbar_title_margin_start">32dp</dimen>
+    <dimen name="activity_comment_et_comment_padding_start">32dp</dimen>
+    <dimen name="activity_comment_et_comment_padding_top">20dp</dimen>
+    <dimen name="activity_comment_et_comment_padding_end">32dp</dimen>
+    <dimen name="activity_comment_et_comment_padding_bottom">16dp</dimen>
+    <dimen name="activity_comment_et_comment_text_size">14sp</dimen>
+    <dimen name="activity_comment_button_width">144dp</dimen>
+    <dimen name="activity_comment_button_height">48dp</dimen>
+    <dimen name="activity_comment_button_apply_margin_start">24dp</dimen>
+    <dimen name="activity_comment_button_apply_margin_end">12dp</dimen>
+    <dimen name="activity_comment_button_margin_bottom">24dp</dimen>
+    <dimen name="activity_comment_button_cancel_margin_end">24dp</dimen>
+    <dimen name="activity_comment_toolbar_title_text_size">18sp</dimen>
+
+    <dimen name="card_equipment_padding_start">24dp</dimen>
+    <dimen name="card_equipment_padding_top">16dp</dimen>
+    <dimen name="card_equipment_padding_end">16dp</dimen>
+    <dimen name="card_equipment_padding_bottom">32dp</dimen>
+    <dimen name="card_equipment_button_close_padding">5dp</dimen>
+    <dimen name="card_equipment_tv_title_margin_top">12dp</dimen>
+    <dimen name="card_equipment_tv_title_text_size">18sp</dimen>
+    <dimen name="card_equipment_tv_name_label_margin_top">12dp</dimen>
+    <dimen name="card_equipment_tv_name_label_small_margin_top">8dp</dimen>
+    <dimen name="card_equipment_tv_label_text_size">12sp</dimen>
+    <dimen name="card_equipment_iv_qr_code_size">80dp</dimen>
+    <dimen name="card_equipment_iv_qr_code_margin_end">8dp</dimen>
+    <dimen name="card_equipment_tv_value_margin_top">4dp</dimen>
+    <dimen name="card_equipment_tv_value_text_size">14sp</dimen>
+    <dimen name="card_equipment_tv_code_label_margin_top">16dp</dimen>
+    <dimen name="card_equipment_tv_second_name_margin_top">28dp</dimen>
+    <dimen name="card_equipment_tv_class_label_margin_top">14dp</dimen>
+    <dimen name="card_equipment_tv_type_margin_start">50dp</dimen>
+    <dimen name="card_equipment_tv_type_margin_top">14dp</dimen>
+    <dimen name="card_equipment_tv_criticaly_margin_top">16dp</dimen>
+    <dimen name="card_equipment_button_height">48dp</dimen>
+    <dimen name="card_equipment_button_round_lists_margin_top">20dp</dimen>
+    <dimen name="card_equipment_button_register_defect_margin_top">20dp</dimen>
+    <dimen name="card_equipment_nfc_button_margin_top">8dp</dimen>
+
+    <dimen name="item_equipment_card_horizontal_margin">12dp</dimen>
+    <dimen name="item_equipment_card_vertical_margin">8dp</dimen>
+    <dimen name="item_equipment_card_corner_radius">12dp</dimen>
+    <dimen name="item_equipment_card_padding">16dp</dimen>
+    <dimen name="item_equipment_tv_name_text_size">16sp</dimen>
+    <dimen name="item_equipment_tv_code_margin_top">8dp</dimen>
+    <dimen name="item_equipment_tv_details_margin_top">4dp</dimen>
+    <dimen name="item_equipment_iv_defect_margin_start">8dp</dimen>
+
+    <dimen name="activity_register_defect_button_back_margin_start">13dp</dimen>
+    <dimen name="activity_register_defect_button_back_padding">3dp</dimen>
+    <dimen name="activity_register_defect_tv_toolbar_title_margin_start">29dp</dimen>
+    <dimen name="activity_register_defect_tv_toolbar_title_text_size">18sp</dimen>
+    <dimen name="activity_register_defect_button_attachments_margin_end">16dp</dimen>
+    <dimen name="activity_register_defect_button_edit_margin_end">10dp</dimen>
+    <dimen name="activity_register_defect_button_attachments_padding">6dp</dimen>
+    <dimen name="activity_register_defect_attachments_counter_margin">15dp</dimen>
+    <dimen name="activity_register_defect_et_comment_margin_bottom">16dp</dimen>
+    <dimen name="activity_register_defect_card_equipment_margin">12dp</dimen>
+    <dimen name="activity_register_defect_et_comment_horizontal_padding">32dp</dimen>
+    <dimen name="activity_register_defect_et_comment_padding_top">20dp</dimen>
+    <dimen name="activity_register_defect_et_comment_text_size">14sp</dimen>
+    <dimen name="activity_register_defect_button_width">144dp</dimen>
+    <dimen name="activity_register_defect_button_height">48dp</dimen>
+    <dimen name="activity_register_defect_button_apply_margin_start">28dp</dimen>
+    <dimen name="activity_register_defect_button_apply_margin_end">16dp</dimen>
+    <dimen name="activity_register_defect_button_margin_bottom">16dp</dimen>
+    <dimen name="activity_register_defect_button_cancel_margin_end">28dp</dimen>
+    <dimen name="activity_register_defect_card_equipment_corner_radius">12dp</dimen>
+    <dimen name="activity_register_defect_card_equipment_padding">16dp</dimen>
+    <dimen name="activity_register_defect_card_equipment_tv_name_text_size">16sp</dimen>
+    <dimen name="activity_register_defect_card_equipment_tv_code_margin_top">8dp</dimen>
+
+    <dimen name="item_defect_card_view_corner_radius">12dp</dimen>
+    <dimen name="item_defect_card_view_padding_bottom">16dp</dimen>
+    <dimen name="item_defect_card_view_padding_left">16dp</dimen>
+    <dimen name="item_defect_card_view_padding_right">12dp</dimen>
+    <dimen name="item_defect_card_view_padding_top">12dp</dimen>
+    <dimen name="item_defect_card_view_vertical_margin">6dp</dimen>
+    <dimen name="item_defect_card_view_horizontal_margin">12dp</dimen>
+    <dimen name="item_defect_tv_timestamp_text_size">12sp</dimen>
+    <dimen name="item_defect_tv_defect_status_margin_top">12dp</dimen>
+    <dimen name="item_defect_tv_defect_status_text_size">16sp</dimen>
+    <dimen name="item_defect_tv_defect_details_margin_top">8dp</dimen>
+    <dimen name="item_defect_iv_attachments_indicator_size">18dp</dimen>
+
+    <dimen name="item_search_result_padding_start">64dp</dimen>
+    <dimen name="item_search_result_padding_top">10dp</dimen>
+    <dimen name="item_search_result_padding_bottom">10dp</dimen>
+    <dimen name="item_search_result_text_size">16sp</dimen>
+
+    <dimen name="activity_search_button_back_margin_start">13dp</dimen>
+    <dimen name="activity_search_button_back_padding">3dp</dimen>
+    <dimen name="activity_search_et_search_horizontal_margin">18dp</dimen>
+    <dimen name="activity_search_et_search_text_size_large">18sp</dimen>
+    <dimen name="activity_search_et_search_text_size_small">13sp</dimen>
+    <dimen name="activity_search_button_close_margin_end">13dp</dimen>
+    <dimen name="activity_search_button_close_padding">3dp</dimen>
+
+    <dimen name="activity_search_result_button_back_margin_start">13dp</dimen>
+    <dimen name="activity_search_result_button_back_padding">3dp</dimen>
+    <dimen name="activity_search_result_tv_toolbar_title_text_size">18sp</dimen>
+
+    <dimen name="button_question_radius">12dp</dimen>
+    <dimen name="button_question_stroke_width">1dp</dimen>
+
+    <dimen name="item_question_card_view_horizontal_margin">12dp</dimen>
+    <dimen name="item_question_card_view_vertical_margin">6dp</dimen>
+    <dimen name="item_question_card_view_conrer_radius">12dp</dimen>
+    <dimen name="item_question_card_view_padding_top">12dp</dimen>
+    <dimen name="item_question_card_view_padding_start">16dp</dimen>
+    <dimen name="item_question_card_view_padding_bottom">20dp</dimen>
+    <dimen name="item_question_card_view_padding_end">12dp</dimen>
+    <dimen name="item_question_tv_title_margin_end">16dp</dimen>
+    <dimen name="item_question_button_height">88dp</dimen>
+    <dimen name="item_question_button_margin_top">20dp</dimen>
+    <dimen name="item_question_button_horizontal_margin">8dp</dimen>
+    <dimen name="item_question_button_text_size">20sp</dimen>
+    <dimen name="item_question_tv_number_text_size">14sp</dimen>
+    <dimen name="item_question_image_button_margin_top">20dp</dimen>
+    <dimen name="item_question_image_button_padding">3dp</dimen>
+    <dimen name="item_question_button_more_padding">8dp</dimen>
+    <dimen name="item_question_image_button_margin_end">10dp</dimen>
+    <dimen name="item_question_tv_attachments_counter_margin_start">15dp</dimen>
+    <dimen name="item_question_tv_attachments_counter_margin_bottom">16dp</dimen>
+    <dimen name="item_question_tv_attachments_32_counter_margin_bottom">20dp</dimen>
+    <dimen name="item_question_tv_attachments_counter_padding">4dp</dimen>
+    <dimen name="item_question_tv_attachments_counter_text_size">10sp</dimen>
+    <dimen name="item_question_edit_text_stroke_width">1dp</dimen>
+
+    <dimen name="activity_attachments_button_back_margin_start">13dp</dimen>
+    <dimen name="activity_attachments_button_back_padding">3dp</dimen>
+    <dimen name="activity_attachments_tv_toolbar_title_margin_start">29dp</dimen>
+    <dimen name="activity_attachments_tv_empty_state_title_margin_top">40dp</dimen>
+    <dimen name="activity_attachments_tv_empty_state_title_text_size">16sp</dimen>
+    <dimen name="activity_attachments_tv_empty_state_details_horizontal_margin">54dp</dimen>
+    <dimen name="activity_attachments_tv_empty_state_details_margin_top">70dp</dimen>
+    <dimen name="activity_attachments_fab_empty_state_margin_top">140dp</dimen>
+    <dimen name="activity_attachments_recycler_padding_bottom">60dp</dimen>
+
+    <dimen name="recycler_padding_bottom_xl">120dp</dimen>
+
+    <dimen name="dialog_mediafiles_padding_top">13dp</dimen>
+    <dimen name="dialog_mediafiles_padding_bottom">34dp</dimen>
+    <dimen name="dialog_mediafiles_btn_close_margin_end">13dp</dimen>
+    <dimen name="dialog_mediafiles_btn_close_padding">3dp</dimen>
+    <dimen name="dialog_mediafiles_title_margin_start">24dp</dimen>
+    <dimen name="dialog_mediafiles_title_margin_top">11dp</dimen>
+    <dimen name="dialog_mediafiles_title_text_size">18sp</dimen>
+    <dimen name="dialog_mediafiles_item_margin_top">10dp</dimen>
+    <dimen name="dialog_mediafiles_item_padding_vertical">17dp</dimen>
+    <dimen name="dialog_mediafiles_item_iv_margin_start">24dp</dimen>
+    <dimen name="dialog_mediafiles_item_tv_margin_start">76dp</dimen>
+
+    <dimen name="item_mediafile_card_view_horizontal_margin">12dp</dimen>
+    <dimen name="item_mediafile_card_view_vertical_margin">6dp</dimen>
+    <dimen name="item_mediafile_card_view_corner_radius">12dp</dimen>
+    <dimen name="item_mediafile_card_view_padding">16dp</dimen>
+    <dimen name="item_mediafile_iv_padding">3dp</dimen>
+    <dimen name="item_mediafile_tv_media_type_margin_start">5dp</dimen>
+    <dimen name="item_mediafile_tv_media_type_text_size">16sp</dimen>
+    <dimen name="item_mediafile_tv_file_name_margin_top">4dp</dimen>
+
+    <dimen name="popup_loading_padding">24dp</dimen>
+    <dimen name="popup_loading_title_text_size">16sp</dimen>
+    <dimen name="popup_loading_progress_bar_margin_top">20dp</dimen>
+    <dimen name="popup_loading_message_margin_start">16dp</dimen>
+
+    <dimen name="popup_error_padding">24dp</dimen>
+    <dimen name="popup_error_padding_bottom">12dp</dimen>
+    <dimen name="popup_error_message_margin_top">10dp</dimen>
+    <dimen name="popup_error_button_margin_top">8dp</dimen>
+
+    <dimen name="item_question_edit_text_margin_top">20dp</dimen>
+    <dimen name="item_question_edit_text_padding_horizontal">16dp</dimen>
+    <dimen name="item_question_edit_text_padding_vertical">12dp</dimen>
+    <dimen name="item_question_edit_text_text_size">16sp</dimen>
+
+    <dimen name="item_popup_menu_padding_horizontal">24dp</dimen>
+    <dimen name="item_popup_menu_padding_vertical">8dp</dimen>
+    <dimen name="item_popup_menu_simple_iv_size">20dp</dimen>
+    <dimen name="item_popup_menu_simple_tv_title_margin_start">16dp</dimen>
+
+    <dimen name="item_popup_criticality_icon_size">24dp</dimen>
+    <dimen name="item_popup_criticality_icon_margin_end">8dp</dimen>
+
+    <dimen name="activity_nfc_mark_iv_size">85dp</dimen>
+    <dimen name="activity_nfc_mark_iv_margin_top">32dp</dimen>
+    <dimen name="activity_nfc_mark_tv_title_margin_top">32dp</dimen>
+    <dimen name="activity_nfc_mark_tv_title_text_size">16sp</dimen>
+    <dimen name="activity_nfc_mark_tv_message_horizontal_margin">55dp</dimen>
+    <dimen name="activity_nfc_mark_tv_message_margin_top">12dp</dimen>
+
+    <dimen name="activity_defect_tv_status_margin_top">16dp</dimen>
+    <dimen name="activity_defect_tv_status_horizontal_margin">28dp</dimen>
+    <dimen name="activity_defect_tv_details_margin_top">8dp</dimen>
+    <dimen name="activity_defect_tv_created_text_size">12sp</dimen>
+
+    <dimen name="activity_player_iv_mic_size">160dp</dimen>
+
+    <dimen name="item_folder_tv_margin_top">8dp</dimen>
+    <dimen name="item_folder_tv_text_size">13sp</dimen>
+    <dimen name="item_divider_vertical_margin">8dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_xs">12sp</dimen>
+    <dimen name="text_size_xs2">14sp</dimen>
+    <dimen name="text_size_xs4">16sp</dimen>
+    <dimen name="text_size_s">18sp</dimen>
+    <dimen name="text_size_m">24sp</dimen>
+    <dimen name="text_size_l">32sp</dimen>
+    <dimen name="text_size_xl">48sp</dimen>
+    <dimen name="text_size_xxl">72sp</dimen>
+
+    <!-- Typical spacing between two views -->
+    <!-- For example, m12 means "m + 12" -->
+    <dimen name="spacing_zero">0dp</dimen>
+    <dimen name="spacing_xs">1dp</dimen>
+    <dimen name="spacing_xs2">4dp</dimen>
+    <dimen name="spacing_s">8dp</dimen>
+    <dimen name="spacing_s4">12dp</dimen>
+    <dimen name="spacing_m">16dp</dimen>
+    <dimen name="spacing_m4">20dp</dimen>
+    <dimen name="spacing_m8">24dp</dimen>
+    <dimen name="spacing_m12">28dp</dimen>
+    <dimen name="spacing_l2">34dp</dimen>
+    <dimen name="spacing_l4">36dp</dimen>
+    <dimen name="spacing_l">32dp</dimen>
+    <dimen name="spacing_xl">48dp</dimen>
+    <dimen name="spacing_xxl">64dp</dimen>
+
+    <dimen name="elevation_zero">0dp</dimen>
+
+    <dimen name="popup_button_text_size">14sp</dimen>
+    <dimen name="popup_yes_button_margin_end">10dp</dimen>
+    <dimen name="popup_yes_no_button_width">60dp</dimen>
+
+    <dimen name="dialog_criticality_list_view_margin_top">42dp</dimen>
+    <dimen name="dialog_criticality_btn_close_margin_start">24dp</dimen>
+    <dimen name="dialog_criticality_padding">24dp</dimen>
+
+    <dimen name="item_defect_directory_defect_name_text_size">16sp</dimen>
+
+    <dimen name="card_task_margin">12dp</dimen>
+    <dimen name="card_task_padding">16dp</dimen>
+
+    <dimen name="empty_state_text_size">16sp</dimen>
+
+    <dimen name="image_empty_state_margin_top">40dp</dimen>
+
+    <dimen name="text_empty_state_margin_top">145dp</dimen>
+
+    <dimen name="fragment_defect_details_tv_title_horizontal_margin">26dp</dimen>
+    <dimen name="fragment_defect_details_tv_title_margin_top">16dp</dimen>
+    <dimen name="fragment_defect_details_card_horizontal_margin">12dp</dimen>
+    <dimen name="fragment_defect_details_card_margin_top">8dp</dimen>
+
+    <dimen name="card_defect_criticality_horizontal_padding">16dp</dimen>
+    <dimen name="card_defect_criticality_vertical_padding">12dp</dimen>
+    <dimen name="card_defect_criticality_text_size">16sp</dimen>
+
+    <dimen name="fragment_defect_details_card_margin_bottom">160dp</dimen>
+
+    <dimen name="fragment_register_defect_edit_text_min_height">80dp</dimen>
+    <dimen name="fragment_register_defect_edit_text_text_size">14sp</dimen>
+
+    <dimen name="fragment_defect_cause_margin_end">13dp</dimen>
+
+    <dimen name="item_defect_cause_card_elevation">4dp</dimen>
+
+    <dimen name="fragment_task_details_task_name_margin_top">8dp</dimen>
+    <dimen name="fragment_task_details_task_name_margin_bottom">16dp</dimen>
+
+    <dimen name="dialog_equipment_barrier_margin_end">13dp</dimen>
+
+    <dimen name="card_equipment_button_defects_margin_bottom">60dp</dimen>
+    <dimen name="card_equipment_tv_equipment_card_margin_top">8dp</dimen>
+    <dimen name="card_equipment_nested_scroll_view_margin_top">50dp</dimen>
+    <dimen name="card_equipment_nested_scroll_view_margin_bottom">124dp</dimen>
+    <dimen name="card_equipment_nfc_nested_scroll_view_margin_bottom">64dp</dimen>
+
+    <dimen name="dialog_criticality_tv_title_margin_top">8dp</dimen>
+    <dimen name="dialog_criticality_btn_close_margin_end">16dp</dimen>
+
+    <dimen name="progress_dialog_progress_message_margin_top">4dp</dimen>
+
+    <dimen name="item_route_question_text_background_radius">30dp</dimen>
+    <dimen name="item_route_question_text_padding_horizontal">12dp</dimen>
+    <dimen name="item_route_question_text_padding_vertical">2dp</dimen>
+
+    <dimen name="fragment_edit_task_tv_title_text_size">14sp</dimen>
+    <dimen name="fragment_edit_task_tv_label_text_size">12sp</dimen>
+    <dimen name="fragment_edit_task_tv_label_margin_top">16dp</dimen>
+    <dimen name="fragment_edit_task_padding">12dp</dimen>
+    <dimen name="fragment_edit_task_card_padding">16dp</dimen>
+
+    <dimen name="item_control_procedure_et_margin_top">8dp</dimen>
+    <dimen name="item_control_procedure_equipment_name_margin_top">16dp</dimen>
+    <dimen name="item_control_procedure_task_name_margin_top">8dp</dimen>
+
+    <dimen name="fragment_control_procedure_btn_sort_margin_start">24dp</dimen>
+    <dimen name="fragment_control_procedure_btn_sort_margin_end">12dp</dimen>
+    <dimen name="fragment_control_procedure_btn_save_margin_start">12dp</dimen>
+    <dimen name="fragment_control_procedure_btn_save_margin_end">24dp</dimen>
+    <dimen name="fragment_control_procedure_buttons_margin_bottom">24dp</dimen>
+
+    <dimen name="dialog_executors_btn_cancel_margin_end">114dp</dimen>
+    <dimen name="dialog_executors_btn_apply_margin_end">12dp</dimen>
+    <dimen name="dialog_executors_list_view_margin_top">40dp</dimen>
+    <dimen name="dialog_executors_list_view_margin_bottom">48dp</dimen>
+    <dimen name="dialog_notification_tv_timestamp_margin_top">4dp</dimen>
+    <dimen name="dialog_notification_tv_message_margin_top">8dp</dimen>
+    <dimen name="dialog_notification_btn_task_margin_top">24dp</dimen>
+    <dimen name="fragment_questions_tv_questions_margin_top">12dp</dimen>
+    <dimen name="fragment_questions_top_bar_padding_bottom">12dp</dimen>
+    <dimen name="fragment_questions_top_bar_padding_top">20dp</dimen>
+    <dimen name="fragment_questions_btn_defect_margin_end">10dp</dimen>
+    <dimen name="fragment_questions_tv_route_name_margin_end">5dp</dimen>
+    <dimen name="menu_header_tv_network_status_margin_start">72dp</dimen>
+    <dimen name="menu_header_tv_name_margin_end">16dp</dimen>
+    <dimen name="menu_header_tv_name_margin_top">15dp</dimen>
+    <dimen name="menu_header_tv_name_margin_start">16dp</dimen>
+    <dimen name="menu_header_tv_name_drawable_padding">32dp</dimen>
+    <dimen name="menu_header_tv_function_name_margin_top">4dp</dimen>
+    <dimen name="menu_header_tv_function_name_text_size">12sp</dimen>
+    <dimen name="menu_header_version_text_size">10sp</dimen>
+    <dimen name="item_question_template_button_height">48dp</dimen>
+    <dimen name="item_question_template_button_margin_top">20dp</dimen>
+    <dimen name="item_question_template_tv_answer_label_margin_top">16dp</dimen>
+    <dimen name="item_question_template_tv_answer_margin_top">8dp</dimen>
+    <dimen name="item_question_template_tv_answer_text_size">16sp</dimen>
+    <dimen name="item_notification_executor_margin_top">4dp</dimen>
+    <dimen name="dialog_notification_tv_planned_date_margin_top">8dp</dimen>
+
+    <dimen name="space_to_dp">3dp</dimen>
+
+    <dimen name="button_dialog_padding_horizontal">12dp</dimen>
+    <dimen name="popup_unfinished_task_nested_scroll_margin_top">36dp</dimen>
+    <dimen name="popup_unfinished_task_nested_scroll_margin_bottom">60dp</dimen>
+    <dimen name="popup_unfinished_task_yes_button_margin_end">70dp</dimen>
+    <dimen name="fragment_defect_details_toolbar_button_padding">6dp</dimen>
+    <dimen name="fragment_defect_details_button_edit_margin_end">4dp</dimen>
+    <dimen name="fragment_defect_details_toolbar_title_margin_end">10dp</dimen>
+    <dimen name="fragment_task_edit_progress_bar_margin_top">10dp</dimen>
+    <dimen name="fragment_user_function_login_button_height">36dp</dimen>
+    <dimen name="fragment_user_function_login_button_margin_top">10dp</dimen>
+    <dimen name="fragment_user_function_login_button_margin_bottom">16dp</dimen>
+    <dimen name="activity_login_tv_app_version_margin_top">4dp</dimen>
+
+</resources>

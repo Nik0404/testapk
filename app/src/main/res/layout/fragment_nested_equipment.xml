@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorNestedEquipment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginStart="@dimen/main_toolbar_horizontal_margin"
+                android:layout_marginTop="@dimen/main_toolbar_margin_top"
+                android:layout_marginEnd="@dimen/main_toolbar_horizontal_margin"
+                android:layout_marginBottom="@dimen/main_toolbar_margin_bottom"
+                app:cardCornerRadius="@dimen/main_toolbar_card_corner_radius"
+                app:cardElevation="@dimen/main_toolbar_card_elevation">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/colorBackground"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/main_toolbar_ic_menu_margin_start"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/button"
+                        android:padding="@dimen/main_toolbar_ic_menu_padding"
+                        android:src="@drawable/ic_arrow_back"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/toolbarTitleView"
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/main_toolbar_title_margin_start"
+                        android:layout_marginEnd="@dimen/main_toolbar_title_margin_start"
+                        android:singleLine="true"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/main_toolbar_title_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/nfcButton"
+                        app:layout_constraintStart_toEndOf="@id/backButton"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="ТП Абсорбер" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/accountButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/main_toolbar_account_circle_margin_end"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/button"
+                        android:padding="@dimen/main_toolbar_account_circle_padding"
+                        android:src="@drawable/ic_account_circle_toolbar"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/networkIndicatorView"
+                        android:layout_width="@dimen/main_toolbar_network_indicator_size"
+                        android:layout_height="@dimen/main_toolbar_network_indicator_size"
+                        android:layout_margin="@dimen/main_toolbar_network_indicator_margin"
+                        android:contentDescription="@string/image"
+                        android:src="@drawable/offline_circle"
+                        app:layout_constraintBottom_toBottomOf="@id/accountButton"
+                        app:layout_constraintEnd_toEndOf="@id/accountButton" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/nfcButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/main_toolbar_button_nfc_margin_end"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/button"
+                        android:padding="@dimen/main_toolbar_button_nfc_padding"
+                        android:src="@drawable/ic_nfc_status"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/accountButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/appBarUnderlineView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_toolbar_underline_height"
+                android:background="@color/colorAppbarUnderline"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include
+        android:id="@+id/emptyStateView"
+        layout="@layout/empty_state_equipment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_l4"
+        android:visibility="gone"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/equipmentItemsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/recycler_view_vertical_padding"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        tools:listitem="@layout/item_equipment" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nestedEquipmentsFabSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_search"
+        app:layout_behavior="com.acroninspector.app.presentation.custom.FabBehavior" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

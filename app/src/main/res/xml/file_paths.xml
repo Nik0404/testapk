@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="my_images"
+        path="Android/data/com.acroninspector.app/files/Pictures" />
+    <external-path
+        name="my_videos"
+        path="Android/data/com.acroninspector.app/files/Movies" />
+    <external-path
+        name="my_records"
+        path="Android/data/com.acroninspector.app/files/Records" />
+    <external-path
+        name="external_files"
+        path="." />
+</paths>

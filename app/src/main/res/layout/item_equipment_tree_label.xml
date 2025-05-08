@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_divider_vertical_margin"
+        android:layout_marginBottom="@dimen/item_divider_vertical_margin">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dividerNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/equipment_tree_label_text_size"
+            tools:text="Оборудование" />
+    </FrameLayout>
+</layout>

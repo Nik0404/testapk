@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBackground">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_register_defect_button_back_margin_start"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/button"
+                    android:padding="@dimen/activity_register_defect_button_back_padding"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_toolbar_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/activity_register_defect_tv_toolbar_title_margin_start"
+                    android:layout_marginEnd="@dimen/activity_register_defect_tv_toolbar_title_margin_start"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:text="@string/define_nfc_mark"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/activity_register_defect_tv_toolbar_title_text_size"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="@id/btn_back" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_nfc_mark"
+            android:layout_width="@dimen/activity_nfc_mark_iv_size"
+            android:layout_height="@dimen/activity_nfc_mark_iv_size"
+            android:layout_marginTop="@dimen/activity_nfc_mark_iv_margin_top"
+            android:src="@drawable/ic_nfc"
+            android:tint="@color/colorAlphaLightGray"
+            app:layout_constraintBottom_toTopOf="@id/tv_nfc_mark_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_nfc_mark_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_nfc_mark_tv_title_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/add_nfc_title"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/activity_nfc_mark_tv_title_text_size"
+            app:layout_constraintBottom_toTopOf="@id/tv_nfc_mark_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_nfc_mark" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_nfc_mark_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_nfc_mark_tv_message_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_nfc_mark_tv_message_margin_top"
+            android:layout_marginEnd="@dimen/activity_nfc_mark_tv_message_horizontal_margin"
+            android:gravity="center"
+            android:text="@string/add_nfc_message"
+            android:textColor="@color/colorLightGray"
+            app:layout_constraintBottom_toTopOf="@id/btn_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_nfc_mark_title" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_register_defect_button_height"
+            android:layout_marginStart="@dimen/activity_register_defect_button_apply_margin_start"
+            android:layout_marginEnd="@dimen/activity_register_defect_button_apply_margin_end"
+            android:layout_marginBottom="@dimen/activity_register_defect_button_margin_bottom"
+            android:background="@drawable/button_save_nfc"
+            android:enabled="false"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_drop"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_drop"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_register_defect_button_height"
+            android:layout_marginEnd="@dimen/activity_register_defect_button_cancel_margin_end"
+            android:layout_marginBottom="@dimen/activity_register_defect_button_margin_bottom"
+            android:background="@drawable/button_cancel_background"
+            android:enabled="false"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/drop"
+            android:textAllCaps="false"
+            android:textColor="@color/button_cancel_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/btn_save" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

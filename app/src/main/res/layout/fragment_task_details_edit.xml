@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="task"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayTask" />
+
+        <variable
+            name="status"
+            type="Integer" />
+
+        <variable
+            name="isNfcEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isNetworkEnabled"
+            type="Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlue"
+        android:theme="@style/WhiteRippleTheme"
+        app:taskStatus="@{safeUnbox(status)}">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlue"
+            android:theme="@style/AppTheme"
+            app:elevation="0dp"
+            app:taskStatus="@{safeUnbox(status)}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginStart="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginTop="@dimen/main_toolbar_margin_top"
+                    android:layout_marginEnd="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginBottom="@dimen/main_toolbar_margin_bottom"
+                    app:cardCornerRadius="@dimen/main_toolbar_card_corner_radius"
+                    app:cardElevation="@dimen/main_toolbar_card_elevation">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_ic_menu_margin_start"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_ic_menu_padding"
+                            android:src="@drawable/ic_arrow_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_account"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_account_circle_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_account_circle_padding"
+                            android:src="@drawable/ic_account_circle_toolbar"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_nfc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_button_nfc_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_button_nfc_padding"
+                            android:src="@drawable/ic_nfc_status"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btn_account"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:nfcColor="@{safeUnbox(isNfcEnabled)}" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/network_indicator"
+                            android:layout_width="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_height="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_margin="@dimen/main_toolbar_network_indicator_margin"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/offline_circle"
+                            app:layout_constraintBottom_toBottomOf="@id/btn_account"
+                            app:layout_constraintEnd_toEndOf="@id/btn_account"
+                            app:networkStatus="@{safeUnbox(isNetworkEnabled)}" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_title"
+                            style="@style/TextAppearance.AppCompat.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_title_margin_start"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/main_toolbar_title_text_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btn_back"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:taskStatus="@{safeUnbox(status)}" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/activity_task_details_top_bar_padding_start"
+                    android:paddingEnd="@dimen/activity_task_details_top_bar_padding_end"
+                    android:paddingBottom="@dimen/activity_task_details_top_bar_title_margin_bottom"
+                    app:layout_scrollFlags="enterAlways">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_task_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_title_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text='@{@string/task_route_number + task.number}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_number_text_size"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Задание на обход №12134" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_task_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fragment_task_details_task_name_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{task.name}"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_title_text_size"
+                        app:layout_constraintTop_toBottomOf="@id/tv_task_number"
+                        tools:text="Чек-лист Ф-12/1-2 ЦФА №(2388)" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_executor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fragment_task_details_task_name_margin_bottom"
+                        android:text='@{@string/executor + ": " + (TextUtils.isEmpty(task.executorName) ? @string/not_assigned : task.executorName)}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_timestamp_text_size"
+                        app:layout_constraintTop_toBottomOf="@id/tv_task_name"
+                        tools:text="Исполнитель: Васин В.И" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_planned_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                        android:text='@{@string/planned_start + " " + task.startDatePlanned}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_timestamp_text_size"
+                        app:layout_constraintTop_toBottomOf="@id/tv_executor"
+                        tools:text="Плановое начало: 03.04.2019 07:35" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_planned_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                        android:text='@{@string/planned_end + " " + task.endDatePlanned}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_timestamp_text_size"
+                        app:layout_constraintTop_toBottomOf="@id/tv_planned_start"
+                        tools:text="Плановое завершение: 04.04.2019 08:40" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_actual_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                        android:text='@{@string/actual_start + " " + task.startDateActual}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_timestamp_text_size"
+                        android:visibility="@{TextUtils.isEmpty(task.startDateActual) ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintTop_toBottomOf="@id/tv_planned_end"
+                        tools:text="Фактическое начало: 03.04.2019 09:00" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_actual_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                        android:text='@{@string/actual_end + " " + task.endDateActual}'
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_timestamp_text_size"
+                        android:visibility="@{TextUtils.isEmpty(task.endDateActual) ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintTop_toBottomOf="@id/tv_actual_start"
+                        tools:text="Фактическое завершение: 04.04.2019 10:50" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lists_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_label_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/check_lists_number"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_actual_end" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_no_answers_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_label_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/check_lists_without_answer"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toStartOf="@id/tv_with_defect_label"
+                        app:layout_constraintStart_toEndOf="@id/tv_lists_label"
+                        app:layout_constraintTop_toBottomOf="@id/tv_actual_end" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_with_defect_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_label_margin_top"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/check_lists_with_defect"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_actual_end" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lists_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_count_margin_top"
+                        android:layout_marginBottom="@dimen/item_task_count_margin_bottom"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{String.valueOf(task.checkLists)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_count_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/tv_lists_label"
+                        app:layout_constraintStart_toStartOf="@id/tv_lists_label"
+                        app:layout_constraintTop_toBottomOf="@id/tv_lists_label"
+                        tools:text="36" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_no_answers_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_count_margin_top"
+                        android:layout_marginBottom="@dimen/item_task_count_margin_bottom"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{String.valueOf(task.unansweredCheckLists)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_count_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/tv_no_answers_label"
+                        app:layout_constraintStart_toStartOf="@id/tv_no_answers_label"
+                        app:layout_constraintTop_toBottomOf="@id/tv_no_answers_label"
+                        tools:text="35" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_count_of_lists_with_defects"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_task_count_margin_top"
+                        android:layout_marginBottom="@dimen/item_task_count_margin_bottom"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@{String.valueOf(task.defectsCount)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/item_task_count_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/tv_with_defect_label"
+                        app:layout_constraintStart_toStartOf="@id/tv_with_defect_label"
+                        app:layout_constraintTop_toBottomOf="@id/tv_with_defect_label"
+                        tools:text="1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/activity_task_details_top_bar_padding_start"
+                android:paddingBottom="@dimen/activity_task_details_top_bar_padding_bottom"
+                tools:ignore="RtlSymmetry">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_edit_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/activity_task_details_top_bar_button_round_height"
+                    android:layout_marginTop="@dimen/activity_task_details_top_bar_button_round_margin_top"
+                    android:background="@drawable/button_start_end_round_background"
+                    android:paddingStart="@dimen/activity_task_details_top_bar_button_round_padding_start"
+                    android:paddingEnd="@dimen/activity_task_details_top_bar_button_round_padding_end"
+                    android:text="@string/edit"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    app:editTaskButtonStatus="@{safeUnbox(status)}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_routes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/recycler_view_vertical_padding"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            tools:listitem="@layout/item_route" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="@dimen/fragment_task_edit_progress_bar_margin_top"
+            android:indeterminateTint="@android:color/white"
+            android:visibility="invisible"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

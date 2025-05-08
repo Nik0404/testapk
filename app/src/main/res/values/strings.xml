@@ -1,0 +1,426 @@
+<resources>
+    <string name="app_name">Acron</string>
+    <string name="app_version">v.%s</string>
+
+    <string name="empty_string" />
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="pinCode">Пин-код</string>
+    <string name="sign_in">Войти</string>
+    <string name="logout">Выйти</string>
+    <string name="address_settings">Настройки адреса</string>
+
+    <string name="go_to">Перейти</string>
+
+    <string name="back">Назад</string>
+
+    <string name="password_out_of_date">Пароль пользователя устарел</string>
+
+    <string name="function_name_template">Функция:</string>
+
+    <string name="not_assigned">Не назначен</string>
+
+    <string name="incorrect_index_number">Некорректный порядковый номер</string>
+
+    <string name="error_save_has_duplicate_numbers_error">Список невозможно сохранить, так как в нём имеются одинаковые порядковые номера</string>
+    <string name="error_save_has_max_number_error">Список невозможно сохранить, так как один из порядковых номеров превышает количество элементов списка</string>
+    <string name="error_save_has_empty_number_error">Список невозможно сохранить, так как в нём имеются незаполненные либо равные нулю порядковые номера</string>
+
+    <string name="error_sort_has_duplicate_numbers_error">Список невозможно отсортировать, так как в нём имеются одинаковые порядковые номера</string>
+    <string name="error_sort_has_max_number_error">Список невозможно отсортировать, так как один из порядковых номеров превышает количество элементов списка</string>
+    <string name="error_sort_has_empty_number_error">Список невозможно отсортировать, так как в нём имеются незаполненные либо равные нулю порядковые номера</string>
+
+    <string name="nfc_not_unique">Эта NFC метка не является уникальной, и уже есть в базе. Попробуйте добавить другую метку.</string>
+
+    <string name="notification_message_template">Поступило на выполнение задание №%s:\n«%s»</string>
+
+    <string name="you_has_no_video_recorder">На вашем устройстве отсутствует приложение для записи видео</string>
+    <string name="you_has_no_audio_recorder">На вашем устройстве отсутствует приложение для записи аудио</string>
+
+    <string name="data_is_not_uploaded_logout">Для выхода необходимо отправить данные на сервер</string>
+    <string name="data_is_not_uploaded_get_data">Для получения данных необходимо отправить данные на сервер</string>
+
+    <string name="route_nfc_marks_template">Меток:  %s Отсканировано: %s</string>
+    <string name="route_questions_answers_template">Вопросов: %s Ответов: %s</string>
+
+    <string name="nfc_in_another_task">Вы отсканировали NFC-метку, которая находится в другом задании</string>
+
+    <string name="divisions">Подразделения</string>
+    <string name="directories">Директории</string>
+    <string name="equipment_classes">Классы оборудования</string>
+    <string name="check_lists">Чек-листы</string>
+    <string name="answers_by_default">Ответы по-умолчанию</string>
+    <string name="defect_logs">Дефекты</string>
+    <string name="equipments">Оборудования</string>
+    <string name="executors">Исполнители</string>
+    <string name="nfc_for_equipments">NFC-метки оборудования</string>
+    <string name="nfc_for_routes">NFC-метки маршрутов обхода</string>
+    <string name="routes">Маршруты обхода</string>
+    <string name="tasks">Задания</string>
+    <string name="tasks_and_notifications">Задания и уведомления</string>
+    <string name="user_groups">Группы пользователей</string>
+    <string name="defect_causes">Причины дефектов</string>
+    <string name="defects">Наименования дефектов</string>
+    <string name="defects_by_pos">Дефекты по классам тех. позиций</string>
+    <string name="register_device">Регистрация устройства</string>
+    <string name="defects_history">История дефектов</string>
+
+    <string name="unacceptable">Недопустимо</string>
+    <string name="maybe">Возможно</string>
+
+    <string name="defect_equipment_name">Оборудование:</string>
+    <string name="defect_equipment_code">Обозначение ТП:</string>
+
+    <string name="progress_text">%s из %s %s</string>
+
+    <string name="remark">Замечание</string>
+
+    <string name="drawer_menu_flashlight">Фонарик</string>
+    <string name="drawer_menu_brightness">Яркость</string>
+
+    <string name="alert_has_defects_title">Наличие дефектов</string>
+    <string name="alert_has_defects_text">На установке имеются дефекты?</string>
+
+    <string name="item_divider_folders">Папки</string>
+    <string name="item_divider_equipments">Оборудование</string>
+
+    <string name="network_address">Адрес сервера</string>
+    <string name="address">Адрес</string>
+    <string name="port">Порт</string>
+    <string name="log_level">Уровень логирования</string>
+    <string name="apply">Применить</string>
+    <string name="cancel">Отмена</string>
+
+    <string name="drop">Сбросить</string>
+
+    <string name="button">Button</string>
+    <string name="image">Image</string>
+    <string name="arrow">Arrow</string>
+    <string name="logo">Logo</string>
+
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+
+    <string name="nfc_name">Наименование метки</string>
+
+    <string name="nfc_on">NFC On</string>
+    <string name="nfc_off">NFC Off</string>
+    <string name="nfc_on_off">Вкл/Выкл NFC</string>
+
+    <string name="new_task">Новое задание</string>
+    <string name="new_task_edit">Новое</string>
+    <string name="in_progress">В работе</string>
+    <string name="completed">Выполнено</string>
+    <string name="new_notifications">Новые</string>
+    <string name="old_notifications">Прочитано</string>
+
+    <string name="template_planned_start">Плановое начало: %s</string>
+    <string name="template_planned_end">Плановое завершение: %s</string>
+    <string name="template_actual_start">Фактическое начало: %s</string>
+    <string name="template_actual_end">Фактическое завершение: %s</string>
+
+    <string name="planned_start">Плановое начало:</string>
+    <string name="planned_end">Плановое завершение:</string>
+    <string name="actual_start">Фактическое начало:</string>
+    <string name="actual_end">Фактическое завершение:</string>
+
+    <string name="planned_start_edit_task">Плановое начало</string>
+    <string name="planned_end_edit_task">Плановое завершение</string>
+    <string name="actual_start_edit_task">Фактическое начало</string>
+    <string name="actual_end_edit_task">Фактическое завершение</string>
+
+    <string name="drawer_menu_notifications">Уведомления</string>
+    <string name="drawer_menu_tasks">Задания</string>
+    <string name="drawer_menu_equipment">Оборудование</string>
+    <string name="drawer_menu_defects">Список дефектов</string>
+    <string name="drawer_menu_get_data">Получить данные с сервера</string>
+    <string name="drawer_menu_send_data">Отправить данные на сервер</string>
+    <string name="drawer_menu_enter_defect">Ввод общего дефекта</string>
+    <string name="drawer_menu_create_nfc">Создать NFC-метку</string>
+
+    <string name="add_nfc_mark">Добавить NFC метку</string>
+    <string name="define_nfc_mark">Определить NFC метку</string>
+    <string name="edit_nfc_mark">Редактировать NFC метку</string>
+
+    <string name="add_nfc_title">Поднесите телефон к NFC метке</string>
+    <string name="add_nfc_message">Поднесите телефон к NFC метке на оборудовании, чтобы её определить.</string>
+    <string name="nfc_defined_title">NFC метка определена\nКод: %s</string>
+    <string name="nfc_defined_message">Нажмите сохранить чтобы добавить NFC метку.</string>
+
+    <string name="edit_nfc_title">NFC метка определена</string>
+    <string name="edit_nfc_message">Нажмите сохранить чтобы добавить NFC метку.</string>
+
+    <string name="save">Сохранить</string>
+
+    <string name="full_name">ФИО</string>
+    <string name="job_position">Должность</string>
+    <string name="subdivision">Подразделение</string>
+    <string name="root_asset">Корневой актив</string>
+    <string name="groups">Группа пользователей</string>
+    <string name="function">Функция</string>
+    <string name="roles">Роли</string>
+
+    <string name="comment">Комментарий</string>
+
+    <string name="task_comment">Замечание к заданию</string>
+
+    <string name="drawer_menu_exit">Закрыть функцию</string>
+
+    <string name="dark_theme">Сменить тему</string>
+
+    <string name="equipment">Оборудование</string>
+    <string name="equipment_name">Наименование</string>
+    <string name="equipment_path">Путь</string>
+    <string name="equipment_housing">Корпус</string>
+    <string name="equipment_card">Карточка оборудования</string>
+    <string name="equipment_sign">Обозначение ТП</string>
+    <string name="equipment_info">Доп. информация</string>
+    <string name="equipment_marks">Метки</string>
+    <string name="equipment_mark_name">Наим. метки</string>
+    <string name="equipment_code">Код</string>
+    <string name="equipment_codes">Код NFC</string>
+    <string name="equipment_class">Класс</string>
+    <string name="equipment_type">Тип</string>
+    <string name="equipment_criticality">Критичность</string>
+
+    <string name="user_card">Карточка пользователя</string>
+
+    <string name="defect_criticality">Критичность дефекта</string>
+
+    <string name="criticality_normal">Обычный</string>
+    <string name="criticality_to_stop">В остановку</string>
+    <string name="criticality_emergency">Аварийный</string>
+
+    <string name="defect_list">Список дефектов</string>
+
+    <string name="register_defect">Добавить дефект</string>
+    <string name="register_defect_toolbar_title">Регистрация дефекта</string>
+
+    <string name="edit_defect">Редактировать дефект</string>
+
+    <string name="search">Поиск</string>
+
+    <string name="search_defect_hint">Поиск по названию дефекта</string>
+    <string name="search_equipment_hint">Поиск по наименованию и обозначению ТП</string>
+
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+
+    <string name="defect_name">Наименование дефекта</string>
+    <string name="defect_cause_name">Причина дефекта</string>
+
+    <string name="attachments">Вложения</string>
+    <string name="add_attachment">Добавить вложение</string>
+    <string name="record_video">Записать видео</string>
+    <string name="take_photo">Сфотографировать</string>
+    <string name="record_audio">Записать звук</string>
+
+    <string name="nfc_tag_title">NFC-метка</string>
+    <string name="scanned_nfc_tag_that_no_in_database">Отсканирована NFC-метка, которой нет в базе\nКод метки: %s</string>
+    <string name="scanned_route_nfc_tag_success">Отсканирована NFC-метка\nНазвание метки: %s\nМаршрут обхода: %s</string>
+    <string name="nfc_tag_already_scanned_title">Повторное сканирование</string>
+    <string name="nfc_tag_already_scanned_message">Эта NFC-метка уже была отсканирована\nНазвание метки: %s</string>
+
+    <string name="video">Видеозапись</string>
+    <string name="audio">Аудиозапись</string>
+    <string name="photo">Фото</string>
+
+    <string name="login_fields_empty">Заполните поля для ввода</string>
+    <string name="pincode_fields_empty">Поднесите пропуск</string>
+
+    <string name="error_message">Произошла ошибка</string>
+    <string name="user_loading_error_message">Ошибка загрузки пользователя</string>
+
+    <string name="no_nfc_tag_in_database">Этой NFC-метки нет в базе</string>
+
+    <string name="task_new_route_clicked_error_message">Вы не можете отвечать на вопросы не начав обход</string>
+
+    <string name="click_plus">Нажмите + чтобы добавить вложениe.</string>
+    <string name="no_attachments_yet">Пока нет вложений</string>
+
+    <string name="send_data_to_server">Идёт передача данных на сервер:</string>
+    <string name="get_data_from_server">Идёт получение данных с сервера:</string>
+    <string name="clear_all_data">Идёт очистка всех данных…</string>
+
+    <string name="send_data_error">Произошла ошибка при передаче %s. Попробуйте отправить данные ещё раз</string>
+    <string name="send_data_no_internet_connection_error">Во время передачи %s произошёл разрыв соединения. Убедитесь в стабильности подключения к интернету и отправьте данные ещё раз</string>
+    <string name="get_data_error">Произошла ошибка при получении %s. Попробуйте запросить данные ещё раз</string>
+    <string name="get_data_no_internet_connection_error">Во время получения %s произошёл разрыв соединения. Убедитесь в стабильности подключения к интернету и запросите данные ещё раз</string>
+
+    <string name="executors_for_error_message">исполнителей</string>
+    <string name="groups_for_error_message">групп пользователей</string>
+    <string name="directories_for_error_message">директорий</string>
+    <string name="equipments_for_error_message">оборудования</string>
+    <string name="equipment_classes_for_error_message">классов оборудования</string>
+    <string name="nfc_equipments_for_error_message">NFC-меток оборудования</string>
+    <string name="tasks_for_error_message">заданий</string>
+    <string name="routes_for_error_message">маршрутов обхода</string>
+    <string name="nfc_routes_for_error_message">NFC-меток маршрутов обхода</string>
+    <string name="check_lists_for_error_message">чек-листов</string>
+    <string name="defect_logs_for_error_message">дефектов</string>
+    <string name="answers_for_error_message">ответов по-умолчанию</string>
+    <string name="defects_for_error_message">наименований дефектов</string>
+    <string name="defect_causes_for_error_message">причин дефектов</string>
+    <string name="defect_by_pos_for_error_message">дефектов по классам тех. позиций</string>
+    <string name="attachments_for_error_message">вложений</string>
+    <string name="default_for_error_message">данных</string>
+
+    <string name="error">Ошибка</string>
+
+    <string name="defect_cause_not_selected">Наименование дефекта не выбрано</string>
+    <string name="select_defect_cause">Сначала укажите наименование дефекта чтобы выбрать причину</string>
+
+    <string name="register_defect_only_to_task_in_progress">Вы можете регистрировать дефект только для заданий \"В
+        работе\"
+    </string>
+
+    <string name="try_again">Попробуйте ещё раз</string>
+
+    <string name="wait_please">Пожалуйста подождите</string>
+    <string name="text_continue">Продолжить</string>
+    <string name="enter_value">Введите значение</string>
+
+    <string name="menu_cancel_answer">Отменить ответ</string>
+    <string name="menu_add_file">Добавить файл</string>
+    <string name="menu_add_comment">Добавить комментарий</string>
+    <string name="menu_edit_comment">Изменить комментарий</string>
+    <string name="menu_add_reason">Наименование дефекта</string>
+    <string name="menu_edit_reason">Изменить наименование дефекта</string>
+    <string name="menu_add_criticality">Критичность дефекта</string>
+    <string name="menu_edit_criticality">Изменить критичность</string>
+
+    <string name="error_permissions">Предоставьте разрешения</string>
+
+    <string name="check_lists_number">Листов</string>
+    <string name="check_lists_without_answer">Без ответов</string>
+    <string name="check_lists_with_defect">С дефектом</string>
+
+    <string name="view_defect">Просмотреть дефект</string>
+
+    <string name="edit">Редактировать</string>
+
+
+    <string name="start_route">Начать обход</string>
+    <string name="end_route">Завершить обход</string>
+    <string name="route_completed">Обход завершен</string>
+
+    <string name="task_route_number">Задание на обход №</string>
+
+    <string name="executor">Исполнитель</string>
+
+    <string name="select_answer_title">Выбор ответа</string>
+
+    <string name="questions">Вопросов</string>
+    <string name="answers">Ответов</string>
+    <string name="nfc_marks">Меток</string>
+    <string name="scanned_nfc_marks">Отсканировано</string>
+
+    <string name="from">из</string>
+
+    <string name="tooltip_criticality">Критичность</string>
+    <string name="tooltip_comment">Комментарий</string>
+    <string name="tooltip_attachment">Вложения</string>
+    <string name="tooltip_menu">Меню</string>
+    <string name="tooltip_defect_cause">Причина дефекта</string>
+
+    <string name="defect">Дефект</string>
+    <string name="quote">&quot;</string>
+
+    <string name="defect_title">Дефект \"%s\"</string>
+
+    <string name="empty">Пусто</string>
+
+    <string name="length_too_long">Вы привысили максимальное количество допустимых символов</string>
+
+    <string name="nfc_name_required">Введите наименование NFC-метки</string>
+
+    <string name="success_sending_title">Успешно передано</string>
+    <string name="success_sending_message">Передача данных на сервер произведена успешно</string>
+
+    <string name="success_receiving_title">Успешно получено</string>
+    <string name="success_receiving_message">Получение данных с сервера произведено успешно</string>
+
+    <string name="start_route_title">Начать обход?</string>
+
+    <string name="unanswered_lists_title">Есть листы без ответов</string>
+    <string name="unanswered_lists_message">В текущем задании есть листы обхода без ответов. Вы уверены что хотите
+        завершить задание?
+    </string>
+
+    <string name="unanswered_nfc_marks_title">Считаны не все метки</string>
+    <string name="unanswered_nfc_marks_message">В текущем задании не все метки считаны:\n%s\nВы уверены что хотите
+        завершить задание?
+    </string>
+
+    <string name="defect_is_empty">Необходимо указать наименование либо критичность дефекта</string>
+
+    <string name="complete_up_to_date">Завершить до</string>
+
+    <string name="in_process">В процессе</string>
+    <string name="choose">Выбрать</string>
+    <string name="select_function">Выберите функцию:</string>
+    <string name="template_equipment_code">Обозначение ТП: %s</string>
+
+    <string name="template_equipment_class">Класс: %s</string>
+    <string name="template_equipment_type">Тип: %s</string>
+
+    <string name="function_technologicl_equipment_bypass">Обход ТО</string>
+    <string name="function_technologicl_equipment_bypass_full">Обход технологического оборудования</string>
+    <string name="function_management_of_technological_equipment_bypasses">Управление обходами ТО</string>
+    <string name="function_management_of_technological_equipment_bypasses_full">Управление обходами технологического оборудования через мобильное устройство</string>
+    <string name="function_registration_of_labels_on_the_equipment">Регистрация меток на ТО</string>
+    <string name="function_registration_of_labels_on_the_equipment_full">Регистрация меток на оборудовании через мобильное устройство</string>
+
+    <string name="nfc_tag_scanned">NFC-метка %s отсканированна</string>
+
+    <string name="task">Задание</string>
+
+    <string name="refresh">Повторить</string>
+
+    <string name="no_data">Нет данных</string>
+
+    <string name="select_supervised_unit">Выберите подразделение:</string>
+
+    <string name="go_to_task">Перейти к заданию</string>
+
+    <string name="editing_defect">Редактирование дефекта</string>
+
+    <string name="empty_state">Empty state</string>
+    <string name="empty_state_search">Нет результатов по\nданному запросу</string>
+    <string name="empty_state_tasks">Пока нет заданий</string>
+    <string name="empty_state_defects_history">Пока нет дефектов у данного\nоборудования</string>
+    <string name="empty_state_defects">Список дефектов пуст</string>
+    <string name="empty_state_defect_causes">У выбранного наименования дефекта\nнет причин</string>
+    <string name="empty_state_defect_names">У данного оборудования\nнет наименований дефекта</string>
+    <string name="empty_state_notifications">Пока нет уведомлений</string>
+    <string name="empty_state_no_internet">Данные доступны только\nпри подключении к сети</string>
+    <string name="no_comment">Нет комментария</string>
+    <string name="not_selected">Не выбран</string>
+    <string name="have_no_equipments">Нет оборудования в списке</string>
+    <string name="search_defect_name">Поиск наименования дефекта</string>
+    <string name="search_defect_cause">Поиск причины дефекта</string>
+    <string name="task_name">Наименование</string>
+    <string name="task_executor">Исполнитель</string>
+    <string name="task_status">Статус</string>
+    <string name="change_control_procedure">Изменить порядок контроля</string>
+    <string name="change_executor">Изменить исполнителя</string>
+    <string name="edit_task">Редактирование задания</string>
+    <string name="index_number">Порядковый номер</string>
+    <string name="sort">Сортировать</string>
+    <string name="check_list">Чек-лист</string>
+    <string name="select_answer">Выбрать ответ</string>
+    <string name="answer">Ответ:</string>
+    <string name="nfc_mark">NFC-метка</string>
+    <string name="go_to_route">Перейти</string>
+    <string name="exit">Выйти</string>
+    <string name="route">Маршрут обхода</string>
+    <string name="deffects_text">Дефекты</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_annotation_version">Новое в версии %s от %s</string>
+
+</resources>

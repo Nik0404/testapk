@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.acroninspector.app.common.constants.Constants" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="question"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayQuestion" />
+
+        <variable
+            name="count"
+            type="Integer" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_question_card_view_horizontal_margin"
+        android:layout_marginTop="@dimen/item_question_card_view_vertical_margin"
+        android:layout_marginEnd="@dimen/item_question_card_view_horizontal_margin"
+        android:layout_marginBottom="@dimen/item_question_card_view_vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:theme="@style/LightGrayRippleTheme"
+        app:cardCornerRadius="@dimen/item_question_card_view_conrer_radius"
+        app:cardElevation="@dimen/card_view_elevation"
+        app:contentPaddingBottom="@dimen/item_question_card_view_padding_bottom"
+        app:contentPaddingLeft="@dimen/item_question_card_view_padding_start"
+        app:contentPaddingTop="@dimen/item_question_card_view_padding_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_criticality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/item_question_image_button_margin_end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/item_question_image_button_padding"
+                android:src="@drawable/ic_criticality"
+                android:theme="@style/AppTheme"
+                android:visibility="@{question.criticality == Constants.CRITICALITY_NO ? View.INVISIBLE : View.VISIBLE}"
+                app:questionCriticality="@{question.criticality}"
+                app:layout_constraintEnd_toStartOf="@id/btn_defect_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_defect_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/item_question_image_button_margin_end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/item_question_image_button_padding"
+                android:src="@drawable/ic_defect_name"
+                android:theme="@style/AppTheme"
+                android:visibility="@{question.hasDefectName ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@id/btn_comment"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/item_question_image_button_margin_end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/item_question_image_button_padding"
+                android:src="@drawable/ic_comment"
+                android:theme="@style/AppTheme"
+                android:tint="@color/colorDarkGray"
+                android:visibility="@{TextUtils.isEmpty(question.comment) ? View.GONE : View.VISIBLE }"
+                app:layout_constraintEnd_toStartOf="@id/btn_question_attachments"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_question_attachments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/item_question_image_button_margin_end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/item_question_image_button_padding"
+                android:src="@drawable/ic_attachments"
+                android:theme="@style/AppTheme"
+                android:tint="@color/colorDarkGray"
+                android:visibility="@{question.attachmentsCount == 0 ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toStartOf="@id/btnMenu"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_question_attachments_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_question_tv_attachments_counter_margin_start"
+                android:layout_marginBottom="@dimen/item_question_tv_attachments_counter_margin_bottom"
+                android:background="@drawable/counter_circle_background"
+                android:gravity="center"
+                android:paddingStart="@dimen/item_question_tv_attachments_counter_padding"
+                android:paddingEnd="@dimen/item_question_tv_attachments_counter_padding"
+                android:text="@{String.valueOf(question.attachmentsCount)}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/item_question_tv_attachments_counter_text_size"
+                android:textStyle="bold"
+                android:visibility="@{question.attachmentsCount == 0 ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/btn_question_attachments"
+                app:layout_constraintEnd_toEndOf="@id/btn_question_attachments"
+                app:layout_constraintStart_toStartOf="@id/btn_question_attachments"
+                app:layout_constraintTop_toTopOf="@id/btn_question_attachments"
+                tools:text="4" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnNo"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_question_button_height"
+                android:layout_marginTop="@dimen/item_question_button_margin_top"
+                android:layout_marginEnd="@dimen/item_question_button_horizontal_margin"
+                android:background="@drawable/button_question_neutral_red_ripple_background"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/no"
+                android:textAllCaps="false"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="@dimen/item_question_button_text_size"
+                android:theme="@style/LightGrayRippleTheme"
+                app:layout_constraintEnd_toStartOf="@id/btnYes"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_question_title" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnYes"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_question_button_height"
+                android:layout_marginStart="@dimen/item_question_button_horizontal_margin"
+                android:layout_marginTop="@dimen/item_question_button_margin_top"
+                android:layout_marginEnd="@dimen/item_question_card_view_padding_end"
+                android:background="@drawable/button_question_neutral_green_ripple_background"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/yes"
+                android:textAllCaps="false"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="@dimen/item_question_button_text_size"
+                android:theme="@style/LightGrayRippleTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnNo"
+                app:layout_constraintTop_toBottomOf="@id/tv_question_title" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/item_question_card_view_padding_end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/item_question_image_button_padding"
+                android:src="@drawable/ic_more_vert"
+                android:theme="@style/AppTheme"
+                android:tint="@color/colorDarkGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_question_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text='@{String.valueOf(question.orderNumber) + " " + @string/from + " " + String.valueOf(count)}'
+                android:textColor="@color/colorLightGray"
+                android:textSize="@dimen/item_question_tv_number_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/btn_criticality"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_criticality"
+                tools:text="1 из 7" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_question_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_question_tv_title_margin_end"
+                android:layout_marginEnd="@dimen/item_question_card_view_padding_end"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{question.question}"
+                android:textColor="@color/colorDarkGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_question_number"
+                tools:text="Гермитичность трубопроводов?" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="route"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayRoute" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_check_list_card_view_horizontal_margin"
+        android:layout_marginTop="@dimen/item_check_list_card_view_vertical_margin"
+        android:layout_marginEnd="@dimen/item_check_list_card_view_horizontal_margin"
+        android:layout_marginBottom="@dimen/item_check_list_card_view_vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:theme="@style/LightGrayRippleTheme"
+        app:cardCornerRadius="@dimen/item_check_list_card_view_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation"
+        app:contentPaddingBottom="@dimen/item_check_list_card_view_padding_bottom"
+        app:contentPaddingLeft="@dimen/item_check_list_card_view_padding_left"
+        app:contentPaddingTop="@dimen/item_check_list_card_view_padding_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_route_attachments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/item_check_list_card_view_padding_right"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/item_question_image_button_padding"
+                android:src="@drawable/ic_attachments"
+                android:theme="@style/AppTheme"
+                android:visibility="@{route.attachmentsCount == 0 ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_route_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_check_list_container_margin_top"
+                android:layout_marginEnd="@dimen/fragment_questions_tv_route_name_margin_end"
+                android:fontFamily="sans-serif-medium"
+                android:text='@{String.valueOf(route.number) + ". " + route.equipmentName}'
+                android:textColor="@color/colorDarkGray"
+                android:textSize="@dimen/item_check_list_title_text_size"
+                app:layout_constraintEnd_toStartOf="@id/btn_route_defects"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1. Ч.СФА.Р-21/1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_route_attachments_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_question_tv_attachments_counter_margin_start"
+                android:layout_marginBottom="@dimen/item_question_tv_attachments_counter_margin_bottom"
+                android:background="@drawable/counter_circle_background"
+                android:gravity="center"
+                android:paddingStart="@dimen/item_question_tv_attachments_counter_padding"
+                android:paddingEnd="@dimen/item_question_tv_attachments_counter_padding"
+                android:text="@{String.valueOf(route.attachmentsCount)}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/item_question_tv_attachments_counter_text_size"
+                android:textStyle="bold"
+                android:visibility="@{route.attachmentsCount == 0 ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/btn_route_attachments"
+                app:layout_constraintEnd_toEndOf="@id/btn_route_attachments"
+                app:layout_constraintStart_toStartOf="@id/btn_route_attachments"
+                app:layout_constraintTop_toTopOf="@id/btn_route_attachments"
+                tools:text="17" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_route_defects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/fragment_questions_btn_defect_margin_end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button"
+                android:padding="@dimen/item_question_image_button_padding"
+                android:src="@drawable/ic_defect_list"
+                android:theme="@style/AppTheme"
+                android:visibility="@{route.defectsCount == 0 ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toStartOf="@id/btn_route_attachments"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_route_defects_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_question_tv_attachments_counter_margin_start"
+                android:layout_marginBottom="@dimen/item_question_tv_attachments_counter_margin_bottom"
+                android:background="@drawable/counter_circle_background"
+                android:gravity="center"
+                android:paddingStart="@dimen/item_question_tv_attachments_counter_padding"
+                android:paddingEnd="@dimen/item_question_tv_attachments_counter_padding"
+                android:text="@{String.valueOf(route.defectsCount)}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/item_question_tv_attachments_counter_text_size"
+                android:textStyle="bold"
+                android:visibility="@{route.defectsCount == 0 ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/btn_route_defects"
+                app:layout_constraintEnd_toEndOf="@id/btn_route_defects"
+                app:layout_constraintStart_toStartOf="@id/btn_route_defects"
+                app:layout_constraintTop_toTopOf="@id/btn_route_defects"
+                tools:text="4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_route_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_check_list_tv_name_margin_top"
+                android:layout_marginEnd="@dimen/item_check_list_card_view_padding_right"
+                android:text='@{@string/defect_equipment_code + " " + route.equipmentCode}'
+                android:textColor="@color/colorDarkGray"
+                android:textSize="@dimen/item_check_list_name_text_size"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_route_title"
+                tools:ignore="RtlSymmetry"
+                tools:text="Обозначение ТП: 00-ААА" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_route_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_check_list_tv_details_margin_top"
+                android:layout_marginEnd="@dimen/item_check_list_card_view_padding_right"
+                android:text="@{route.equipmentClass}"
+                android:textColor="@color/colorDarkGray"
+                android:visibility="@{route.equipmentClass == null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintTop_toBottomOf="@id/tv_route_name"
+                tools:ignore="RtlSymmetry"
+                tools:text="Чек-лист аппаратчика осаждения Ф-12/1-2 ЦФА" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_route_questions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_check_list_tv_answers_margin_top"
+                android:background="@drawable/item_route_text_background"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="@dimen/item_route_question_text_padding_horizontal"
+                android:paddingTop="@dimen/item_route_question_text_padding_vertical"
+                android:paddingEnd="@dimen/item_route_question_text_padding_horizontal"
+                android:paddingBottom="@dimen/item_route_question_text_padding_vertical"
+                android:textColor="@color/colorTypeDarkGray"
+                android:textSize="@dimen/item_check_list_completion_text_size"
+                app:layout_constraintEnd_toEndOf="@id/tv_route_nfc_marks"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_route_details"
+                tools:ignore="RtlSymmetry"
+                tools:text="Вопросов: 22 Ответов: 22" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_route_nfc_marks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_check_list_tv_answers_margin_top"
+                android:background="@drawable/item_route_text_background"
+                android:maxLines="1"
+                android:paddingStart="@dimen/item_route_question_text_padding_horizontal"
+                android:paddingTop="@dimen/item_route_question_text_padding_vertical"
+                android:paddingEnd="@dimen/item_route_question_text_padding_horizontal"
+                android:paddingBottom="@dimen/item_route_question_text_padding_vertical"
+                android:textColor="@color/colorTypeDarkGray"
+                android:textSize="@dimen/item_check_list_completion_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_route_questions"
+                tools:ignore="RtlSymmetry"
+                tools:text="Меток: 3 Отсканировано: 3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

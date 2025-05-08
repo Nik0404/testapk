@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="com.acroninspector.app.common.utils.DateUtil" />
+
+        <variable
+            name="controlProcedure"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayControlProcedure" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_defect_card_view_horizontal_margin"
+        android:layout_marginTop="@dimen/item_defect_card_view_vertical_margin"
+        android:layout_marginEnd="@dimen/item_defect_card_view_horizontal_margin"
+        android:layout_marginBottom="@dimen/item_defect_card_view_vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:theme="@style/LightGrayRippleTheme"
+        app:cardCornerRadius="@dimen/item_defect_card_view_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation"
+        app:contentPaddingBottom="@dimen/item_defect_card_view_padding_bottom"
+        app:contentPaddingLeft="@dimen/item_defect_card_view_padding_left"
+        app:contentPaddingRight="@dimen/item_defect_card_view_padding_right"
+        app:contentPaddingTop="@dimen/item_defect_card_view_padding_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_control_procedure_et_margin_top"
+                android:background="@drawable/edit_text_question_background"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="4"
+                android:paddingStart="@dimen/item_question_edit_text_padding_horizontal"
+                android:paddingTop="@dimen/item_question_edit_text_padding_vertical"
+                android:paddingEnd="@dimen/item_question_edit_text_padding_horizontal"
+                android:paddingBottom="@dimen/item_question_edit_text_padding_vertical"
+                android:text='@{controlProcedure.orderNumber == -1 ? @string/empty_string : String.valueOf(controlProcedure.orderNumber)}'
+                android:textColor="@color/colorDarkGray"
+                android:textSize="@dimen/item_question_edit_text_text_size"
+                app:layout_constraintTop_toBottomOf="@id/tv_number_label"
+                tools:text="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_number_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/index_number"
+                android:textColor="@color/colorLightGray"
+                android:textSize="@dimen/fragment_edit_task_tv_label_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_equipment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_control_procedure_equipment_name_margin_top"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{controlProcedure.equipmentName}"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="@dimen/item_equipment_tv_name_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_number"
+                tools:text="ТП Насос" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_task_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_control_procedure_task_name_margin_top"
+                android:text="@{controlProcedure.equipmentCode}"
+                android:textColor="@color/colorDarkGray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_equipment_name"
+                tools:text="Чек-лист аппаратчика осаждения Ф-12/1-2 ЦФА" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

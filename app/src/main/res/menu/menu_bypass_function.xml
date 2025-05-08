@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/notificationsViewPagerFragment"
+            android:icon="@drawable/ic_notifications"
+            android:title="@string/drawer_menu_notifications"
+            app:actionLayout="@layout/counter_menu" />
+
+        <item
+            android:id="@+id/tasksViewPagerFragment"
+            android:icon="@drawable/ic_task"
+            android:title="@string/drawer_menu_tasks" />
+
+        <item
+            android:id="@+id/rootEquipmentFragment"
+            android:icon="@drawable/ic_equipment"
+            android:title="@string/drawer_menu_equipment" />
+
+        <item
+            android:id="@+id/defectsFragment"
+            android:icon="@drawable/ic_defect_list"
+            android:title="@string/drawer_menu_defects" />
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/drawer_item_get_data"
+            android:icon="@drawable/ic_get_data"
+            android:title="@string/drawer_menu_get_data" />
+
+        <item
+            android:id="@+id/drawer_item_send_data"
+            android:icon="@drawable/ic_send_data"
+            android:title="@string/drawer_menu_send_data" />
+
+        <item
+            android:id="@+id/drawer_item_exit"
+            android:icon="@drawable/ic_exit"
+            android:title="@string/drawer_menu_exit" />
+
+        <item
+            android:enabled="false"
+            android:title="" />
+
+        <item
+            android:id="@+id/drawer_item_flashlight"
+            android:icon="@drawable/ic_flashlight"
+            android:title="@string/drawer_menu_flashlight" />
+
+        <item
+            android:id="@+id/drawer_item_brightness"
+            android:icon="@drawable/ic_brightness"
+            android:title="@string/drawer_menu_brightness" />
+
+        <item
+            android:id="@+id/switch_light_dark"
+            android:icon="@drawable/ic_theme"
+            android:title="@string/dark_theme" />
+    </group>
+</menu>

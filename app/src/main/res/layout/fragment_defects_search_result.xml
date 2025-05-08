@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isNfcEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isNetworkEnabled"
+            type="Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginStart="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginTop="@dimen/main_toolbar_margin_top"
+                    android:layout_marginEnd="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginBottom="@dimen/main_toolbar_margin_bottom"
+                    app:cardBackgroundColor="@color/colorBackground"
+                    app:cardCornerRadius="@dimen/main_toolbar_card_corner_radius"
+                    app:cardElevation="@dimen/main_toolbar_card_elevation">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:background="@color/colorBackground"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_ic_menu_margin_start"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_ic_menu_padding"
+                            android:src="@drawable/ic_arrow_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_title"
+                            style="@style/TextAppearance.AppCompat.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_title_margin_start"
+                            android:text="@string/defect_list"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/main_toolbar_title_text_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btn_back"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_account"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_account_circle_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_account_circle_padding"
+                            android:src="@drawable/ic_account_circle_toolbar"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/network_indicator"
+                            android:layout_width="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_height="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_margin="@dimen/main_toolbar_network_indicator_margin"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/offline_circle"
+                            app:layout_constraintBottom_toBottomOf="@id/btn_account"
+                            app:layout_constraintEnd_toEndOf="@id/btn_account"
+                            app:networkStatus="@{safeUnbox(isNetworkEnabled)}" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_nfc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_button_nfc_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_button_nfc_padding"
+                            android:src="@drawable/ic_nfc_status"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btn_account"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:nfcColor="@{safeUnbox(isNfcEnabled)}" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:id="@+id/app_bar_underline"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_toolbar_underline_height"
+                    android:background="@color/colorAppbarUnderline"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/empty_state_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="@dimen/spacing_l4"
+            android:drawableTop="@drawable/ic_search_empty_state"
+            android:drawablePadding="@dimen/spacing_l2"
+            android:gravity="center"
+            android:text="@string/empty_state_search"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/text_size_xs4"
+            android:visibility="gone"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_defects"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/recycler_view_vertical_padding"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                tools:listitem="@layout/item_defect" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

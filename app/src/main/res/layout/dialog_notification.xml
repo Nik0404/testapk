@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="notification"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayNotification" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/card_dialog_background"
+        android:paddingBottom="@dimen/dialog_criticality_padding">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_close_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="top|end"
+            android:layout_marginStart="@dimen/dialog_criticality_btn_close_margin_start"
+            android:layout_marginTop="@dimen/card_equipment_padding_top"
+            android:layout_marginEnd="@dimen/dialog_criticality_btn_close_margin_end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/button"
+            android:padding="@dimen/card_user_button_close_padding"
+            android:src="@drawable/ic_close" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/dialog_criticality_padding"
+            android:layout_marginTop="@dimen/dialog_criticality_btn_close_margin_start"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/new_task"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/card_user_title_text_size"
+            tools:ignore="RelativeOverlap" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_notification_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/dialog_criticality_padding"
+            android:layout_marginTop="@dimen/dialog_notification_tv_timestamp_margin_top"
+            android:text="@{notification.dateCreation}"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/item_notification_timestamp_text_size"
+            tools:text="04.09.2019 08:50" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_notification_executor"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/dialog_criticality_padding"
+            android:layout_marginTop="@dimen/dialog_notification_tv_message_margin_top"
+            android:layout_marginEnd="@dimen/dialog_criticality_padding"
+            android:textColor="@color/colorDarkGray"
+            tools:text="Поступило на выполнение задание №1 «Обход аппаратчиком синтеза»" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_notification_executor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_notification_timestamp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/dialog_criticality_padding"
+            android:layout_marginTop="@dimen/dialog_notification_tv_message_margin_top"
+            android:text='@{notification.executorName == null ? @string/no_data : @string/executor + ": " + notification.executorName}'
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/item_notification_executor_text_size"
+            tools:text="Исполнитель: Петров В.В." />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_notification_start_date_planned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_message"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/dialog_criticality_padding"
+            android:layout_marginTop="@dimen/dialog_notification_tv_message_margin_top"
+            android:text='@{@string/planned_start + " " + notification.taskStartDatePlanned}'
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/item_notification_timestamp_text_size"
+            tools:text="Плановое начало: 03.04.2019 07:35" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_notification_end_date_planned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_notification_start_date_planned"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/dialog_criticality_padding"
+            android:layout_marginTop="@dimen/dialog_notification_tv_timestamp_margin_top"
+            android:text='@{@string/planned_end + " " + notification.taskEndDatePlanned}'
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/item_notification_timestamp_text_size"
+            tools:text="Плановое завершение: 04.04.2019 10:00" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_task"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_comment_button_height"
+            android:layout_below="@id/tv_notification_end_date_planned"
+            android:layout_marginStart="@dimen/dialog_criticality_padding"
+            android:layout_marginTop="@dimen/dialog_notification_btn_task_margin_top"
+            android:layout_marginEnd="@dimen/dialog_criticality_padding"
+            android:background="@drawable/button_apply_background"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/go_to_task"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</layout>

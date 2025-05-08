@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="isNfcEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isNetworkEnabled"
+            type="Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            app:elevation="0dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_toolbar_margin_top"
+                    android:background="@color/colorBackground" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginStart="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginTop="@dimen/main_toolbar_margin_top"
+                    android:layout_marginEnd="@dimen/main_toolbar_horizontal_margin"
+                    android:layout_marginBottom="@dimen/main_toolbar_margin_bottom"
+                    app:cardCornerRadius="@dimen/main_toolbar_card_corner_radius"
+                    app:cardElevation="@dimen/main_toolbar_card_elevation">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_menu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_ic_menu_margin_start"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_ic_menu_padding"
+                            android:src="@drawable/ic_menu"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_title"
+                            style="@style/TextAppearance.AppCompat.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/main_toolbar_title_margin_start"
+                            android:text="@string/drawer_menu_notifications"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/main_toolbar_title_text_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btn_menu"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_account"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_account_circle_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_account_circle_padding"
+                            android:src="@drawable/ic_account_circle_toolbar"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/network_indicator"
+                            android:layout_width="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_height="@dimen/main_toolbar_network_indicator_size"
+                            android:layout_margin="@dimen/main_toolbar_network_indicator_margin"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/offline_circle"
+                            app:layout_constraintBottom_toBottomOf="@id/btn_account"
+                            app:layout_constraintEnd_toEndOf="@id/btn_account"
+                            app:networkStatus="@{safeUnbox(isNetworkEnabled)}" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_nfc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/main_toolbar_button_nfc_margin_end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/button"
+                            android:padding="@dimen/main_toolbar_button_nfc_padding"
+                            android:src="@drawable/ic_nfc_status"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btn_account"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:nfcColor="@{safeUnbox(isNfcEnabled)}" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+            <com.ogaclejapan.smarttablayout.SmartTabLayout
+                android:id="@+id/viewpager_tab"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_pager_tab_layout_height"
+                app:stl_clickable="true"
+                app:stl_defaultTabBackground="?attr/selectableItemBackground"
+                app:stl_defaultTabTextAllCaps="false"
+                app:stl_defaultTabTextColor="@drawable/tab_item_tint"
+                app:stl_defaultTabTextHorizontalPadding="@dimen/tab_layout_tab_horizontal_padding"
+                app:stl_distributeEvenly="true"
+                app:stl_dividerThickness="0dp"
+                app:stl_drawDecorationAfterTab="false"
+                app:stl_indicatorAlwaysInCenter="false"
+                app:stl_indicatorColor="@color/colorAccent"
+                app:stl_indicatorCornerRadius="@dimen/tab_layout_indicator_corner_radius"
+                app:stl_indicatorGravity="bottom"
+                app:stl_indicatorInFront="false"
+                app:stl_indicatorInterpolation="linear"
+                app:stl_indicatorThickness="@dimen/tab_layout_indicator_thickness"
+                app:stl_indicatorWidth="@dimen/tab_layout_indicator_width"
+                app:stl_indicatorWithoutPadding="false"
+                app:stl_overlineThickness="0dp"
+                app:stl_underlineColor="@color/colorTabsUnderline"
+                app:stl_underlineThickness="@dimen/tab_layout_underline_thickness" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

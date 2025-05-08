@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isNfcEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isNetworkEnabled"
+            type="Boolean" />
+
+        <variable
+            name="functionName"
+            type="String" />
+
+        <variable
+            name="user"
+            type="com.acroninspector.app.domain.entity.local.database.User" />
+
+        <variable
+            name="handler"
+            type="com.acroninspector.app.presentation.activity.main.MainActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:paddingTop="@dimen/menu_header_padding_top">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_header_content_margin_start"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/acron_logo_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_header_padding_end"
+            android:layout_marginEnd="@dimen/menu_header_padding_end"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/menu_header_version_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_logo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_header_tv_name_margin_start"
+            android:layout_marginTop="@dimen/menu_header_tv_name_margin_top"
+            android:layout_marginEnd="@dimen/menu_header_tv_name_margin_end"
+            android:drawableStart="@drawable/ic_account_circle"
+            android:drawablePadding="@dimen/menu_header_tv_name_drawable_padding"
+            android:fontFamily="sans-serif-medium"
+            android:onClick="@{(view) -> handler.onClickUserName()}"
+            android:text='@{user.name + " " + user.surname + " " + user.thirdName}'
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/menu_header_user_name_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo"
+            tools:text="Белкин Вадим\nСергеевич" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_function_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_header_tv_network_status_margin_start"
+            android:layout_marginTop="@dimen/menu_header_tv_function_name_margin_top"
+            android:layout_marginEnd="@dimen/menu_header_tv_name_margin_end"
+            android:fontFamily="sans-serif-medium"
+            android:text='@{@string/function_name_template + " " + functionName}'
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/menu_header_tv_function_name_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="Функция: Обход ТО" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_network_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_header_tv_network_status_margin_start"
+            android:layout_marginTop="@dimen/menu_header_statuses_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/offline"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/menu_header_status_text_size"
+            app:layout_constraintBottom_toTopOf="@id/header_divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_function_name"
+            app:networkStatus="@{safeUnbox(isNetworkEnabled)}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_nfc_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_header_nfc_status_margin_start"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/nfc_off"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/menu_header_status_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/tv_network_status"
+            app:layout_constraintStart_toEndOf="@id/tv_network_status"
+            app:layout_constraintTop_toTopOf="@id/tv_network_status"
+            app:nfcStatus="@{safeUnbox(isNfcEnabled)}" />
+
+        <View
+            android:id="@+id/header_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_header_divider_height"
+            android:layout_marginTop="@dimen/menu_header_divider_margin_top"
+            android:background="@color/colorDivider"
+            app:layout_constraintTop_toBottomOf="@id/tv_network_status" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

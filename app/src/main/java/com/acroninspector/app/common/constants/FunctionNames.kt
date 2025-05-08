@@ -1,0 +1,23 @@
+package com.acroninspector.app.common.constants
+
+object FunctionNames {
+
+    const val ATTACHMENTS = "ME_MOEX_EXEMPLAR_ATTACHMENT"
+    const val NOTIFICATIONS = "NOTIFICATIONS"
+    const val TASKS = "ME_MOEX_EXEMPLAR_TASK"
+    const val DIRECTORIES = "ME_MOEX_STRUCTURE_POS"
+    const val EQUIPMENT_CLASS = "ME_MOEX_CNSI_POSITION_TYPE"
+    const val EQUIPMENT = "ME_MOEX_POSITION"
+    const val NFC_EQUIPMENT = "ME_MOEX_NFC"
+    const val NFC_ROUTE = "ME_MOEX_EXEMPLAR_NFC"
+    const val ROUTES = "ME_MOEX_EXEMPLAR_ROUTE"
+    const val CHECK_LISTS = "ME_MOEX_EXEMPLAR_CHECKLIST"
+    const val ANSWER = "ME_MOEX_EXEMPLAR_ANSWER"
+    const val EXECUTORS = "ME_MOEX_EXECUTOR_BY_GROUPS"
+    const val USER_GROUPS = "ME_MOEX_EXECUTOR_GROUP"
+    const val DEFECT_LOG = "ME_MOEX_DEFECT_LOG"
+    const val DEFECT_CAUSES = "ME_MOEX_CNSI_DEFECTS_CAUSES"
+    const val DEFECTS = "ME_MOEX_CNSI_DEFECTS"
+    const val DEFECT_RELATIONS = "ME_MOEX_CNSI_DEF_BY_POS"
+    const val REGISTER_DEVICE = "ME_MOEX_IMEC"
+}

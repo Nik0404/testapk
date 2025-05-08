@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/item_task_card_horizontal_margin"
+    android:layout_marginTop="@dimen/item_task_card_vertical_margin"
+    android:layout_marginEnd="@dimen/item_task_card_horizontal_margin"
+    android:layout_marginBottom="@dimen/item_task_card_vertical_margin"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/item_task_card_corner_radius"
+    app:cardElevation="@dimen/card_view_elevation"
+    app:contentPaddingBottom="@dimen/item_task_card_padding_bottom">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/taskStatusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_task_card_header_height"
+            android:layout_gravity="start|center_vertical"
+            android:background="@drawable/button_corner_top_background"
+            android:clickable="true"
+            android:drawableEnd="@drawable/ic_arrow_down"
+            android:focusable="true"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacing_m"
+            android:paddingEnd="@dimen/spacing_s4"
+            android:textColor="@android:color/white"
+            tools:text="Новое задание" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/taskNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_task_elements_horizontal_margin"
+            android:layout_marginTop="@dimen/item_task_title_margin_top"
+            android:layout_marginEnd="@dimen/item_task_elements_horizontal_margin"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/item_task_number_text_size"
+            tools:text="Задание на обход №131:" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/taskNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_task_elements_horizontal_margin"
+            android:layout_marginTop="@dimen/fragment_task_details_task_name_margin_top"
+            android:layout_marginEnd="@dimen/item_task_elements_horizontal_margin"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/item_task_title_text_size"
+            tools:text="Чек-лист аппаратчика осаждения Ф-12/1-2 ЦФА №(2388)" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/taskExecutorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_task_elements_horizontal_margin"
+            android:layout_marginTop="@dimen/fragment_task_details_task_name_margin_bottom"
+            android:layout_marginEnd="@dimen/item_task_elements_horizontal_margin"
+            android:textColor="@color/colorLightGray"
+            android:textSize="@dimen/item_task_timestamp_text_size"
+            tools:text="Исполнитель: Васин В.И." />
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_task_elements_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_task_elements_horizontal_margin"
+            app:el_duration="300"
+            app:el_expanded="true"
+            app:el_parallax="0.5">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/plannedStartTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="@dimen/item_task_timestamp_text_size"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/plannedEndTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="@dimen/item_task_timestamp_text_size"
+                    app:layout_constraintTop_toBottomOf="@id/plannedStartTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actualStartTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="@dimen/item_task_timestamp_text_size"
+                    app:layout_constraintTop_toBottomOf="@id/plannedEndTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actualEndTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_expandable_layout_margin_top"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="@dimen/item_task_timestamp_text_size"
+                    app:layout_constraintTop_toBottomOf="@id/actualStartTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_lists_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_label_margin_top"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/check_lists_number"
+                    android:textColor="@color/colorDarkGray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actualEndTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_no_answers_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_label_margin_top"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/check_lists_without_answer"
+                    android:textColor="@color/colorDarkGray"
+                    app:layout_constraintEnd_toStartOf="@id/tv_with_defect_label"
+                    app:layout_constraintStart_toEndOf="@id/tv_lists_label"
+                    app:layout_constraintTop_toBottomOf="@id/actualEndTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_with_defect_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_label_margin_top"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/check_lists_with_defect"
+                    android:textColor="@color/colorDarkGray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actualEndTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/listsCountView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_count_margin_top"
+                    android:layout_marginBottom="@dimen/item_task_count_margin_bottom"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/item_task_count_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/tv_lists_label"
+                    app:layout_constraintStart_toStartOf="@id/tv_lists_label"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lists_label" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/noAnswersCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_count_margin_top"
+                    android:layout_marginBottom="@dimen/item_task_count_margin_bottom"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/item_task_count_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/tv_no_answers_label"
+                    app:layout_constraintStart_toStartOf="@id/tv_no_answers_label"
+                    app:layout_constraintTop_toBottomOf="@id/tv_no_answers_label" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/countOfListsWithDefectsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_task_count_margin_top"
+                    android:layout_marginBottom="@dimen/item_task_count_margin_bottom"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/item_task_count_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/tv_with_defect_label"
+                    app:layout_constraintStart_toStartOf="@id/tv_with_defect_label"
+                    app:layout_constraintTop_toBottomOf="@id/tv_with_defect_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </net.cachapa.expandablelayout.ExpandableLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

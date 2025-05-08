@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/activity_login_card_view_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_login_card_view_horizontal_margin"
+        app:cardCornerRadius="@dimen/activity_login_card_view_corner_radius"
+        app:contentPaddingLeft="@dimen/activity_login_card_view_horizontal_padding"
+        app:contentPaddingRight="@dimen/activity_login_card_view_horizontal_padding"
+        app:contentPaddingTop="@dimen/activity_login_card_view_padding_top">
+
+        <ImageButton
+            android:id="@+id/imageButtonNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/baseline_notifications_button" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_title_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/acron_logo_vertical_light" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewAppVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_login_tv_app_version_margin_top"
+                android:textColor="@color/colorDarkGreen"
+                app:layout_constraintBottom_toTopOf="@id/text_input_layout_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_title_icon"
+                tools:text="v.1.0.0.1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_s"
+                android:singleLine="true"
+                android:text="@string/select_function"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_size_xs2" />
+                <RadioGroup
+                android:id="@+id/functionsGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m"
+                android:animateLayoutChanges="true" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/chooseFunctionButton"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_login_button_sign_in_height"
+                android:layout_marginStart="@dimen/activity_login_button_sign_in_horizontal_margin"
+                android:layout_marginTop="@dimen/spacing_l"
+                android:layout_marginEnd="@dimen/activity_login_button_sign_in_horizontal_margin"
+                android:background="@drawable/button_green_background"
+                android:text="@string/choose"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/exitButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/fragment_user_function_login_button_height"
+                android:layout_marginTop="@dimen/fragment_user_function_login_button_margin_top"
+                android:layout_marginBottom="@dimen/fragment_user_function_login_button_margin_bottom"
+                android:background="@null"
+                android:fontFamily="sans-serif"
+                android:text="@string/exit"
+                android:textAllCaps="false"
+                android:textColor="@color/colorText" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@color/colorBackground">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:paddingStart="@dimen/popup_error_padding"
+        android:paddingTop="@dimen/popup_error_padding"
+        android:paddingEnd="@dimen/popup_error_padding"
+        android:paddingBottom="@dimen/popup_error_padding_bottom">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/popup_title_text_size"
+            tools:text="@string/unanswered_lists_title" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/popup_unfinished_task_nested_scroll_margin_top"
+            android:layout_marginBottom="@dimen/popup_unfinished_task_nested_scroll_margin_bottom"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGray"
+                tools:text="@string/unanswered_lists_message" />
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/yesButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="@dimen/popup_yes_no_button_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/popup_unfinished_task_yes_button_margin_end"
+            android:background="@drawable/button_dialog_background"
+            android:paddingStart="@dimen/button_dialog_padding_horizontal"
+            android:paddingEnd="@dimen/button_dialog_padding_horizontal"
+            android:text="@string/yes"
+            android:textAllCaps="false"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/popup_button_text_size"
+            android:theme="@style/AppTheme" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/noButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="@dimen/popup_yes_no_button_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/button_dialog_background"
+            android:paddingStart="@dimen/button_dialog_padding_horizontal"
+            android:paddingEnd="@dimen/button_dialog_padding_horizontal"
+            android:text="@string/no"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/popup_button_text_size"
+            android:theme="@style/AppTheme" />
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="taskName"
+            type="String" />
+
+        <variable
+            name="taskNumber"
+            type="String" />
+
+        <variable
+            name="taskStatus"
+            type="Integer" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/colorBlue"
+        app:cardCornerRadius="@dimen/activity_register_defect_card_equipment_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation_small"
+        app:taskStatus="@{safeUnbox(taskStatus)}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_register_defect_card_equipment_padding">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_task_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text='@{@string/task_route_number + taskNumber}'
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/item_task_number_text_size"
+                tools:text="Задание на обход №131" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_task_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_task_title_margin_top"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{taskName}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/item_task_title_text_size"
+                tools:text="Чек-лист аппаратчика осаждения Ф-12/1-2 ЦФА №(2388)" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

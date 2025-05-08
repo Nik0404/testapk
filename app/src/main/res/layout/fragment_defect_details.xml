@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.acroninspector.app.common.constants.Constants" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="defect"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayDefectLog" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackground"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|snap|enterAlways">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_register_defect_button_back_margin_start"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/button"
+                    android:padding="@dimen/activity_register_defect_button_back_padding"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_toolbar_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/activity_register_defect_tv_toolbar_title_margin_start"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_toolbar_title_margin_end"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/activity_register_defect_tv_toolbar_title_text_size"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_back"
+                    app:layout_constraintEnd_toStartOf="@id/btn_edit_defect"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="@id/btn_back"
+                    tools:text="Дефект &quot;ТП Абсорбер&quot;" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_edit_defect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_button_edit_margin_end"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/button"
+                    android:padding="@dimen/fragment_defect_details_toolbar_button_padding"
+                    android:src="@drawable/ic_edit"
+                    android:theme="@style/AppTheme"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
+                    app:layout_constraintEnd_toStartOf="@id/btn_defect_attachments"
+                    app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_defect_attachments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_register_defect_button_attachments_margin_end"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/button"
+                    android:padding="@dimen/fragment_defect_details_toolbar_button_padding"
+                    android:src="@drawable/ic_attachments"
+                    android:theme="@style/AppTheme"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_defect_attachments_counter"
+                    android:layout_width="@dimen/attachments_circle_size"
+                    android:layout_height="@dimen/attachments_circle_size"
+                    android:layout_marginStart="@dimen/activity_register_defect_attachments_counter_margin"
+                    android:layout_marginBottom="@dimen/activity_register_defect_attachments_counter_margin"
+                    android:background="@drawable/counter_circle_background"
+                    android:gravity="center"
+                    android:text="@{String.valueOf(safeUnbox(defect.attachmentsCount))}"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/notifications_counter_text_size"
+                    android:textStyle="bold"
+                    android:visibility="@{safeUnbox(defect.attachmentsCount) == 0 ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_defect_attachments"
+                    app:layout_constraintEnd_toEndOf="@id/btn_defect_attachments"
+                    app:layout_constraintStart_toStartOf="@id/btn_defect_attachments"
+                    app:layout_constraintTop_toTopOf="@id/btn_defect_attachments"
+                    tools:text="2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_defect_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_tv_title_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:text="@string/defect_name"
+                    android:textColor="@color/colorLightGray"
+                    android:visibility="@{TextUtils.isEmpty(defect.defectName) ? View.GONE : View.VISIBLE}" />
+
+                <include
+                    android:id="@+id/layout_defect_name"
+                    layout="@layout/card_defect_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_card_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:theme="@style/LightGrayRippleTheme"
+                    android:visibility="@{TextUtils.isEmpty(defect.defectName) ? View.GONE : View.VISIBLE}"
+                    app:name="@{defect.defectName}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_defect_cause_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_tv_title_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:text="@string/defect_cause_name"
+                    android:textColor="@color/colorLightGray"
+                    android:visibility="@{TextUtils.isEmpty(defect.defectCauseName) ? View.GONE : View.VISIBLE}" />
+
+                <include
+                    android:id="@+id/layout_defect_cause_name"
+                    layout="@layout/card_defect_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_card_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:theme="@style/LightGrayRippleTheme"
+                    android:visibility="@{TextUtils.isEmpty(defect.defectCauseName) ? View.GONE : View.VISIBLE}"
+                    app:name="@{defect.defectCauseName}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_defect_criticality_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_tv_title_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:text="@string/defect_criticality"
+                    android:textColor="@color/colorLightGray"
+                    android:visibility="@{safeUnbox(defect.criticality) == Constants.CRITICALITY_NO ? View.GONE : View.VISIBLE}" />
+
+                <include
+                    android:id="@+id/layout_defect_criticality"
+                    layout="@layout/card_defect_criticality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_card_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:theme="@style/LightGrayRippleTheme"
+                    android:visibility="@{safeUnbox(defect.criticality) == Constants.CRITICALITY_NO ? View.GONE : View.VISIBLE}"
+                    app:criticality="@{defect.criticality}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_equipment_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_tv_title_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:text="@string/equipment"
+                    android:textColor="@color/colorLightGray"
+                    android:visibility="@{TextUtils.isEmpty(defect.equipmentName) ? View.GONE : View.VISIBLE}" />
+
+                <include
+                    android:id="@+id/layout_equipment"
+                    layout="@layout/card_defect_equipment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_card_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:theme="@style/LightGrayRippleTheme"
+                    android:visibility="@{TextUtils.isEmpty(defect.equipmentName) ? View.GONE : View.VISIBLE}"
+                    app:code="@{defect.equipmentCode}"
+                    app:name="@{defect.equipmentName}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_task_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_tv_title_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:text="@string/task"
+                    android:textColor="@color/colorLightGray"
+                    android:visibility="@{TextUtils.isEmpty(defect.taskName) ? View.GONE : View.VISIBLE}" />
+
+                <include
+                    android:id="@+id/layout_card"
+                    layout="@layout/card_defect_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_card_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:theme="@style/LightGrayRippleTheme"
+                    android:visibility="@{TextUtils.isEmpty(defect.taskName) ? View.GONE : View.VISIBLE}"
+                    app:taskName="@{defect.taskName}"
+                    app:taskNumber="@{defect.taskNumber}"
+                    app:taskStatus="@{safeUnbox(defect.taskStatus)}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_defect_comment_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_tv_title_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_tv_title_horizontal_margin"
+                    android:text="@string/comment"
+                    android:textColor="@color/colorLightGray"
+                    android:visibility="@{TextUtils.isEmpty(defect.comment) ? View.GONE : View.VISIBLE}" />
+
+                <include
+                    android:id="@+id/layout_defect_comment"
+                    layout="@layout/card_defect_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:layout_marginTop="@dimen/fragment_defect_details_card_margin_top"
+                    android:layout_marginEnd="@dimen/fragment_defect_details_card_horizontal_margin"
+                    android:layout_marginBottom="@dimen/fragment_defect_details_card_margin_bottom"
+                    android:theme="@style/LightGrayRippleTheme"
+                    android:visibility="@{TextUtils.isEmpty(defect.comment) ? View.GONE : View.VISIBLE}"
+                    app:comment="@{defect.comment}" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

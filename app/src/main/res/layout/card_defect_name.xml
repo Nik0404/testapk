@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:theme="@style/LightGrayRippleTheme"
+        app:cardCornerRadius="@dimen/item_equipment_card_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation_small"
+        app:contentPadding="@dimen/item_equipment_card_padding">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_defect_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{name}"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/item_defect_directory_defect_name_text_size"
+            tools:text="Абсорбер сбита программа работы начального этапа." />
+    </androidx.cardview.widget.CardView>
+</layout>

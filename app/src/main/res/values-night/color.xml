@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#ff424242</color>
+    <color name="colorFolderRipple">#EBEBEB</color>
+
+    <color name="colorDarkGray">#EBEBEB</color>
+    <color name="colorDarkGrayBtn">#ff424242</color>
+
+    <color name="colorVersion">#01A99C</color>
+
+    <color name="colorGray">#EBEBEB</color>
+    <color name="colorLightGray">#ABAAAA</color>
+
+    <color name="colorBlue">#ff424242</color>
+    <color name="colorGreen">#ff424242</color>
+    <color name="colorPurple">#ff424242</color>
+</resources>

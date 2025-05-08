@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fragment_edit_task_padding"
+                    android:layout_marginTop="@dimen/fragment_edit_task_padding"
+                    android:layout_marginEnd="@dimen/fragment_edit_task_padding"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:theme="@style/LightGrayRippleTheme"
+                    app:cardCornerRadius="@dimen/activity_register_defect_card_equipment_corner_radius"
+                    app:contentPadding="@dimen/fragment_edit_task_card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_name_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/task_name"
+                            android:textColor="@color/colorLightGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_label_text_size" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{TextUtils.isEmpty(task.name) ? @string/no_data : task.name}"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_title_text_size"
+                            tools:text="Чек-лист аппаратчика осаждения Ф-12/1-2 ЦФА №(2388)." />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_executor_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/fragment_edit_task_tv_label_margin_top"
+                            android:text="@string/task_executor"
+                            android:textColor="@color/colorLightGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_label_text_size" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_executor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{TextUtils.isEmpty(task.executorName) ? @string/no_data : task.executorName}"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_title_text_size"
+                            tools:text="Иванов И.И." />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_start_date_planned_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/fragment_edit_task_tv_label_margin_top"
+                            android:text="@string/planned_start_edit_task"
+                            android:textColor="@color/colorLightGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_label_text_size" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_start_date_planned"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{TextUtils.isEmpty(task.startDatePlanned) ? @string/no_data : task.startDatePlanned}"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_title_text_size"
+                            tools:text="03.04.2019 07:35" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_end_date_planned_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/fragment_edit_task_tv_label_margin_top"
+                            android:text="@string/planned_end_edit_task"
+                            android:textColor="@color/colorLightGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_label_text_size" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_task_end_date_planned"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/card_equipment_tv_value_margin_top"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{TextUtils.isEmpty(task.endDatePlanned) ? @string/no_data : task.endDatePlanned}"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="@dimen/fragment_edit_task_tv_title_text_size"
+                            tools:text="04.04.2019 07:35" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_change_control_procedure"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_comment_button_height"
+                    android:layout_marginStart="@dimen/fragment_edit_task_padding"
+                    android:layout_marginTop="@dimen/fragment_edit_task_padding"
+                    android:layout_marginEnd="@dimen/fragment_edit_task_padding"
+                    android:background="@drawable/button_white_with_shadow_background"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/change_control_procedure"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorDarkGray" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_change_executor"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_comment_button_height"
+                    android:layout_marginStart="@dimen/fragment_edit_task_padding"
+                    android:layout_marginTop="@dimen/fragment_edit_task_padding"
+                    android:layout_marginEnd="@dimen/fragment_edit_task_padding"
+                    android:layout_marginBottom="@dimen/fragment_edit_task_padding"
+                    android:background="@drawable/button_apply_background"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/change_executor"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|snap|enterAlways">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_attachments_button_back_margin_start"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/button"
+                    android:padding="@dimen/activity_attachments_button_back_padding"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/activity_attachments_tv_toolbar_title_margin_start"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/edit_task"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/activity_comment_toolbar_title_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="task"
+            type="com.acroninspector.app.domain.entity.local.display.DisplayTask" />
+    </data>
+</layout>

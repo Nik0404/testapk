@@ -1,0 +1,54 @@
+package com.acroninspector.app.data.util.constants
+
+object DefectLogColumns {
+
+    const val ID_COLUMN_NAME = "DEFECT_UP"
+    const val ID_COLUMN_POSITION = 0
+
+    private const val EQUIPMENT_NAME_COLUMN_NAME = "POSITION_NAME"
+    const val EQUIPMENT_NAME_COLUMN_POSITION = 1
+
+    const val DEFECT_NOTE_COLUMN_NAME = "DEFECT_NOTE"
+    const val DEFECT_NOTE_COLUMN_POSITION = 2
+
+    const val DEFECT_DT_COLUMN_NAME = "DEFECT_DT"
+    const val DEFECT_DT_COLUMN_POSITION = 3
+
+    const val DEFECT_CRITICALITY_COLUMN_NAME = "CRITICAL_CATEGORY"
+    const val DEFECT_CRITICALITY_COLUMN_POSITION = 4
+
+    private const val DEFECT_CAUSE_NAME_COLUMN_NAME = "DEFECT_CAUSE_CODE_FNM"
+    const val DEFECT_CAUSE_NAME_COLUMN_POSITION = 5
+
+    private const val DEFECT_NAME_COLUMN_NAME = "DEFECT_CODE_FNM"
+    const val DEFECT_NAME_COLUMN_POSITION = 6
+
+    private const val EQUIPMENT_CODE_NAME_COLUMN_NAME = "POSITION_SCHEME_SIGN"
+    const val EQUIPMENT_CODE_NAME_COLUMN_POSITION = 7
+
+    const val EQUIPMENT_ID_COLUMN_NAME = "POSITION_ID"
+    const val EQUIPMENT_ID_COLUMN_POSITION = 8
+
+    const val DEFECT_IS_CORRECTED = "IS_CORRECTED"
+    const val DEFECT_IS_CORRECTED_POSITION = 9
+
+    const val DEFECT_CAUSE_CODE_COLUMN_NAME = "DEFECT_CAUSE_CODE"
+    const val CHECK_LIST_ID_COLUMN_NAME = "CHECKLIST_ID"
+    const val DEFECT_CODE_COLUMN_NAME = "DEFECT_CODE"
+    const val SUBDIVISION_COLUMN_NAME = "SUBDIVISION"
+
+    fun getColumns(): List<String> {
+        return listOf(
+            ID_COLUMN_NAME,
+            EQUIPMENT_NAME_COLUMN_NAME,
+            DEFECT_NOTE_COLUMN_NAME,
+            DEFECT_DT_COLUMN_NAME,
+            DEFECT_CRITICALITY_COLUMN_NAME,
+            DEFECT_CAUSE_NAME_COLUMN_NAME,
+            DEFECT_NAME_COLUMN_NAME,
+            EQUIPMENT_CODE_NAME_COLUMN_NAME,
+            EQUIPMENT_ID_COLUMN_NAME,
+            DEFECT_IS_CORRECTED
+        )
+    }
+}
