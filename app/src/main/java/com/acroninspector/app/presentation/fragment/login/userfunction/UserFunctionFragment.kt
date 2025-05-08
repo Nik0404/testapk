@@ -30,7 +30,6 @@ import kotlinx.android.synthetic.main.fragment_user_function.imageButtonNotifica
 import kotlinx.android.synthetic.main.fragment_user_function.progressBar
 import kotlinx.android.synthetic.main.fragment_user_function.rootView
 import kotlinx.android.synthetic.main.fragment_user_function.textViewAppVersion
-import org.jetbrains.anko.singleLine
 import javax.inject.Inject
 
 class UserFunctionFragment : BaseLoginFragment(), UserFunctionView {
@@ -96,7 +95,7 @@ class UserFunctionFragment : BaseLoginFragment(), UserFunctionView {
                     RadioGroup.LayoutParams.WRAP_CONTENT,
                     RadioGroup.LayoutParams.WRAP_CONTENT
                 )
-                singleLine = true
+                maxLines = 1
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, rbTextSize)
                 setTextColor(rbTextColor)
                 setPadding(0, rbPadding, 0, rbPadding)

@@ -21,7 +21,6 @@ import com.acroninspector.app.domain.entity.local.display.DisplayDefectLog
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 class DefectDetailsFragment : BaseFragment(), DefectDetailsView {
@@ -58,9 +57,9 @@ class DefectDetailsFragment : BaseFragment(), DefectDetailsView {
         val defect = arguments?.getParcelable<DisplayDefectLog>(KEY_DEFECT_OBJECT)
         initViews(defect!!)
 
-        binding.btnBack.onClick { navController.popBackStack() }
-        binding.btnEditDefect.onClick { presenter.onEditDefectClicked(defect) }
-        binding.btnDefectAttachments.onClick { presenter.onAttachmentsClicked(defect) }
+        binding.btnBack.setOnClickListener { navController.popBackStack() }
+        binding.btnEditDefect.setOnClickListener { presenter.onEditDefectClicked(defect) }
+        binding.btnDefectAttachments.setOnClickListener { presenter.onAttachmentsClicked(defect) }
 
         if (defect.isLocalDefect) {
             presenter.localDefectId = defect.id

@@ -14,8 +14,6 @@ import androidx.fragment.app.DialogFragment
 import com.acroninspector.app.R
 import com.acroninspector.app.common.utils.BrightnessRegulator
 import com.acroninspector.app.databinding.DialogBrightnessBinding
-import com.acroninspector.app.domain.entity.local.database.User
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class BrightnessDialog() : DialogFragment() {
 

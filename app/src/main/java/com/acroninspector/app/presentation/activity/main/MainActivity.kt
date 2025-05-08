@@ -75,8 +75,6 @@ import kotlinx.android.synthetic.main.activity_main.navigation_view
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.backgroundColor
-import org.jetbrains.anko.nfcManager
 import java.io.File
 import javax.inject.Inject
 
@@ -594,9 +592,9 @@ class MainActivity : BaseActivity(), MainView, NavigationView.OnNavigationItemSe
 
     override fun refreshNfcStatus() {
         if (packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)) {
-            headerBinding.isNfcEnabled = nfcManager.defaultAdapter.isEnabled
+            headerBinding.isNfcEnabled = NfcAdapter.getDefaultAdapter(this).isEnabled
 
-            for (handler in nfcStatusHandlers) handler?.handleNfcStatus(nfcManager.defaultAdapter.isEnabled)
+            for (handler in nfcStatusHandlers) handler?.handleNfcStatus(NfcAdapter.getDefaultAdapter(this).isEnabled)
         }
     }
 
@@ -604,11 +602,11 @@ class MainActivity : BaseActivity(), MainView, NavigationView.OnNavigationItemSe
 
     override fun showSnackbar(message: String) {
         val snackbar = Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT)
-        snackbar.view.backgroundColor = ContextCompat.getColor(this, R.color.colorRed)
+        snackbar.view.setBackgroundResource(ContextCompat.getColor(this, R.color.colorRed))
         val textView =
             snackbar.view.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
         textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
-
+    
         snackbar.show()
     }
 
@@ -739,25 +737,13 @@ class MainActivity : BaseActivity(), MainView, NavigationView.OnNavigationItemSe
     override fun onPause() {
         super.onPause()
 
-        //---СОХРАНЯЕТСЯ ID ФРАГМЕНТ НЕ ТОЛЬКО, КОТОРЫЙ В НАВИГАЦИИ, НАДО ДЕЛАТЬ НАВЕРНОЕ ПРОВЕРКУ---
-//         saveNavigationId(navController.currentDestination?.id ?: 0)
-
         val menu = navigation_view.menu
-
         for (i in 0 until menu.size()) {
             val item = menu.getItem(i)
             val itemId = item.itemId
 
             if (itemId != navController.currentDestination?.id) {
-                Log.d(
-                    "tests",
-                    "Пункт меню не соответствует активному фрагменту ((${navController.currentDestination?.id}))"
-                )
                 navController.currentDestination?.id = binding.navigationView.checkedItem!!.itemId
-                Log.d(
-                    "tests",
-                    "обновленный navController.currentDestination = ((${navController.currentDestination?.id}))"
-                )
                 saveNavigationId(navController.currentDestination?.id ?: 0)
                 break
             }

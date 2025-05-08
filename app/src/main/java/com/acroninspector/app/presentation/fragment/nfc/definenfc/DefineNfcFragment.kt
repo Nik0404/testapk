@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.acroninspector.app.App
 import com.acroninspector.app.R
 import com.acroninspector.app.common.constants.Constants.KEY_EQUIPMENT_ID
@@ -22,7 +21,6 @@ import com.acroninspector.app.presentation.dialog.ErrorDialog
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 class DefineNfcFragment : BaseFragment(), DefineNfcView, ScanNfcListener {
@@ -52,9 +50,9 @@ class DefineNfcFragment : BaseFragment(), DefineNfcView, ScanNfcListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnBack.onClick { navController.popBackStack() }
-        binding.btnSave.onClick { presenter.onSaveClicked() }
-        binding.btnDrop.onClick { presenter.onDropClicked() }
+        binding.btnBack.setOnClickListener { navController.popBackStack() }
+        binding.btnSave.setOnClickListener { presenter.onSaveClicked() }
+        binding.btnDrop.setOnClickListener { presenter.onDropClicked() }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

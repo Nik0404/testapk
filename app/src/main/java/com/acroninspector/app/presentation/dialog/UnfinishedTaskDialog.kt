@@ -8,7 +8,6 @@ import androidx.fragment.app.DialogFragment
 import com.acroninspector.app.R
 import com.acroninspector.app.common.constants.Constants
 import kotlinx.android.synthetic.main.popup_unfinished_task.*
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class UnfinishedTaskDialog(
         private val event: Int,
@@ -38,11 +37,11 @@ class UnfinishedTaskDialog(
             }
         }
 
-        yesButton.onClick {
+        yesButton.setOnClickListener {
             onClickFinishRoute()
             dialog?.dismiss()
         }
-        noButton.onClick { dialog?.dismiss() }
+        noButton.setOnClickListener { dialog?.dismiss() }
     }
 
     companion object {

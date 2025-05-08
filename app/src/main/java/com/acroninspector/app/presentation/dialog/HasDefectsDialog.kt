@@ -9,7 +9,6 @@ import com.acroninspector.app.R
 import kotlinx.android.synthetic.main.popup_has_defects.cancelButton
 import kotlinx.android.synthetic.main.popup_unfinished_task.noButton
 import kotlinx.android.synthetic.main.popup_unfinished_task.yesButton
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class HasDefectsDialog(
     private val onClickAnswerRoute: (Boolean) -> Unit,
@@ -31,16 +30,16 @@ class HasDefectsDialog(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        yesButton.onClick {
+        yesButton.setOnClickListener {
             onClickAnswerRoute.invoke(true)
             dialog?.dismiss()
         }
-        noButton.onClick {
+        noButton.setOnClickListener {
             onClickAnswerRoute.invoke(false)
             dialog?.dismiss()
         }
 
-        cancelButton.onClick { dialog?.dismiss() }
+        cancelButton.setOnClickListener { dialog?.dismiss() }
     }
 
     companion object {

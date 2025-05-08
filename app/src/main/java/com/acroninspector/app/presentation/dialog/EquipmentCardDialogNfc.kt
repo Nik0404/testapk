@@ -18,7 +18,6 @@ import com.acroninspector.app.databinding.DialogEquipmentCardNfcBinding
 import com.acroninspector.app.domain.interactors.equipment.EquipmentInteractor
 import com.acroninspector.app.presentation.custom.EllipsizeLineSpan
 import io.reactivex.disposables.Disposable
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 import java.util.regex.Pattern
 
@@ -51,8 +50,8 @@ class EquipmentCardDialogNfc(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnCloseDialog.onClick { dismiss() }
-        binding.btnAddNfc.onClick { onClickAddNfc() }
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
+        binding.btnAddNfc.setOnClickListener { onClickAddNfc() }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

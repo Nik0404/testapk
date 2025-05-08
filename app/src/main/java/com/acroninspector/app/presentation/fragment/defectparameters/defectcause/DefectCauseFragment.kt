@@ -17,7 +17,6 @@ import com.acroninspector.app.presentation.adapter.defectcauses.DefectCausesAdap
 import com.acroninspector.app.presentation.fragment.defectparameters.DefectParametersFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 class DefectCauseFragment : DefectParametersFragment(), DefectCauseView {
@@ -47,7 +46,7 @@ class DefectCauseFragment : DefectParametersFragment(), DefectCauseView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnBack.onClick { closeFragment() }
+        binding.btnBack.setOnClickListener { closeFragment() }
 
         binding.recyclerDefectCauses.layoutManager = LinearLayoutManager(context)
         binding.recyclerDefectCauses.adapter = adapter

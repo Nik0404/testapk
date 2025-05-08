@@ -1,6 +1,5 @@
 package com.acroninspector.app.common.utils
 
-import org.jetbrains.anko.collections.forEachWithIndex
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -30,7 +29,7 @@ class UtilTest {
 
         val parsedString = byteArrayString.split(",")
         val content = ByteArray(parsedString.size)
-        parsedString.forEachWithIndex { index, byteString ->
+        for ((index, byteString) in parsedString.withIndex()) {
             content[index] = byteString.toByte()
         }
 

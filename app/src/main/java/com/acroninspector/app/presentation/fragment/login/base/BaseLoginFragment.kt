@@ -14,7 +14,6 @@ import com.acroninspector.app.presentation.activity.main.MainActivity
 import com.acroninspector.app.presentation.fragment.login.supervisedunit.SupervisedUnitFragment
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.google.android.material.snackbar.Snackbar
-import org.jetbrains.anko.backgroundColor
 
 abstract class BaseLoginFragment : BaseFragment(), BaseLoginView {
 
@@ -68,7 +67,7 @@ abstract class BaseLoginFragment : BaseFragment(), BaseLoginView {
 
     private fun makeSnackbar(message: String): Snackbar {
         return Snackbar.make(getRootView(), message, Snackbar.LENGTH_LONG).apply {
-            view.backgroundColor = ContextCompat.getColor(context, R.color.colorRed)
+            view.setBackgroundColor( ContextCompat.getColor(context, R.color.colorRed))
         }
     }
 

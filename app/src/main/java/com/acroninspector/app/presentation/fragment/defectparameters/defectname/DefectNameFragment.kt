@@ -21,7 +21,6 @@ import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -57,8 +56,8 @@ class DefectNameFragment : DefectParametersFragment(), DefectNameView {
 
         adapter.setOnItemClickListener { presenter.onDefectNameClicked(it) }
 
-        binding.btnBack.onClick { handleOnClickBack() }
-        binding.fabSearch.onClick { handleOnClickSearch() }
+        binding.btnBack.setOnClickListener { handleOnClickBack() }
+        binding.fabSearch.setOnClickListener { handleOnClickSearch() }
 
         searchDisposable = getSearchObservable()
                 .subscribe { presenter.searchDefectNames(it.toString().trim()) }

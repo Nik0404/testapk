@@ -25,7 +25,6 @@ import com.acroninspector.app.presentation.custom.listener.NotificationsCounterH
 import com.acroninspector.app.presentation.fragment.defects.DefectsBaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -73,8 +72,8 @@ class DefectLogsFragment : DefectsBaseFragment(), DefectLogsView, NotificationsC
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnMenu.onClick { (activity as? MainView)?.openDrawer() }
-        binding.fabSearch.onClick { openSearchFragment() }
+        binding.btnMenu.setOnClickListener { (activity as? MainView)?.openDrawer() }
+        binding.fabSearch.setOnClickListener { openSearchFragment() }
 
         defectsAdapter.setOnItemClickListener { presenter.onDefectClicked(it) }
         getSwipeRefreshLayout().setOnRefreshListener { presenter.refreshDefects() }

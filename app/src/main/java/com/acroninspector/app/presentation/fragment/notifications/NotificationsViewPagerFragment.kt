@@ -17,7 +17,6 @@ import com.acroninspector.app.presentation.fragment.notifications.readed.ReadedN
 import com.acroninspector.app.presentation.fragment.notifications.unreaded.NewNotificationsFragment
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class NotificationsViewPagerFragment : Fragment(), NetworkStatusHandler, NfcStatusHandler {
 
@@ -35,9 +34,9 @@ class NotificationsViewPagerFragment : Fragment(), NetworkStatusHandler, NfcStat
         (activity as? MainActivity)?.setNfcStatusHandler(this)
         (activity as? MainActivity)?.setNetworkStatusHandler(this)
 
-        binding.btnMenu.onClick { (activity as? MainView)?.openDrawer() }
-        binding.btnAccount.onClick { (activity as? MainView)?.showUserCardDialog() }
-        binding.btnNfc.onClick { (activity as? MainView)?.openNfcSettingsActivity() }
+        binding.btnMenu.setOnClickListener { (activity as? MainView)?.openDrawer() }
+        binding.btnAccount.setOnClickListener { (activity as? MainView)?.showUserCardDialog() }
+        binding.btnNfc.setOnClickListener { (activity as? MainView)?.openNfcSettingsActivity() }
 
         return binding.root
     }

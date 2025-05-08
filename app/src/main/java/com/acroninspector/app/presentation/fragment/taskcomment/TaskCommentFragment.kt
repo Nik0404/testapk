@@ -20,7 +20,6 @@ import com.acroninspector.app.presentation.activity.main.MainView
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 
@@ -68,8 +67,8 @@ class TaskCommentFragment : BaseFragment(), TaskCommentView {
             binding.etComment.isEnabled = false
         }
 
-        binding.btnCancel.onClick { closeFragment() }
-        binding.btnApply.onClick {
+        binding.btnCancel.setOnClickListener { closeFragment() }
+        binding.btnApply.setOnClickListener {
             presenter.onApplyClicked(binding.etComment.text.toString())
         }
 

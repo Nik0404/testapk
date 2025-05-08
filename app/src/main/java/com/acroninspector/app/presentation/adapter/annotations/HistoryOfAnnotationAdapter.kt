@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acroninspector.app.R
 import com.acroninspector.app.domain.entity.local.display.DisplayAnnotation
 import com.acroninspector.app.presentation.fragment.login.annotations.OnAnnotationClickListener
-import org.jetbrains.anko.textColor
 
 class HistoryOfAnnotationAdapter(
     private val annotations: MutableList<DisplayAnnotation>,
@@ -41,7 +40,7 @@ class HistoryOfAnnotationAdapter(
             )
             val textColor = ContextCompat.getColor(holder.itemView.context, R.color.colorWhite)
             holder.dateText.background = backgtoundColor
-            holder.dateText.textColor = textColor
+            holder.dateText.setTextColor(textColor)
 
             listener.onAnnotationClick(annotation.realeaseId, annotation.activationTime)
         } else {

@@ -14,7 +14,6 @@ import com.acroninspector.app.presentation.adapter.defects.DefectsAdapter
 import com.acroninspector.app.presentation.custom.listener.NetworkStatusHandler
 import com.acroninspector.app.presentation.custom.listener.NfcStatusHandler
 import com.acroninspector.app.presentation.mvp.BaseFragment
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 abstract class DefectsBaseFragment : BaseFragment(), DefectsBaseView, NetworkStatusHandler, NfcStatusHandler {
 
@@ -22,8 +21,8 @@ abstract class DefectsBaseFragment : BaseFragment(), DefectsBaseView, NetworkSta
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
 
-        getAccountButton().onClick { (activity as? MainView)?.showUserCardDialog() }
-        getNfcButton().onClick { (activity as? MainView)?.openNfcSettingsActivity() }
+        getAccountButton().setOnClickListener { (activity as? MainView)?.showUserCardDialog() }
+        getNfcButton().setOnClickListener { (activity as? MainView)?.openNfcSettingsActivity() }
     }
 
     private fun initRecyclerView() {

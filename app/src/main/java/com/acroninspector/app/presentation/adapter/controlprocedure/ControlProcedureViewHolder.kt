@@ -5,11 +5,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.ItemControlProcedureBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayControlProcedure
-import org.jetbrains.anko.textColor
 import java.lang.IndexOutOfBoundsException
 
 class ControlProcedureViewHolder(
-        private val binding: ItemControlProcedureBinding
+    private val binding: ItemControlProcedureBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(controlProcedure: DisplayControlProcedure) {
@@ -33,21 +32,29 @@ class ControlProcedureViewHolder(
 
     private fun setItemIncorrectValueStyle() {
         binding.tvNumberLabel.text = binding.root.context.getString(R.string.incorrect_index_number)
-        binding.tvNumberLabel.textColor =
-                ContextCompat.getColor(binding.root.context, R.color.colorIncorrectRed)
-        binding.etNumber.background = ContextCompat.getDrawable(binding.root.context,
-                R.drawable.edit_text_question_incorrect_value_background)
-        binding.etNumber.textColor =
-                ContextCompat.getColor(binding.root.context, R.color.colorIncorrectRed)
+        binding.tvNumberLabel.setTextColor(
+            ContextCompat.getColor(binding.root.context, R.color.colorIncorrectRed)
+        )
+        binding.etNumber.background = ContextCompat.getDrawable(
+            binding.root.context,
+            R.drawable.edit_text_question_incorrect_value_background
+        )
+        binding.etNumber.setTextColor(
+            ContextCompat.getColor(binding.root.context, R.color.colorIncorrectRed)
+        )
     }
 
     private fun setItemCorrectValueStyle() {
         binding.tvNumberLabel.text = binding.root.context.getString(R.string.index_number)
-        binding.tvNumberLabel.textColor =
-                ContextCompat.getColor(binding.root.context, R.color.colorLightGray)
-        binding.etNumber.background = ContextCompat.getDrawable(binding.root.context,
-                R.drawable.edit_text_question_background)
-        binding.etNumber.textColor =
-                ContextCompat.getColor(binding.root.context, R.color.colorDarkGray)
+        binding.tvNumberLabel.setTextColor(
+            ContextCompat.getColor(binding.root.context, R.color.colorLightGray)
+        )
+        binding.etNumber.background = ContextCompat.getDrawable(
+            binding.root.context,
+            R.drawable.edit_text_question_background
+        )
+        binding.etNumber.setTextColor(
+            ContextCompat.getColor(binding.root.context, R.color.colorDarkGray)
+        )
     }
 }

@@ -15,7 +15,6 @@ import com.acroninspector.app.common.extension.filePathToFileName
 import com.acroninspector.app.databinding.ItemMediafileBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayMediaFile
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.util.*
 
 class MediaFilesAdapter : RecyclerSwipeAdapter<MediaFilesAdapter.ViewHolder>() {
@@ -68,8 +67,8 @@ class MediaFilesAdapter : RecyclerSwipeAdapter<MediaFilesAdapter.ViewHolder>() {
         )
 
         val holder = ViewHolder(binding, clickListener)
-        binding.deleteMediafileLayout.onClick { holder.onClickDelete() }
-        binding.mediafileLayout.onClick { clickListener.onClickMediaFile(holder.adapterPosition) }
+        binding.deleteMediafileLayout.setOnClickListener { holder.onClickDelete() }
+        binding.mediafileLayout.setOnClickListener { clickListener.onClickMediaFile(holder.adapterPosition) }
         binding.swipeLayout.isSwipeEnabled = isSwipeEnabled
 
         return holder

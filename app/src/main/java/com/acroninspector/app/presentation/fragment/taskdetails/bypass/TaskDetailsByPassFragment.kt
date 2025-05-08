@@ -27,7 +27,6 @@ import com.acroninspector.app.presentation.dialog.UnfinishedTaskDialog
 import com.acroninspector.app.presentation.fragment.taskdetails.TaskDetailsFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Provider
@@ -67,7 +66,7 @@ class TaskDetailsByPassFragment : TaskDetailsFragment(), TaskDetailsByPassView, 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnBack.onClick { closeFragment() }
+        binding.btnBack.setOnClickListener { closeFragment() }
 
         routesAdapter.setOnItemClickListener(
             onClickRoute = { presenter.onRouteClicked(childFragmentManager, it) },
@@ -84,9 +83,9 @@ class TaskDetailsByPassFragment : TaskDetailsFragment(), TaskDetailsByPassView, 
             presenter.taskStatus = task.status
         }
 
-        binding.btnComment.onClick { presenter.onTaskCommentClicked(task) }
-        binding.btnStartEndRound.onClick { presenter.routeButtonClicked() }
-        binding.btnTaskAttachments.onClick { presenter.onTaskAttachmentsClicked() }
+        binding.btnComment.setOnClickListener { presenter.onTaskCommentClicked(task) }
+        binding.btnStartEndRound.setOnClickListener { presenter.routeButtonClicked() }
+        binding.btnTaskAttachments.setOnClickListener { presenter.onTaskAttachmentsClicked() }
         binding.btnDefects.setOnClickListener {
             presenter.showRouteDeffects()
         }

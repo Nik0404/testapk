@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.fragment_supervised_unit.progressBar
 import kotlinx.android.synthetic.main.fragment_supervised_unit.rootView
 import kotlinx.android.synthetic.main.fragment_supervised_unit.textViewAppVersion
 import kotlinx.android.synthetic.main.fragment_supervised_unit.unitsGroup
-import org.jetbrains.anko.singleLine
 import javax.inject.Inject
 
 class SupervisedUnitFragment : BaseLoginFragment(), SupervisedUnitView {
@@ -73,7 +72,7 @@ class SupervisedUnitFragment : BaseLoginFragment(), SupervisedUnitView {
                     RadioGroup.LayoutParams.WRAP_CONTENT,
                     RadioGroup.LayoutParams.WRAP_CONTENT
                 )
-                singleLine = true
+                maxLines = 1
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, rbTextSize)
                 setTextColor(rbTextColor)
                 setPadding(0, rbPadding, 0, rbPadding)

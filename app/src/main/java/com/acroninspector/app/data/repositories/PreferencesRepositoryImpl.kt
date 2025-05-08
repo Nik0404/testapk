@@ -3,11 +3,14 @@ package com.acroninspector.app.data.repositories
 import android.content.Context
 import com.acroninspector.app.common.constants.PreferencesConstants
 import com.acroninspector.app.domain.repositories.PreferencesRepository
-import org.jetbrains.anko.defaultSharedPreferences
 
 class PreferencesRepositoryImpl(context: Context) : PreferencesRepository {
 
-    private val storage = context.defaultSharedPreferences
+    private val storage = context.getSharedPreferences(
+        context.packageName + "_preferences",
+        Context.MODE_PRIVATE
+    )
+
 
     init {
         val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)

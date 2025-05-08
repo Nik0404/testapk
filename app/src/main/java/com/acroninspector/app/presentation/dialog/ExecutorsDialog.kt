@@ -17,8 +17,6 @@ import com.acroninspector.app.databinding.DialogExecutorsBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayExecutor
 import com.acroninspector.app.domain.interactors.executor.ExecutorInteractor
 import io.reactivex.disposables.Disposable
-import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.singleLine
 import timber.log.Timber
 
 class ExecutorsDialog(
@@ -47,10 +45,10 @@ class ExecutorsDialog(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnCloseDialog.onClick { dismiss() }
-        binding.btnCancel.onClick { dismiss() }
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
+        binding.btnCancel.setOnClickListener { dismiss() }
 
-        binding.btnApply.onClick {
+        binding.btnApply.setOnClickListener {
             val checkedExecutorId = binding.executorsGroup.checkedRadioButtonId
             if (checkedExecutorId != -1) {
                 clickListener(checkedExecutorId)
@@ -86,7 +84,7 @@ class ExecutorsDialog(
                         RadioGroup.LayoutParams.WRAP_CONTENT,
                         RadioGroup.LayoutParams.WRAP_CONTENT
                 )
-                singleLine = true
+                maxLines = 1
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, rbTextSize)
                 setTextColor(rbTextColor)
                 setPadding(rbPaddingLeft, rbPaddingVertical, 0, rbPaddingVertical)

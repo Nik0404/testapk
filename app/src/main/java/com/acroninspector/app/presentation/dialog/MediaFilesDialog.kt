@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.DialogMediafilesBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class MediaFilesDialog : BottomSheetDialogFragment() {
 
@@ -38,17 +37,17 @@ class MediaFilesDialog : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnCloseDialog.onClick { dismiss() }
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
 
-        binding.layoutAddVideo.onClick {
+        binding.layoutAddVideo.setOnClickListener {
             mediaFilesDialogCallback.onClickAddVideo()
             dismiss()
         }
-        binding.layoutAddPhoto.onClick {
+        binding.layoutAddPhoto.setOnClickListener {
             mediaFilesDialogCallback.onClickAddPhoto()
             dismiss()
         }
-        binding.layoutAddAudio.onClick {
+        binding.layoutAddAudio.setOnClickListener {
             mediaFilesDialogCallback.onClickAddAudio()
             dismiss()
         }

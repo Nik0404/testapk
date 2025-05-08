@@ -34,7 +34,6 @@ import com.acroninspector.app.presentation.fragment.defectparameters.listener.Pa
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 
@@ -68,16 +67,16 @@ class RegisterDefectFragment : BaseFragment(), RegisterDefectView,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnSave.onClick {
+        binding.btnSave.setOnClickListener {
             presenter.onSaveClicked(binding.criticality, binding.tvDefectComment.text.toString())
         }
-        binding.btnDefectAttachments.onClick { presenter.onMediaFilesClicked() }
-        binding.btnCancel.onClick { presenter.onBackPressed() }
+        binding.btnDefectAttachments.setOnClickListener { presenter.onMediaFilesClicked() }
+        binding.btnCancel.setOnClickListener { presenter.onBackPressed() }
 
-        binding.cardDefectName.onClick { presenter.onCardDefectNameClicked() }
-        binding.cardDefectComment.onClick { presenter.onCardDefectCommentClicked() }
-        binding.cardDefectCauseName.onClick { presenter.onCardDefectCauseNameClicked() }
-        binding.cardDefectCriticality.onClick { presenter.onCardDefectCriticalityClicked() }
+        binding.cardDefectName.setOnClickListener { presenter.onCardDefectNameClicked() }
+        binding.cardDefectComment.setOnClickListener { presenter.onCardDefectCommentClicked() }
+        binding.cardDefectCauseName.setOnClickListener { presenter.onCardDefectCauseNameClicked() }
+        binding.cardDefectCriticality.setOnClickListener { presenter.onCardDefectCriticalityClicked() }
 
         if (!entitiesIdsSetted) {
             presenter.checkListId = arguments?.getInt(KEY_CHECK_LIST_ID, Constants.DEFAULT_INVALID_ID)!!

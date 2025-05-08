@@ -18,7 +18,6 @@ import com.acroninspector.app.presentation.adapter.route.RoutesAdapter
 import com.acroninspector.app.presentation.fragment.taskdetails.TaskDetailsFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 class TaskDetailsByPassManagementFragment : TaskDetailsFragment(), TaskDetailsByPassManagementView {
@@ -49,8 +48,8 @@ class TaskDetailsByPassManagementFragment : TaskDetailsFragment(), TaskDetailsBy
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnBack.onClick { Navigation.findNavController(binding.root).popBackStack() }
-        binding.btnEditTask.onClick { presenter.onEditTaskClicked() }
+        binding.btnBack.setOnClickListener { Navigation.findNavController(binding.root).popBackStack() }
+        binding.btnEditTask.setOnClickListener { presenter.onEditTaskClicked() }
 
         routesAdapter.setOnItemClickListener()
 

@@ -6,7 +6,6 @@ import com.acroninspector.app.domain.entity.local.display.DisplayQuestion
 import com.acroninspector.app.presentation.adapter.question.delegates.template.base.BaseTemplateAdapterDelegate
 import com.acroninspector.app.presentation.adapter.question.listener.OnClickQuestionListener
 import kotlinx.android.synthetic.main.item_question_template.view.*
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class TemplateAdapterDelegate(
         private val clickListener: OnClickQuestionListener
@@ -17,7 +16,7 @@ class TemplateAdapterDelegate(
         prepareListPopupWindow(parent.context, holder)
         setHeaderButtonsListeners(holder)
 
-        holder.itemView.btnSelectAnswer.onClick {
+        holder.itemView.btnSelectAnswer.setOnClickListener {
             clickListener.onClickSelectAnswer(holder.adapterPosition)
             { answer -> clickListener.updateAnswer(holder.adapterPosition, answer) }
         }

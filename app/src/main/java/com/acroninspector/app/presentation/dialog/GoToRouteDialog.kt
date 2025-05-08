@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.acroninspector.app.R
 import kotlinx.android.synthetic.main.dialog_go_to_route.*
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class GoToRouteDialog(
         private val nfcName: String,
@@ -28,11 +27,11 @@ class GoToRouteDialog(
         super.onViewCreated(view, savedInstanceState)
         message.text = getString(R.string.scanned_route_nfc_tag_success, nfcName, routeName)
 
-        goToButton.onClick {
+        goToButton.setOnClickListener {
             dialog?.dismiss()
             onClickGoToRoute()
         }
-        cancelButton.onClick { dialog?.dismiss() }
+        cancelButton.setOnClickListener { dialog?.dismiss() }
     }
 
     companion object {

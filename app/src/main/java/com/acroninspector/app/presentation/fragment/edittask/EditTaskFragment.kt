@@ -18,7 +18,6 @@ import com.acroninspector.app.presentation.dialog.ExecutorsDialog
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -51,9 +50,9 @@ class EditTaskFragment : BaseFragment(), EditTaskView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnChangeControlProcedure.onClick { presenter.onChangeControlProcedureClicked() }
-        binding.btnChangeExecutor.onClick { presenter.onChangeExecutorClicked() }
-        binding.btnBack.onClick { (activity)?.onBackPressed() }
+        binding.btnChangeControlProcedure.setOnClickListener { presenter.onChangeControlProcedureClicked() }
+        binding.btnChangeExecutor.setOnClickListener { presenter.onChangeExecutorClicked() }
+        binding.btnBack.setOnClickListener { (activity)?.onBackPressed() }
 
         presenter.taskId = arguments?.getInt(KEY_TASK_ID, Constants.DEFAULT_INVALID_ID)!!
     }

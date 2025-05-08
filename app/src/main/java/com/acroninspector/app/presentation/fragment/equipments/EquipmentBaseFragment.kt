@@ -26,8 +26,6 @@ import com.acroninspector.app.presentation.dialog.ErrorDialog
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import org.jetbrains.anko.backgroundColor
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 
 abstract class EquipmentBaseFragment : BaseFragment(), EquipmentBaseView, NetworkStatusHandler,
@@ -75,7 +73,7 @@ abstract class EquipmentBaseFragment : BaseFragment(), EquipmentBaseView, Networ
         getAccountButton().setOnClickListener(viewClickListener)
         getNfcButton().setOnClickListener(viewClickListener)
 
-        getFabSearch().onClick { openSearchFragment() }
+        getFabSearch().setOnClickListener { openSearchFragment() }
     }
 
     override fun onStart() {
@@ -154,7 +152,7 @@ abstract class EquipmentBaseFragment : BaseFragment(), EquipmentBaseView, Networ
 
     protected fun getSnackbar(view: View, resourceId: Int): Snackbar {
         val snackbar = Snackbar.make(view, getString(resourceId), Snackbar.LENGTH_SHORT)
-        snackbar.view.backgroundColor = ContextCompat.getColor(context!!, R.color.colorRed)
+        snackbar.view.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorRed))
         snackbar.setActionTextColor(Color.WHITE)
 
         return snackbar

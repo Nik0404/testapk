@@ -9,7 +9,6 @@ import androidx.fragment.app.DialogFragment
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.DialogCriticalityBinding
 import com.acroninspector.app.presentation.adapter.criticality.CriticalityAdapter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class CriticalityDialog(
         private val onClickCriticality: (Int) -> Unit
@@ -30,7 +29,7 @@ class CriticalityDialog(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnCloseDialog.onClick { dismiss() }
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
 
         val adapter = CriticalityAdapter(context!!)
         adapter.setOnCriticalityClickListener {

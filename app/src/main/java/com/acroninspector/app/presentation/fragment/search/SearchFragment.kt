@@ -33,7 +33,6 @@ import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -76,8 +75,8 @@ class SearchFragment : BaseFragment(), SearchView {
 
         adapter.setOnItemClickListener { presenter.onSearchHistoryItemClicked(it) }
 
-        binding.btnBack.onClick { closeFragment() }
-        binding.btnSearch.onClick {
+        binding.btnBack.setOnClickListener { closeFragment() }
+        binding.btnSearch.setOnClickListener {
             val searchQuery = binding.etSearch.text.toString()
             presenter.onSearchButtonClicked(searchQuery)
         }

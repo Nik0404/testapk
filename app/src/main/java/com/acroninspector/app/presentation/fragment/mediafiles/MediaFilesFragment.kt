@@ -42,7 +42,6 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.tbruyelle.rxpermissions2.RxPermissions
 import dagger.Lazy
 import io.reactivex.disposables.Disposable
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 
@@ -97,7 +96,7 @@ class MediaFilesFragment : BaseFragment(), MediaFilesDialog.MediaFilesDialogCall
         super.onViewCreated(view, savedInstanceState)
         initViews()
 
-        binding.btnBack.onClick { navController.popBackStack() }
+        binding.btnBack.setOnClickListener { navController.popBackStack() }
 
         val isEnabledEditing = arguments?.getBoolean(KEY_ENABLED_EDITING, false)!!
         val entityType = arguments?.getInt(KEY_ENTITY_TYPE, DEFAULT_INVALID_TYPE)!!

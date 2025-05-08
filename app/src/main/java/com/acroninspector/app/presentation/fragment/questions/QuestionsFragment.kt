@@ -34,7 +34,6 @@ import com.acroninspector.app.presentation.fragment.comment.listener.PassComment
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -91,12 +90,12 @@ class QuestionsFragment : BaseFragment(), QuestionsView, NetworkStatusHandler,
         (activity as? MainActivity)?.setNfcStatusHandler(this)
         (activity as? MainActivity)?.setNetworkStatusHandler(this)
 
-        binding.btnBack.onClick { closeFragment() }
-        binding.btnAccount.onClick { (activity as? MainView)?.showUserCardDialog() }
-        binding.btnNfc.onClick { (activity as? MainView)?.openNfcSettingsActivity() }
+        binding.btnBack.setOnClickListener { closeFragment() }
+        binding.btnAccount.setOnClickListener { (activity as? MainView)?.showUserCardDialog() }
+        binding.btnNfc.setOnClickListener { (activity as? MainView)?.openNfcSettingsActivity() }
 
-        binding.btnRouteAttachments.onClick { presenter.onRouteAttachmentsClicked() }
-        binding.btnRouteDefects.onClick { presenter.onRouteDefectsClicked() }
+        binding.btnRouteAttachments.setOnClickListener { presenter.onRouteAttachmentsClicked() }
+        binding.btnRouteDefects.setOnClickListener { presenter.onRouteDefectsClicked() }
 
         presenter.taskId = arguments?.getInt(Constants.KEY_TASK_ID, Constants.DEFAULT_INVALID_ID)!!
 

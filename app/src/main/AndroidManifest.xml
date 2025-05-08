@@ -44,22 +44,25 @@
         <activity
             android:name=".presentation.activity.mediaplayer.MediaPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:exported="false"
             android:theme="@style/ViewImageTheme" />
         <activity
             android:name=".presentation.activity.viewimage.ViewImageActivity"
+            android:exported="false"
             android:theme="@style/ViewImageTheme" />
         <activity
             android:name=".presentation.activity.main.MainActivity"
+            android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.activity.login.LoginActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AuthorizationTheme"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

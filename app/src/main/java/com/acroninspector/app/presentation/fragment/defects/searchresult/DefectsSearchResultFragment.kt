@@ -29,7 +29,6 @@ import com.acroninspector.app.presentation.adapter.defects.DefectsAdapter
 import com.acroninspector.app.presentation.fragment.defects.DefectsBaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -71,7 +70,7 @@ class DefectsSearchResultFragment : DefectsBaseFragment(), DefectsSearchResultVi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnBack.onClick { navController.popBackStack() }
+        binding.btnBack.setOnClickListener { navController.popBackStack() }
 
         val searchQuery = arguments?.getString(KEY_SEARCH_QUERY, "")!!
         if (searchQuery.isNotEmpty()) {

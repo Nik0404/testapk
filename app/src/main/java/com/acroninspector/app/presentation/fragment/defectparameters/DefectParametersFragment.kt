@@ -13,7 +13,6 @@ import com.acroninspector.app.R
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.Disposable
-import org.jetbrains.anko.backgroundColor
 
 abstract class DefectParametersFragment : BaseFragment(), DefectParametersView {
 
@@ -67,7 +66,7 @@ abstract class DefectParametersFragment : BaseFragment(), DefectParametersView {
 
     protected fun getSnackbar(resourceId: Int): Snackbar {
         val snackbar = Snackbar.make(getRootView(), getString(resourceId), Snackbar.LENGTH_SHORT)
-        snackbar.view.backgroundColor = ContextCompat.getColor(context!!, R.color.colorRed)
+        snackbar.view.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorRed))
         val textView = snackbar.view.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
         textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
 

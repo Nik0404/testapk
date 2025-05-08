@@ -22,7 +22,6 @@ import com.acroninspector.app.presentation.dialog.ErrorDialog
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 class ControlProcedureFragment : BaseFragment(), ControlProcedureView {
@@ -66,9 +65,9 @@ class ControlProcedureFragment : BaseFragment(), ControlProcedureView {
             presenter.onNumberChanged(position, number)
         }
 
-        binding.btnSave.onClick { presenter.saveControlProcedures() }
-        binding.btnSort.onClick { presenter.sortControlProcedures() }
-        binding.btnBack.onClick { closeFragment() }
+        binding.btnSave.setOnClickListener { presenter.saveControlProcedures() }
+        binding.btnSort.setOnClickListener { presenter.sortControlProcedures() }
+        binding.btnBack.setOnClickListener { closeFragment() }
 
         presenter.taskId = arguments?.getInt(KEY_TASK_ID, DEFAULT_INVALID_ID)!!
     }

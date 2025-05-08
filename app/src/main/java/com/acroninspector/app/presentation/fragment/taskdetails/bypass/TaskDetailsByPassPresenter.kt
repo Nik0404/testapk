@@ -22,7 +22,6 @@ import com.acroninspector.app.presentation.dialog.HasDefectsDialog
 import com.acroninspector.app.presentation.dialog.UnfinishedTaskDialog
 import com.acroninspector.app.presentation.fragment.taskdetails.TaskDetailsPresenter
 import com.arellomobile.mvp.InjectViewState
-import org.jetbrains.anko.collections.forEachWithIndex
 import timber.log.Timber
 import java.util.Calendar
 
@@ -197,7 +196,7 @@ class TaskDetailsByPassPresenter(
 
     private fun getRoutePositionById(routeIds: List<Int>): Int {
         routeIds.forEach { routeId ->
-            routes.forEachWithIndex { position, route ->
+            for ((position, route) in routes.withIndex()) {
                 if (route.id == routeId) {
                     return position
                 }

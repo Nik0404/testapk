@@ -12,7 +12,6 @@ import androidx.fragment.app.DialogFragment
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.DialogNotificationBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayNotification
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class NotificationDialog(
         private val executorId: Int,
@@ -44,8 +43,8 @@ class NotificationDialog(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnCloseDialog.onClick { dismiss() }
-        binding.btnTask.onClick {
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
+        binding.btnTask.setOnClickListener {
             dismiss()
             goToTask()
         }

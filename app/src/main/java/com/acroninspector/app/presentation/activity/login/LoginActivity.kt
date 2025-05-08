@@ -29,7 +29,6 @@ import com.acroninspector.app.presentation.mvp.BaseActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import org.jetbrains.anko.nfcManager
 import kotlin.math.abs
 
 
@@ -138,15 +137,18 @@ class LoginActivity : BaseActivity() {
     private fun pendingIntentForDefiningNfc() {
         val pendingIntent = PendingIntent.getActivity(
             this, 0, Intent(this, javaClass)
-                .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0
+                .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),
+            PendingIntent.FLAG_IMMUTABLE
         )
+
         val filter = IntentFilter().apply {
             addAction(NfcAdapter.ACTION_TAG_DISCOVERED)
             addAction(NfcAdapter.ACTION_NDEF_DISCOVERED)
             addAction(NfcAdapter.ACTION_TECH_DISCOVERED)
         }
+
         val nfcAdapter = NfcAdapter.getDefaultAdapter(this)
-        nfcAdapter?.enableForegroundDispatch(this, pendingIntent, arrayOf(filter), techList)
+        nfcAdapter?.enableForegroundDispatch(this, pendingIntent, arrayOf(filter), null /* или ваш массив технологий */)
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -173,7 +175,7 @@ class LoginActivity : BaseActivity() {
     private fun refreshNfcStatus() {
         if (packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)) {
             for (handler in nfcStatusHandlers)
-                handler?.handleNfcStatus(nfcManager.defaultAdapter.isEnabled)
+                handler?.handleNfcStatus(NfcAdapter.getDefaultAdapter(this).isEnabled)
         }
     }
 

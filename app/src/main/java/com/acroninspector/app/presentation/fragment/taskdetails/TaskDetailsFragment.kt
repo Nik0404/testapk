@@ -12,7 +12,6 @@ import com.acroninspector.app.presentation.adapter.route.RoutesAdapter
 import com.acroninspector.app.presentation.custom.listener.NetworkStatusHandler
 import com.acroninspector.app.presentation.custom.listener.NfcStatusHandler
 import com.acroninspector.app.presentation.mvp.BaseFragment
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 abstract class TaskDetailsFragment : BaseFragment(), TaskDetailsView, NetworkStatusHandler,
     NfcStatusHandler {
@@ -20,8 +19,8 @@ abstract class TaskDetailsFragment : BaseFragment(), TaskDetailsView, NetworkSta
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getAccountButton().onClick { (activity as? MainView)?.showUserCardDialog() }
-        getNfcButton().onClick { (activity as? MainView)?.openNfcSettingsActivity() }
+        getAccountButton().setOnClickListener { (activity as? MainView)?.showUserCardDialog() }
+        getNfcButton().setOnClickListener { (activity as? MainView)?.openNfcSettingsActivity() }
 
         getRecyclerView().layoutManager = LinearLayoutManager(context)
         getRecyclerView().adapter = getBaseRoutesAdapter()

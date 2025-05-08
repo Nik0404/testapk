@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.ItemSearchResultBinding
 import com.acroninspector.app.domain.entity.local.display.DisplaySearchHistory
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class SearchAdapter: RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
@@ -46,7 +45,7 @@ class SearchAdapter: RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
         )
         val holder = ViewHolder(binding)
 
-        binding.root.onClick {
+        binding.root.setOnClickListener {
             clickListener.onClickSearchHistory(holder.adapterPosition)
         }
 

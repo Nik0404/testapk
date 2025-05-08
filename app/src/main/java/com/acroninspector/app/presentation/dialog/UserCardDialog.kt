@@ -13,7 +13,6 @@ import com.acroninspector.app.R
 import com.acroninspector.app.databinding.DialogUserCardBinding
 import com.acroninspector.app.domain.interactors.usercard.UserCardInteractor
 import io.reactivex.disposables.Disposable
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 import java.lang.IllegalArgumentException
 
@@ -58,7 +57,7 @@ class UserCardDialog(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnCloseDialog.onClick { dismiss() }
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
     }
 
     override fun onDetach() {

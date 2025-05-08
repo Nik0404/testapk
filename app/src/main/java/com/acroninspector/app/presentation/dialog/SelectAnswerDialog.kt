@@ -14,8 +14,6 @@ import androidx.fragment.app.DialogFragment
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.DialogAnswersBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayAnswer
-import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.singleLine
 
 class SelectAnswerDialog(
         private val answers: List<DisplayAnswer>,
@@ -36,10 +34,10 @@ class SelectAnswerDialog(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnCloseDialog.onClick { dismiss() }
-        binding.btnCancel.onClick { dismiss() }
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
+        binding.btnCancel.setOnClickListener { dismiss() }
 
-        binding.btnApply.onClick {
+        binding.btnApply.setOnClickListener {
             val selectedAnswerPosition = binding.answers.checkedRadioButtonId
             try {
                 onSelectAnswer(answers[selectedAnswerPosition].answerText)
@@ -67,7 +65,7 @@ class SelectAnswerDialog(
                         RadioGroup.LayoutParams.WRAP_CONTENT,
                         RadioGroup.LayoutParams.WRAP_CONTENT
                 )
-                singleLine = true
+                maxLines = 1
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, rbTextSize)
                 setTextColor(rbTextColor)
                 setPadding(rbPaddingLeft, rbPaddingVertical, 0, rbPaddingVertical)

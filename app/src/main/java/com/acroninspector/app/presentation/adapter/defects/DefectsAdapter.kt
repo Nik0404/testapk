@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.ItemDefectBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayDefectLog
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.lang.Exception
 
 class DefectsAdapter : RecyclerView.Adapter<DefectsAdapter.ViewHolder>() {
@@ -54,7 +53,7 @@ class DefectsAdapter : RecyclerView.Adapter<DefectsAdapter.ViewHolder>() {
         )
         val holder = ViewHolder(binding)
 
-        binding.root.onClick {
+        binding.root.setOnClickListener {
             clickListener.onClickDefect(holder.adapterPosition)
         }
 

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.ItemRouteBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayRoute
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder>() {
 
@@ -61,9 +60,9 @@ class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder>() {
         )
 
         val holder = ViewHolder(binding)
-        binding.root.onClick { clickListener.onClickRoute(holder.adapterPosition) }
-        binding.btnRouteAttachments.onClick { clickListener.onClickAttachments(holder.adapterPosition) }
-        binding.btnRouteDefects.onClick { clickListener.onClickDefects(holder.adapterPosition) }
+        binding.root.setOnClickListener { clickListener.onClickRoute(holder.adapterPosition) }
+        binding.btnRouteAttachments.setOnClickListener { clickListener.onClickAttachments(holder.adapterPosition) }
+        binding.btnRouteDefects.setOnClickListener { clickListener.onClickDefects(holder.adapterPosition) }
 
         return holder
     }

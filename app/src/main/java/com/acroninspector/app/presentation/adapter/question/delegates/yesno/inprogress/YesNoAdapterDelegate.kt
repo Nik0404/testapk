@@ -8,7 +8,6 @@ import com.acroninspector.app.domain.entity.local.display.DisplayQuestion
 import com.acroninspector.app.presentation.adapter.question.delegates.yesno.base.BaseYesNoAdapterDelegate
 import com.acroninspector.app.presentation.adapter.question.listener.OnClickQuestionListener
 import kotlinx.android.synthetic.main.item_question_yes_no.view.*
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class YesNoAdapterDelegate(
         private val clickListener: OnClickQuestionListener
@@ -19,8 +18,8 @@ class YesNoAdapterDelegate(
         prepareListPopupWindow(parent.context, holder)
         setHeaderButtonsListeners(holder)
 
-        holder.itemView.btnYes.onClick { onClickAnswer(holder, ANSWER_YES) }
-        holder.itemView.btnNo.onClick { onClickAnswer(holder, ANSWER_NO) }
+        holder.itemView.btnYes.setOnClickListener { onClickAnswer(holder, ANSWER_YES) }
+        holder.itemView.btnNo.setOnClickListener { onClickAnswer(holder, ANSWER_NO) }
 
         return holder
     }

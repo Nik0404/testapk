@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.acroninspector.app.R
 import kotlinx.android.synthetic.main.popup_start_route.*
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class StartRouteDialog(
         private val onClickStartRoute: () -> Unit
@@ -25,11 +24,11 @@ class StartRouteDialog(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        yesButton.onClick {
+        yesButton.setOnClickListener {
             onClickStartRoute()
             dialog?.dismiss()
         }
-        noButton.onClick { dialog?.dismiss() }
+        noButton.setOnClickListener { dialog?.dismiss() }
     }
 
     companion object {

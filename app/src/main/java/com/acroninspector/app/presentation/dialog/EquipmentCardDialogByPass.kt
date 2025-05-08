@@ -18,7 +18,6 @@ import com.acroninspector.app.databinding.DialogEquipmentCardBypassBinding
 import com.acroninspector.app.domain.interactors.equipment.EquipmentInteractor
 import com.acroninspector.app.presentation.custom.EllipsizeLineSpan
 import io.reactivex.disposables.Disposable
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 import java.util.regex.Pattern
 
@@ -54,10 +53,10 @@ class EquipmentCardDialogByPass(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnCloseDialog.onClick { dismiss() }
+        binding.btnCloseDialog.setOnClickListener { dismiss() }
 
-        binding.btnDefects.onClick { onClickDefectList() }
-        binding.btnRegisterDefect.onClick { onClickRegisterDefect() }
+        binding.btnDefects.setOnClickListener { onClickDefectList() }
+        binding.btnRegisterDefect.setOnClickListener { onClickRegisterDefect() }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

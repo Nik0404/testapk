@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acroninspector.app.R
 import com.acroninspector.app.databinding.ItemDefectNameBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayDefect
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class DefectNamesAdapter : RecyclerView.Adapter<DefectNamesAdapter.ViewHolder>() {
 
@@ -46,7 +45,7 @@ class DefectNamesAdapter : RecyclerView.Adapter<DefectNamesAdapter.ViewHolder>()
         )
         val holder = ViewHolder(binding)
 
-        binding.root.onClick {
+        binding.root.setOnClickListener {
             clickListener.onClickDefectName(holder.adapterPosition)
         }
 

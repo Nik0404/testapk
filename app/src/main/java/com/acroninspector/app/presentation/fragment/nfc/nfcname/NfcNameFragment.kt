@@ -21,7 +21,6 @@ import com.acroninspector.app.presentation.activity.main.MainView
 import com.acroninspector.app.presentation.mvp.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 class NfcNameFragment : BaseFragment(), NfcNameView {
@@ -57,8 +56,8 @@ class NfcNameFragment : BaseFragment(), NfcNameView {
     }
 
     private fun initViews() {
-        binding.btnCancel.onClick { closeFragment() }
-        binding.btnApply.onClick {
+        binding.btnCancel.setOnClickListener { closeFragment() }
+        binding.btnApply.setOnClickListener {
             presenter.onSaveClicked(binding.etNfcName.text.toString())
         }
 

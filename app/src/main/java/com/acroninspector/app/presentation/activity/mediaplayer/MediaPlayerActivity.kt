@@ -10,16 +10,10 @@ import com.acroninspector.app.common.constants.Constants.KEY_FILE_URI
 import com.acroninspector.app.common.constants.Constants.MEDIA_TYPE_AUDIO
 import com.acroninspector.app.common.constants.Constants.MEDIA_TYPE_VIDEO
 import com.google.android.exoplayer2.DefaultLoadControl
-import com.google.android.exoplayer2.DefaultRenderersFactory
-import com.google.android.exoplayer2.ExoPlayerFactory
+import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.google.android.exoplayer2.util.Util
 import kotlinx.android.synthetic.main.activity_player.*
-
 
 class MediaPlayerActivity : AppCompatActivity() {
 
@@ -45,20 +39,17 @@ class MediaPlayerActivity : AppCompatActivity() {
     }
 
     private fun initializePlayer() {
-        player = ExoPlayerFactory.newSimpleInstance(this,
-                DefaultRenderersFactory(this),
-                DefaultTrackSelector(),
-                DefaultLoadControl())
+        player = SimpleExoPlayer.Builder(this)
+            .setTrackSelector(DefaultTrackSelector(this))
+            .setLoadControl(DefaultLoadControl())
+            .build()
+
         player_view.player = player
         player.playWhenReady = true
-        player.prepare(buildMediaSource(uri),
-                true, false)
-    }
 
-    private fun buildMediaSource(uri: Uri): MediaSource {
-        val dataSourceFactory = DefaultDataSourceFactory(this,
-                Util.getUserAgent(this, application.packageName))
-        return ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
+        val mediaItem = MediaItem.fromUri(uri)
+        player.setMediaItem(mediaItem)
+        player.prepare()
     }
 
     override fun onPause() {

@@ -6,7 +6,6 @@ import com.acroninspector.app.domain.entity.local.display.DisplayControlProcedur
 import com.acroninspector.app.domain.interactors.controlprocedure.ControlProcedureInteractor
 import com.acroninspector.app.presentation.mvp.BasePresenter
 import com.arellomobile.mvp.InjectViewState
-import org.jetbrains.anko.collections.forEachWithIndex
 import timber.log.Timber
 
 @InjectViewState
@@ -82,7 +81,7 @@ class ControlProcedurePresenter(
         controlProcedures[position].orderNumber = number
 
         val duplicateNumbers = getDuplicateNumbers()
-        controlProcedures.forEachWithIndex { index, controlProcedure ->
+        controlProcedures.withIndex().forEach { (index, controlProcedure) ->
             controlProcedures[index].isCorrectValue = isCorrectValue(controlProcedure.orderNumber)
 
             if (duplicateNumbers.contains(controlProcedure.orderNumber)) {

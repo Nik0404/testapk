@@ -14,7 +14,6 @@ import com.acroninspector.app.R
 import com.acroninspector.app.databinding.ItemNotificationBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayNotification
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import timber.log.Timber
 import java.util.*
 
@@ -64,8 +63,8 @@ class NotificationsAdapter : RecyclerSwipeAdapter<NotificationsAdapter.ViewHolde
         )
         val holder = ViewHolder(binding, clickListener)
 
-        binding.deleteNotificationLayout.onClick { holder.onClickDelete() }
-        binding.notificationLayout.onClick {
+        binding.deleteNotificationLayout.setOnClickListener { holder.onClickDelete() }
+        binding.notificationLayout.setOnClickListener {
             clickListener.onClickNotification(holder.adapterPosition)
         }
 

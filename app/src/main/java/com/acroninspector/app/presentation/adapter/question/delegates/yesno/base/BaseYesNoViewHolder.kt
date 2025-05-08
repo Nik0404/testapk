@@ -11,7 +11,6 @@ import com.acroninspector.app.common.constants.Constants
 import com.acroninspector.app.databinding.ItemQuestionYesNoBinding
 import com.acroninspector.app.domain.entity.local.display.DisplayQuestion
 import com.acroninspector.app.presentation.adapter.question.QuestionMenuAdapter
-import org.jetbrains.anko.textColor
 
 abstract class BaseYesNoViewHolder(
     private val binding: ItemQuestionYesNoBinding
@@ -53,7 +52,7 @@ abstract class BaseYesNoViewHolder(
         binding.btnYes.apply {
             this.isEnabled = isEnabled
             this.background = ContextCompat.getDrawable(binding.root.context, background)!!
-            this.textColor = ContextCompat.getColor(binding.root.context, textColor)
+            this.setTextColor(ContextCompat.getColor(binding.root.context, textColor))
         }
     }
 
@@ -61,7 +60,7 @@ abstract class BaseYesNoViewHolder(
         binding.btnNo.apply {
             this.isEnabled = isEnabled
             this.background = ContextCompat.getDrawable(binding.root.context, background)!!
-            this.textColor = ContextCompat.getColor(binding.root.context, textColor)
+            this.setTextColor(ContextCompat.getColor(binding.root.context, textColor))
         }
     }
 
