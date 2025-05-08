@@ -18,9 +18,9 @@ android {
         targetSdkVersion 33
         versionCode 73
         versionName "1.0.6.2"
-        namespace "com.acroninspector.app"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.debug
+        namespace "com.acroninspector.app"
     }
     buildTypes {
         release_acrn {
@@ -172,9 +172,6 @@ dependencies {
     // SmartTabsLayout
     implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
 
     // RxJava2
     implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
