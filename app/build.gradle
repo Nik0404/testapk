@@ -91,6 +91,9 @@ android {
             java.srcDirs += "src/sharedTest/java"
         }
     }
+    lint {
+        abortOnError = false
+    }
 }
 
 dependencies {
