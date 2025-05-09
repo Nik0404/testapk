@@ -36,7 +36,7 @@
 
     <string name="nfc_not_unique">Эта NFC метка не является уникальной, и уже есть в базе. Попробуйте добавить другую метку.</string>
 
-    <string name="notification_message_template">Поступило на выполнение задание №%s:\n«%s»</string>
+    <string name="notification_message_template">Поступило на выполнение задание №%1$s:\n«%2$s»</string>
 
     <string name="you_has_no_video_recorder">На вашем устройстве отсутствует приложение для записи видео</string>
     <string name="you_has_no_audio_recorder">На вашем устройстве отсутствует приложение для записи аудио</string>
@@ -44,8 +44,8 @@
     <string name="data_is_not_uploaded_logout">Для выхода необходимо отправить данные на сервер</string>
     <string name="data_is_not_uploaded_get_data">Для получения данных необходимо отправить данные на сервер</string>
 
-    <string name="route_nfc_marks_template">Меток:  %s Отсканировано: %s</string>
-    <string name="route_questions_answers_template">Вопросов: %s Ответов: %s</string>
+    <string name="route_nfc_marks_template">Меток:  %1$s Отсканировано: %2$s</string>
+    <string name="route_questions_answers_template">Вопросов: %1$s Ответов: %2$s</string>
 
     <string name="nfc_in_another_task">Вы отсканировали NFC-метку, которая находится в другом задании</string>
 
@@ -75,7 +75,7 @@
     <string name="defect_equipment_name">Оборудование:</string>
     <string name="defect_equipment_code">Обозначение ТП:</string>
 
-    <string name="progress_text">%s из %s %s</string>
+    <string name="progress_text">%1$s из %2$s %3$s</string>
 
     <string name="remark">Замечание</string>
 
@@ -221,7 +221,7 @@
 
     <string name="nfc_tag_title">NFC-метка</string>
     <string name="scanned_nfc_tag_that_no_in_database">Отсканирована NFC-метка, которой нет в базе\nКод метки: %s</string>
-    <string name="scanned_route_nfc_tag_success">Отсканирована NFC-метка\nНазвание метки: %s\nМаршрут обхода: %s</string>
+    <string name="scanned_route_nfc_tag_success">Отсканирована NFC-метка\nНазвание метки: %1$s\nМаршрут обхода: %2$s</string>
     <string name="nfc_tag_already_scanned_title">Повторное сканирование</string>
     <string name="nfc_tag_already_scanned_message">Эта NFC-метка уже была отсканирована\nНазвание метки: %s</string>
 
@@ -421,6 +421,6 @@
     <string name="deffects_text">Дефекты</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="new_annotation_version">Новое в версии %s от %s</string>
+    <string name="new_annotation_version">Новое в версии %1$s от %2$s</string>
 
 </resources>
