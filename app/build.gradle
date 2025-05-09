@@ -1,78 +1,81 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'androidx.navigation.safeargs'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
-apply plugin: 'kotlin-kapt'
-
-apply plugin: 'jacoco'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'jacoco'
+}
 
 android {
-    compileSdkVersion 33
+    namespace 'com.acroninspector.app'
+    compileSdkVersion 34
+
     defaultConfig {
         applicationId "com.acroninspector.app"
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdkVersion 23
+        targetSdkVersion 34
         versionCode 73
         versionName "1.0.6.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.debug
-        namespace "com.acroninspector.app"
     }
+
     buildTypes {
         release_acrn {
             buildConfigField "String", "BASE_URL", "\"https://isa.acron.ru:8181/w/\""
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug_acrn {
             buildConfigField "String", "BASE_URL", "\"https://test-isa-vnov.acron.ru:10081/w/\""
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testCoverageEnabled true
         }
 
         release_drgb {
             buildConfigField "String", "BASE_URL", "\"https://isa.drgb.acron.ru/w/\""
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug_drgb {
             buildConfigField "String", "BASE_URL", "\"https://test-isa.drgb.acron.ru:10443/w/\""
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testCoverageEnabled true
         }
 
         release_szfk {
             buildConfigField "String", "BASE_URL", "\"https://isaszfk.acron.ru:8181/w/\""
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug_szfk {
             buildConfigField "String", "BASE_URL", "\"https://test-isaszfk.acron.ru:10081/w/\""
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testCoverageEnabled true
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+        buildConfig true
     }
+
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-    androidExtensions {
-        experimental = true
+
+    kotlinOptions {
+        jvmTarget = '17'
     }
+
     testOptions {
         unitTests.all {
             testLogging {
@@ -81,18 +84,21 @@ android {
                 showStandardStreams = true
             }
         }
+        animationsDisabled = true
     }
+
     sourceSets {
         test {
             java.srcDirs += "src/sharedTest/java"
         }
-
         androidTest {
             java.srcDirs += "src/sharedTest/java"
         }
     }
+
     lint {
         abortOnError = false
+        checkReleaseBuilds = false
     }
 }
 
@@ -101,7 +107,7 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.8.22"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     // AndroidX Core
     implementation 'androidx.core:core-ktx:1.12.0'
@@ -116,8 +122,9 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Navigation Components
-    implementation "androidx.navigation:navigation-fragment-ktx:2.7.5"
-    implementation "androidx.navigation:navigation-ui-ktx:2.7.5"
+    def nav_version = "2.7.5"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // Lifecycle components
     def lifecycle_version = "2.6.2"
@@ -172,8 +179,6 @@ dependencies {
     implementation 'com.hannesdorfmann:adapterdelegates4:4.3.2'
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
-    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
-
     // Testing
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'androidx.arch.core:core-testing:2.2.0'
@@ -181,25 +186,19 @@ dependencies {
     testImplementation 'io.mockk:mockk:1.13.7'
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
 }
 
-
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
-    //we use "debug" build type for test coverage (can be other)
-    group = "reporting"
-    description = "Generate unified Jacoco code coverage report"
+    group = "Reporting"
+    description = "Generate Jacoco coverage report"
 
     reports {
-        xml {
-            required = true
-        }
-        html {
-            required = true
-        }
-        csv {
-            required = false
-        }
+        xml.required = true
+        html.required = true
+        csv.required = false
     }
+
     def fileFilter = [
             '**/*Test*.*',
             '**/AutoValue_*.*',
@@ -218,22 +217,21 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
             '**/*$InjectAdapter.class',
             '**/*$ModuleAdapter.class',
             '**/*$ViewInjector*.class',
-            '**/*_MembersInjector.class', //Dagger2 generated code
-            '*/*_MembersInjector*.*', //Dagger2 generated code
-            '**/*_*Factory*.*', //Dagger2 generated code
-            '*/*Component*.*', //Dagger2 generated code
-            '**/*Module*.*' //Dagger2 generated code
+            '**/*_MembersInjector.class',
+            '*/*_MembersInjector*.*',
+            '**/*_*Factory*.*',
+            '*/*Component*.*',
+            '**/*Module*.*'
     ]
+
     def javaDebugTree = fileTree(dir: "${buildDir}/intermediates/javac/debug", excludes: fileFilter)
-    //we use "debug" build type for test coverage (can be other)
     def kotlinDebugTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug", excludes: fileFilter)
     def mainSrc = "${project.projectDir}/src/main/java"
 
-    getSourceDirectories().setFrom(files([mainSrc]))
-    getClassDirectories().setFrom(files([javaDebugTree, kotlinDebugTree]))
-    // we need to target both java and kotlin build folder
-    getExecutionData().setFrom(fileTree(dir: "$buildDir", includes: [
-            "jacoco/testDebugUnitTest.exec", //we use "debug" build type for test coverage (can be other)
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([javaDebugTree, kotlinDebugTree]))
+    executionData.setFrom(fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
             "outputs/code-coverage/connected/*coverage.ec"
     ]))
 }
